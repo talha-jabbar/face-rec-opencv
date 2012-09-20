@@ -113,6 +113,7 @@ namespace UI
             int index = int.Parse(lbl.Name.Substring(5));
             if (imagePaths.Count > 1)
             {
+                db.deleltedImages.Add(imagePaths[index - 1]);
                 imagePaths.RemoveAt(index - 1);
                 imageAdded = true;
                 RemoveAllPictureBox();
