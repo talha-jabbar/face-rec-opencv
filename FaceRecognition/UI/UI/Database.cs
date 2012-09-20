@@ -185,8 +185,9 @@ namespace UI
             string fullPath = dataPath + "\\Images";//System.Windows.Forms.Application.StartupPath + "\\Images";
             foreach (string path in deleltedImages)
             {
-                if (path.Substring(0, fullPath.Length) == fullPath)
-                File.Delete(path);
+                if (!(fullPath.Length > path.Length))
+                    if (path.Substring(0, fullPath.Length) == fullPath)
+                        File.Delete(path);
             }
         }
     }
