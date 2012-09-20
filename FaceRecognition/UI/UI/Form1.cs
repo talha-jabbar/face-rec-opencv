@@ -16,6 +16,8 @@ namespace UI
 
         List<string> names;
 
+        string imagePath;
+
         public static Database db = new Database();
         
         public static ItemsContainer itc;
@@ -55,6 +57,7 @@ namespace UI
             {
                 orignalBmp = new Bitmap(openFileDialog1.FileName);
                 picBox_Original.Image = orignalBmp;
+                imagePath = openFileDialog1.FileName;
             }
         }
 
@@ -127,6 +130,19 @@ namespace UI
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             db.WriteDictionaryToFile(System.Windows.Forms.Application.StartupPath);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openToolStripMenuItem_Click(sender, e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int[] rec = null;
+            int[] lables = null;
+            int count=0;
+            FROpencv.StartFaceRecognition(System.Windows.Forms.Application.StartupPath + "\\BinaryDatabase.txt", System.Windows.Forms.Application.StartupPath + "\\model", imagePath, rec, lables, ref count, 1);
         } 
     }
 }
