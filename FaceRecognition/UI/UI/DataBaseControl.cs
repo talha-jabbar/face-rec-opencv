@@ -14,6 +14,7 @@ namespace UI
         List<string> imagePaths;
         bool imageAdded = false;
         string prevText;
+        int countP;
 
         public DataBaseControl(string name,List<string> imagePath)
         {
@@ -188,6 +189,7 @@ namespace UI
 
         private void lbl_edit_Click(object sender, EventArgs e)
         {
+            countP = imagePaths.Count;
             prevText = lbl_name.Text;
             txt_name.Text = lbl_name.Text;
             lbl_name.Hide();
