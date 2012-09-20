@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel_mainPanel = new System.Windows.Forms.Panel();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.picBox_equlization = new System.Windows.Forms.PictureBox();
@@ -74,8 +76,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_equlization)).BeginInit();
@@ -89,7 +89,8 @@
             // 
             // panel_mainPanel
             // 
-            this.panel_mainPanel.BackgroundImage = global::UI.Properties.Resources.metal4;
+            this.panel_mainPanel.BackColor = System.Drawing.Color.Transparent;
+            this.panel_mainPanel.BackgroundImage = global::UI.Properties.Resources.simple_grungy_dark_blue_ipad_background;
             this.panel_mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_mainPanel.Controls.Add(this.picBox_close);
             this.panel_mainPanel.Controls.Add(this.picBox_equlization);
@@ -491,7 +492,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::UI.Properties.Resources.metal4;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 658);
             this.Controls.Add(this.panel_mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -175,6 +175,24 @@
   <ItemGroup>
     <None Include="Resources\button_cancelOff.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimalistic lines simplistic simple background simple scans 1900x1200 wallpaper_www.wallpapermi.com_45.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simple-grungy-dark-blue-ipad-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simple-grungy-dark-blue-ipad-background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simple-grungy-dark-blue-ipad-background.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simple-grungy-dark-blue-ipad-background2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -71,7 +71,9 @@ namespace UI
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            AddPerson ap = new AddPerson();
+            AddPerson ap = new AddPerson(this);
+            this.AddOwnedForm(ap);
+            this.Enabled = false;
             ap.Show();
         }
     }

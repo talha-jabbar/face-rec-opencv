@@ -13,10 +13,12 @@ namespace UI
     {
         public static List<string> images;
         public static string name;
+        Form1 form;
 
-        public AddPerson()
+        public AddPerson(Form1 f)
         {
             InitializeComponent();
+            form = f;
         }
 
         private void picBox_close_Click(object sender, EventArgs e)
@@ -59,6 +61,11 @@ namespace UI
             {
                 images = openFileDialog1.FileNames.ToList();
             }
+        }
+
+        private void AddPerson_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            form.Enabled = true;
         }
     }
 }

@@ -38,8 +38,11 @@
             this.lbl_delete = new System.Windows.Forms.Label();
             this.lbl_edit = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
+            this.picBox_Large = new System.Windows.Forms.PictureBox();
+            this.panel_maiPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_maiPanel
@@ -47,6 +50,7 @@
             this.panel_maiPanel.AutoScroll = true;
             this.panel_maiPanel.BackColor = System.Drawing.Color.Transparent;
             this.panel_maiPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_maiPanel.Controls.Add(this.picBox_Large);
             this.panel_maiPanel.Location = new System.Drawing.Point(4, 209);
             this.panel_maiPanel.Name = "panel_maiPanel";
             this.panel_maiPanel.Size = new System.Drawing.Size(544, 201);
@@ -154,6 +158,15 @@
             this.lbl_name.TabIndex = 11;
             this.lbl_name.Text = "User Name From DataBase";
             // 
+            // picBox_Large
+            // 
+            this.picBox_Large.Location = new System.Drawing.Point(36, 15);
+            this.picBox_Large.Name = "picBox_Large";
+            this.picBox_Large.Size = new System.Drawing.Size(168, 158);
+            this.picBox_Large.TabIndex = 17;
+            this.picBox_Large.TabStop = false;
+            this.picBox_Large.Visible = false;
+            // 
             // DataBaseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,7 +174,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = global::UI.Properties.Resources.metal4;
+            this.BackgroundImage = global::UI.Properties.Resources.simple_grungy_dark_blue_ipad_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(553, 415);
             this.Controls.Add(this.panel_maiPanel);
@@ -170,9 +183,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataBaseControl";
             this.Text = "DataBaseControl";
+            this.panel_maiPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,5 +203,6 @@
         private System.Windows.Forms.Button btn_done;
         private System.Windows.Forms.Button btn_AddImage;
         private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.PictureBox picBox_Large;
     }
 }
