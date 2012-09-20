@@ -149,21 +149,30 @@ namespace UI
         public void SaveImages(string dataPath)
         {
             string path = dataPath + "\\Images";//System.Windows.Forms.Application.StartupPath + "\\Images";
+            if (Directory.Exists(path))
+            {
+                Console.WriteLine("That path exists already.");
+                return;
+            }
+            DirectoryInfo di = Directory.CreateDirectory(path);
+
             string newpath;
             int i = 0;
             foreach (var item in DatabaseDictionary)
             {
                 i = 0;
+                string ext;
                 foreach (string s in item.Value)
                 {
                     if (s.Substring(0, path.Length) != path)
                     {
-                        newpath = path + "\\" + item.Key + i++ + s.Split('.')[1];
+                        ext = "."+s.Split('.')[s.Split('.').Length-1];
+                        newpath = path +"\\" + item.Key + i++ + ext;
                         while(File.Exists(newpath))
                         {
-                            newpath = path + "\\" + item.Key + i++ + s.Split('.')[1];
+                            newpath = path +"\\" + item.Key + i++ + ext;
                         }
-                        File.Copy(s,newpath );
+                        File.Copy(s, newpath);
                     }
                 }
             }
