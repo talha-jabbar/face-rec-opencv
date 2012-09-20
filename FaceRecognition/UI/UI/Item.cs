@@ -24,7 +24,7 @@ namespace UI
         public Item(string name, Image img)
         {
             InitializeComponent();
-            Text = name;
+            NameText = name;
             Pic = img;
         }
 

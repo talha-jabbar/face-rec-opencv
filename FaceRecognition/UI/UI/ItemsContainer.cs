@@ -12,8 +12,20 @@ namespace UI
     public partial class ItemsContainer : UserControl
     {
         public delegate void ItemSelectedHandler(object sender, EventArgs e);
-        
+
         public event ItemSelectedHandler ItemSelected;
+
+        public delegate void ItemEnteredHandler(object sender, EventArgs e);
+
+        public event ItemEnteredHandler ItemEntered;
+
+        public delegate void AddClickedHandler(object sender, EventArgs e);
+
+        public event AddClickedHandler AddClicked;
+
+        public delegate void RemoveClickedHandler(object sender, EventArgs e);
+
+        public event RemoveClickedHandler RemoveClicked;
 
         private ControlCollection items;
 
@@ -22,7 +34,7 @@ namespace UI
         public ItemsContainer()
         {
             InitializeComponent();
-            items = this.Controls;
+            items = this.pnl_items.Controls;
         }
        
         public void AddItem()
@@ -40,17 +52,28 @@ namespace UI
         private void AddItemToControls(Item i)
         {
             i.Click += new EventHandler(Item_Click);
+            i.DoubleClick += new EventHandler(i_DoubleClick);
             i.Height = 56;
-            i.Width = this.Width;
+            i.Width = this.pnl_items.Width;
             if (items.Count < 1)
             {
-                i.Location = this.Location;
+                i.Location = this.pnl_items.Location;
             }
             else
             {
                 i.Location = new Point(items[items.Count - 1].Location.X, items[items.Count - 1].Location.Y + items[items.Count - 1].Height);
             }
             items.Add(i);
+        }
+
+        void i_DoubleClick(object sender, EventArgs e)
+        {
+            ItemEntered(sender, e);
+        }
+
+        public void Item_Click(object sender, EventArgs e)
+        {
+            ItemSelected(sender, e);
         }
 
         public void DeleteItem(string name)
@@ -72,7 +95,7 @@ namespace UI
             {
                 if (i == 0)
                 {
-                    items[i].Location = this.Location;
+                    items[i].Location = this.pnl_items.Location;
                 }
                 else
                 {
@@ -81,9 +104,14 @@ namespace UI
             }
         }
 
-        public void Item_Click(object sender, EventArgs e)
+        private void btn_Add_Click(object sender, EventArgs e)
         {
-            ItemSelected(sender, e);
+            AddClicked(sender, e);
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            RemoveClicked(sender, e);
         }
     }
 }

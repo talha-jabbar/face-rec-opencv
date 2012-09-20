@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnl_MainPnl = new System.Windows.Forms.Panel();
-            this.pcb_PersonalPic = new System.Windows.Forms.PictureBox();
             this.lbl_Name = new System.Windows.Forms.Label();
+            this.pcb_PersonalPic = new System.Windows.Forms.PictureBox();
             this.pnl_MainPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_PersonalPic)).BeginInit();
             this.SuspendLayout();
@@ -45,14 +45,6 @@
             this.pnl_MainPnl.Size = new System.Drawing.Size(206, 57);
             this.pnl_MainPnl.TabIndex = 0;
             // 
-            // pcb_PersonalPic
-            // 
-            this.pcb_PersonalPic.Location = new System.Drawing.Point(3, 3);
-            this.pcb_PersonalPic.Name = "pcb_PersonalPic";
-            this.pcb_PersonalPic.Size = new System.Drawing.Size(58, 51);
-            this.pcb_PersonalPic.TabIndex = 0;
-            this.pcb_PersonalPic.TabStop = false;
-            // 
             // lbl_Name
             // 
             this.lbl_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -65,6 +57,15 @@
             this.lbl_Name.TabIndex = 1;
             this.lbl_Name.Text = "Name";
             this.lbl_Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pcb_PersonalPic
+            // 
+            this.pcb_PersonalPic.Location = new System.Drawing.Point(3, 3);
+            this.pcb_PersonalPic.Name = "pcb_PersonalPic";
+            this.pcb_PersonalPic.Size = new System.Drawing.Size(58, 51);
+            this.pcb_PersonalPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcb_PersonalPic.TabIndex = 0;
+            this.pcb_PersonalPic.TabStop = false;
             // 
             // Item
             // 

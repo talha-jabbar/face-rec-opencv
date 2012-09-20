@@ -13,7 +13,8 @@ namespace UI
     public partial class Form1 : Form
     {
         Bitmap orignalBmp;
-        
+        public static Database db = new Database();
+        ItemsContainer itc;
 
         public Form1()
         {
@@ -77,5 +78,22 @@ namespace UI
             this.Enabled = false;
             ap.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+             itc = new ItemsContainer();
+            itc.Location = new Point(this.Width - itc.Width-20, this.Location.Y);
+            itc.Height = this.Height-50;
+         //   itc.AddItem("Ehab", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a");
+          //  itc.AddItem("Ehab", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a");
+           // itc.AddItem("Ehab", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a");
+           itc.AddItem("Ahmed", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a"));
+           //itc.AddItem("Pola", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1b"));
+           //itc.AddItem("DoDo", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1c"));
+            this.Controls[0].Controls.Add(itc);
+            itc.BringToFront();
+            db.ReadFileToDictionary("DataBase.txt");
+        }
+
     }
 }
