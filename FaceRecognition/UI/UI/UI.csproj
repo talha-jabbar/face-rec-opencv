@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4A99D98-3926-4949-9419-5D4A6DA74C35}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPerson.Designer.cs">
+      <DependentUpon>AddPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="animation.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="DataBaseControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseControl.Designer.cs">
+      <DependentUpon>DataBaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddPerson.resx">
+      <DependentUpon>AddPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataBaseControl.resx">
+      <DependentUpon>DataBaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3250457-circular-silver-metal-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3271946-brushed-smooth-glossy-metal-surface-texture-background-illustration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3479780-polished-metal-abstract-background-texture-with-smoothening.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8645787-brushed-silver-metallic-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8768235-metal-surface.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9185216-brushed-silver-metallic-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aluminium-brushed-metal-background-texture-hd-575x400.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b10metals009.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brushed-silver-metallic-background-pic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\christmas-tree-metallic-blue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hospitalera080500023.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Metal_Texture_by_AllydNYC.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Metal_Texture_PLUS_Metal_Grid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metal4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MetallicSilver.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metal-plate-color-background-texture-e.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mfjS7JW.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seamlesstexture_metallic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_cancelOff.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
