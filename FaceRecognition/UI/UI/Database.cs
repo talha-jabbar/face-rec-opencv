@@ -71,7 +71,7 @@ namespace UI
 
         public bool WriteDictionaryToFile(string dataPath)
         {
-            FileStream fs = new FileStream(dataPath, FileMode.Create);
+            FileStream fs = new FileStream(dataPath+"\\Database.txt", FileMode.Create);
             StreamWriter sr = new StreamWriter(fs);
 
             foreach (var item in databaseDictionary)
