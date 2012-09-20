@@ -92,7 +92,7 @@ namespace UI
                 pos.X -= 90;
             }
 
-            while ((pos.Y + picBox_Large.Height) > panel1.Height)
+            while ((pos.Y + picBox_Large.Height+10) > panel1.Height)
             {
                 pos.Y -= 10;
             }
