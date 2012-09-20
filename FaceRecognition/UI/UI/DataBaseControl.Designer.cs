@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataBaseControl));
             this.panel_maiPanel = new System.Windows.Forms.Panel();
             this.picBox_Large = new System.Windows.Forms.PictureBox();
+            this.lbl_profilePic = new System.Windows.Forms.Label();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_name = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@
             this.lbl_delete = new System.Windows.Forms.Label();
             this.lbl_edit = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.lbl_profilePic = new System.Windows.Forms.Label();
             this.panel_maiPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
@@ -68,6 +68,19 @@
             this.picBox_Large.TabIndex = 17;
             this.picBox_Large.TabStop = false;
             this.picBox_Large.Visible = false;
+            // 
+            // lbl_profilePic
+            // 
+            this.lbl_profilePic.AutoSize = true;
+            this.lbl_profilePic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_profilePic.ForeColor = System.Drawing.Color.Red;
+            this.lbl_profilePic.Location = new System.Drawing.Point(82, 171);
+            this.lbl_profilePic.Name = "lbl_profilePic";
+            this.lbl_profilePic.Size = new System.Drawing.Size(120, 15);
+            this.lbl_profilePic.TabIndex = 18;
+            this.lbl_profilePic.Text = "Set as Profile Picture";
+            this.lbl_profilePic.Visible = false;
+            this.lbl_profilePic.Click += new System.EventHandler(this.lbl_profilePic_Click);
             // 
             // picBox_close
             // 
@@ -170,19 +183,6 @@
             this.lbl_name.TabIndex = 11;
             this.lbl_name.Text = "User Name From DataBase";
             // 
-            // lbl_profilePic
-            // 
-            this.lbl_profilePic.AutoSize = true;
-            this.lbl_profilePic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_profilePic.ForeColor = System.Drawing.Color.Red;
-            this.lbl_profilePic.Location = new System.Drawing.Point(82, 171);
-            this.lbl_profilePic.Name = "lbl_profilePic";
-            this.lbl_profilePic.Size = new System.Drawing.Size(120, 15);
-            this.lbl_profilePic.TabIndex = 18;
-            this.lbl_profilePic.Text = "Set as Profile Picture";
-            this.lbl_profilePic.Visible = false;
-            this.lbl_profilePic.Click += new System.EventHandler(this.lbl_profilePic_Click);
-            // 
             // DataBaseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,7 +190,6 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = global::UI.Properties.Resources.simple_grungy_dark_blue_ipad_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(553, 415);
             this.Controls.Add(this.panel_maiPanel);
