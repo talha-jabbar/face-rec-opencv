@@ -16,6 +16,24 @@ namespace UI
         public Color SelectedColor = Color.White;
         public Color HoverColor = Color.Gray;
 
+        public Panel MainPanel
+        {
+            get { return this.pnl_MainPnl; }
+            set { pnl_MainPnl = value; }
+        }
+
+        public PictureBox Pcb
+        {
+            get { return this.pcb_PersonalPic; }
+            set { pcb_PersonalPic = value; }
+        }
+
+        public Label LblName
+        {
+            get { return this.lbl_Name; }
+            set { lbl_Name = value; }
+        }
+
         public Item()
         {
             InitializeComponent();
@@ -24,8 +42,13 @@ namespace UI
         public Item(string name, Image img)
         {
             InitializeComponent();
-            NameText = name;
-            Pic = img;
+            this.NameText = name;
+            this.Pic = img;
+            this.pnl_MainPnl.AccessibleName = name;
+            this.pcb_PersonalPic.AccessibleName = name;
+            this.lbl_Name.AccessibleName = name;
+            this.Name = name;
+
         }
 
         public string NameText
@@ -81,13 +104,11 @@ namespace UI
         public void HighLight()
         {
             this.BackColor = SelectedColor;
-            Selected = true;
         }
 
         public void LowLight()
         {
             this.BackColor = Color.Empty;
-            Selected = false;
         }
     }
 }
