@@ -95,17 +95,14 @@ namespace UI
 
         private void RemoveAllPictureBox()
         {
-            int count;
             foreach (Panel panel in Controls)
             {
-                count = panel.Controls.Count;
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < panel.Controls.Count; i++)
                 {
-                    if (panel.Controls[i].GetType() == typeof(PictureBox))
+                    if (panel.Controls[i].GetType() == typeof(PictureBox) && panel.Controls[i].Name != this.picBox_close.Name)
                     {
                         panel.Controls.Remove(panel.Controls[i]);
                         i--;
-                        count--;
                     }
                 }
             }
