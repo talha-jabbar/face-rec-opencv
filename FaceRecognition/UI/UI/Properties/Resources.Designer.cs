@@ -60,6 +60,13 @@ namespace UI.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _541356_10151176865309662_1907502645_n {
+            get {
+                object obj = ResourceManager.GetObject("541356_10151176865309662_1907502645_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap button_cancel {
             get {
                 object obj = ResourceManager.GetObject("button_cancel", resourceCulture);
