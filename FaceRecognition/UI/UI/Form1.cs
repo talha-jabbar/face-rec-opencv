@@ -18,7 +18,7 @@ namespace UI
 
         public static Database db = new Database();
         
-        ItemsContainer itc;
+        public static ItemsContainer itc;
 
         public Form1()
         {
@@ -28,12 +28,16 @@ namespace UI
 
         void itc_RemoveClicked(object sender, EventArgs e)
         {
-                throw new NotImplementedException();
+            if (itc.selectedItem != string.Empty && itc.selectedItem != null)
+            {
+                db.DeleteFromDictionary(itc.selectedItem);
+                itc.DeleteItem(itc.selectedItem);
+            }
         }
 
         void itc_AddClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            btn_Add_Click(sender, e);
         }
 
         private void MovePic()
@@ -100,26 +104,24 @@ namespace UI
             itc = new ItemsContainer();
             itc.Location = new Point(this.Width - itc.Width, this.Location.Y );
             itc.Height = this.Height-110;
-            itc.AddItem("Ahmed", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a.jpg"));
-            itc.AddItem("pola", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\2a.jpg"));
-            itc.AddItem("ehab", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\3a.jpg"));
             this.Controls[0].Controls.Add(itc);
             itc.AddClicked += new ItemsContainer.AddClickedHandler(itc_AddClicked);
             itc.RemoveClicked += new ItemsContainer.RemoveClickedHandler(itc_RemoveClicked);
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
             itc.BringToFront();
-            db.ReadFileToDictionary("DataBase.txt");
+            //db.ReadFileToDictionary("DataBase.txt");
         }
 
         void itc_ItemEntered(object sender, EventArgs e)
         {
-          // throw new NotImplementedException();
+            DataBaseControl dbc = new DataBaseControl(itc.selectedItem, db.DatabaseDictionary[itc.selectedItem]);
+            dbc.Show();
         }
 
         void itc_ItemSelected(object sender, EventArgs e)
         {
-           // throw new NotImplementedException();
+           // Item Selected
         }
 
     }

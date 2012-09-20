@@ -31,12 +31,14 @@ namespace UI
 
         public string selectedItem;
 
+        public string preSelectedItem;
+
         public ItemsContainer()
         {
             InitializeComponent();
             items = this.pnl_items.Controls;
         }
-       
+
         public void AddItem()
         {
             Item i = new Item();
@@ -70,7 +72,7 @@ namespace UI
                 i.Location = new Point(items[items.Count - 1].Location.X, items[items.Count - 1].Location.Y + items[items.Count - 1].Height);
             }
             items.Add(i);
-        }       
+        }
 
         public void i_Click(object sender, EventArgs e)
         {
@@ -94,20 +96,29 @@ namespace UI
             }
             else
             {
+                preSelectedItem = selectedItem;
                 selectedItem = string.Empty;
             }
         }
 
         public void i_DoubleClick(object sender, EventArgs e)
         {
+            Item i;
+            i = (Item)items[items.IndexOfKey(preSelectedItem)];
+            i.HighLight();
+            i.Selected = true;
+            selectedItem = i.NameText;
+            ItemSelected(sender, e);
+
             ItemEntered(sender, e);
+
         }
 
         public void DeleteItem(string name)
         {
             foreach (var item in items)
             {
-                if (((Item)item).Text == name)
+                if (((Item)item).NameText == name)
                 {
                     items.Remove((Control)item);
                     break;
@@ -126,7 +137,7 @@ namespace UI
                 }
                 else
                 {
-                    items[i].Location = new Point(items[items.Count - 1].Location.X, items[items.Count - 1].Location.Y + items[items.Count - 1].Height);
+                    items[i].Location = new Point(items[i - 1].Location.X, items[i - 1].Location.Y + items[i- 1].Height);
                 }
             }
         }

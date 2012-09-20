@@ -13,6 +13,7 @@ namespace UI
         public Database()
         {
             databaseDictionary = new Dictionary<string, List<string>>();
+            deleltedImages = new List<string>();
         }
 
         public Dictionary<string, List<string>> DatabaseDictionary
@@ -20,6 +21,8 @@ namespace UI
             get { return databaseDictionary; }
             set { databaseDictionary = value; }
         }
+
+        public List<string> deleltedImages;
 
         public bool ReadFileToDictionary(string dataPath)
         {
@@ -82,6 +85,8 @@ namespace UI
             sr.Close();
             fs.Close();
 
+            this.SaveImages(dataPath);
+            this.DeleteTheDeleted(dataPath);
             return true;
         }
 
@@ -138,6 +143,39 @@ namespace UI
             else
             {
                 return false;
+            }
+        }
+
+        public void SaveImages(string dataPath)
+        {
+            string path = dataPath + "\\Images";//System.Windows.Forms.Application.StartupPath + "\\Images";
+            string newpath;
+            int i = 0;
+            foreach (var item in DatabaseDictionary)
+            {
+                i = 0;
+                foreach (string s in item.Value)
+                {
+                    if (s.Substring(0, path.Length) != path)
+                    {
+                        newpath = path + "\\" + item.Key + i++ + s.Split('.')[1];
+                        while(File.Exists(newpath))
+                        {
+                            newpath = path + "\\" + item.Key + i++ + s.Split('.')[1];
+                        }
+                        File.Copy(s,newpath );
+                    }
+                }
+            }
+        }
+
+        public void DeleteTheDeleted(string dataPath)
+        {
+            string fullPath = dataPath + "\\Images";//System.Windows.Forms.Application.StartupPath + "\\Images";
+            foreach (string path in deleltedImages)
+            {
+                if (path.Substring(0, fullPath.Length) == fullPath)
+                File.Delete(path);
             }
         }
     }

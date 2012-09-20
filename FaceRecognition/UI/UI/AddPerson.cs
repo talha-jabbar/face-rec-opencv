@@ -38,16 +38,16 @@ namespace UI
             //Add the name and the images to the file return bool and display a message box
             
             added = Form1.db.AddToDictionary(name, images);
-            if (added)
+            if (added && images.Count > 0)
             {
                 MessageBox.Show("Added succesfly");
             }
 
             else
             {   
-                MessageBox.Show("sorry the name you have entered already founded");
+                MessageBox.Show("Sorry you have to Enter a new name and at least 1 image");
             }
-
+            Form1.itc.AddItem(name, new Bitmap(images[0]));
             txt_name.Text = string.Empty;
             images = new List<string>();
         }
