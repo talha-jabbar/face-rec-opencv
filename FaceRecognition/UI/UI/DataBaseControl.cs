@@ -316,7 +316,7 @@ namespace UI
         {
             string path = imagePaths[globalIndex - 1];
             imagePaths[globalIndex - 1] = imagePaths[0];
-            imagePaths[0] = imagePaths[globalIndex - 1];
+            imagePaths[0] = path;
             PictureBox pb = (PictureBox)panel1.Controls["PictureBox1"];
             PictureBox pb2 = (PictureBox)panel_maiPanel.Controls["PictureBox" + globalIndex];
             pb.Image = new Bitmap(path);
