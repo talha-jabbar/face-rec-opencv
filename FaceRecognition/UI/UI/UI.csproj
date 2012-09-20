@@ -66,11 +66,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item.cs" />
+    <Compile Include="Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemsContainer.cs" />
+    <Compile Include="ItemsContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ItemsContainer.Designer.cs">
       <DependentUpon>ItemsContainer.cs</DependentUpon>
     </Compile>

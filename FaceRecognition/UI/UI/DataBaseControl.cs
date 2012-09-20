@@ -142,13 +142,13 @@ namespace UI
         private void btn_done_Click(object sender, EventArgs e)
         {
             Database db = new Database();
-            bool nameEdit = true , imageEdit= true;
+            bool nameEdit = true, imageEdit = true;
             if (imageAdded)
             {
                 nameEdit = db.EditDictionary(prevText, imagePaths);
             }
-            
-            if(prevText != lbl_name.Text)
+
+            if (prevText != lbl_name.Text)
             {
                 imageEdit = db.EditDictionary(prevText, lbl_name.Text);
             }
@@ -163,6 +163,23 @@ namespace UI
                 btn_done.Hide();
                 btn_AddImage.Hide();
                 GeniratePicBox(imagePaths);
+                string name = "label";
+                int num;
+
+                for (int i = 0; i < countP; i++)
+                {
+                    if (i == 0)
+                    {
+                        num = i + 1;
+                        panel1.Controls.Remove(panel1.Controls[name + num]);
+                    }
+
+                    else
+                    {
+                        num = i + 1;
+                        panel_maiPanel.Controls.Remove(panel_maiPanel.Controls[name + num]);
+                    }
+                }
             }
             else
                 MessageBox.Show("sorry the name you have entered already founded");
