@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Drawing;
 
 namespace UI
 {
@@ -56,6 +57,7 @@ namespace UI
                 if (!databaseDictionary.ContainsKey(data[1]))
                 {
                     databaseDictionary.Add(data[1], new List<string>());
+                    Form1.itc.AddItem(data[1],new Bitmap(data[0]));
                 }
                 databaseDictionary[data[1]].Add(data[0]);
 
