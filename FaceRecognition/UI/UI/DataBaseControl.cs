@@ -15,10 +15,12 @@ namespace UI
         bool imageAdded = false;
         string prevText;
         int countP;
+        Database db;
 
         public DataBaseControl(string name,List<string> imagePath)
         {
             InitializeComponent();
+            db = new Database();
             lbl_name.Text = name;
             imagePaths = new List<string>();
             imagePaths = imagePath;
@@ -53,7 +55,8 @@ namespace UI
 
                 else if (num % 2 == 0)
                 {
-                    
+                    varBox.Width = width-5;
+                    varBox.Height = height-5;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
@@ -62,6 +65,8 @@ namespace UI
 
                 else
                 {
+                    varBox.Width = width-5;
+                    varBox.Height = height-5;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
@@ -75,19 +80,33 @@ namespace UI
         {
             Label lbl = (Label)sender;
             int index = int.Parse(lbl.Name.Substring(5));
-            imagePaths.RemoveAt(index);
-            imageAdded = true;
-            RemoveAllPictureBox();
-            GeniratePicBox(imagePaths);
+            if (imagePaths.Count > 1)
+            {
+                imagePaths.RemoveAt(index - 1);
+                imageAdded = true;
+                RemoveAllPictureBox();
+                RemoveAllLabels();
+                GeniratePicBox(imagePaths);
+                SetLabels();
+            }
+            else
+                MessageBox.Show("Sorry, you can't remove all pictures");
         }
 
         private void RemoveAllPictureBox()
         {
+            int count;
             foreach (Panel panel in Controls)
             {
-                foreach (PictureBox pcb in panel.Controls)
+                count = panel.Controls.Count;
+                for (int i = 0; i < count; i++)
                 {
-                    panel.Controls.Remove(pcb);
+                    if (panel.Controls[i].GetType() == typeof(PictureBox))
+                    {
+                        panel.Controls.Remove(panel.Controls[i]);
+                        i--;
+                        count--;
+                    }
                 }
             }
         }
@@ -142,7 +161,6 @@ namespace UI
 
         private void btn_done_Click(object sender, EventArgs e)
         {
-            Database db = new Database();
             bool nameEdit = true, imageEdit = true;
             if (imageAdded)
             {
@@ -164,27 +182,35 @@ namespace UI
                 btn_done.Hide();
                 btn_AddImage.Hide();
                 GeniratePicBox(imagePaths);
-                string name = "label";
-                int num;
+                RemoveAllLabels();
+                SetLabels();
 
-                for (int i = 0; i < countP; i++)
-                {
-                    if (i == 0)
-                    {
-                        num = i + 1;
-                        panel1.Controls.Remove(panel1.Controls[name + num]);
-                    }
-
-                    else
-                    {
-                        num = i + 1;
-                        panel_maiPanel.Controls.Remove(panel_maiPanel.Controls[name + num]);
-                    }
-                }
+                
             }
             else
                 MessageBox.Show("sorry the name you have entered already founded");
 
+        }
+
+        private void RemoveAllLabels()
+        {
+            string name = "label";
+            int num;
+
+            for (int i = 0; i < countP; i++)
+            {
+                if (i == 0)
+                {
+                    num = i + 1;
+                    panel1.Controls.Remove(panel1.Controls[name + num]);
+                }
+
+                else
+                {
+                    num = i + 1;
+                    panel_maiPanel.Controls.Remove(panel_maiPanel.Controls[name + num]);
+                }
+            }
         }
 
         private void lbl_edit_Click(object sender, EventArgs e)
@@ -244,7 +270,6 @@ namespace UI
         private void lbl_delete_Click(object sender, EventArgs e)
         {
             // add messagebox with yes or no question
-            Database db = new Database();
             bool deleted = db.DeleteFromDictionary(lbl_name.Text);
 
             if (deleted)

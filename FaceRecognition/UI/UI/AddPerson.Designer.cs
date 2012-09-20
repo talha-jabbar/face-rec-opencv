@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPerson));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.txt_name = new System.Windows.Forms.TextBox();
@@ -119,6 +120,7 @@
             this.ClientSize = new System.Drawing.Size(293, 216);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "AddPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -13,6 +13,7 @@ namespace UI
     public partial class Form1 : Form
     {
         Bitmap orignalBmp;
+
         public Form1()
         {
             InitializeComponent();
