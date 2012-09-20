@@ -116,82 +116,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3250457-circular-silver-metal-background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3271946-brushed-smooth-glossy-metal-surface-texture-background-illustration.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3479780-polished-metal-abstract-background-texture-with-smoothening.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\8645787-brushed-silver-metallic-background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\8768235-metal-surface.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\9185216-brushed-silver-metallic-background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\aluminium-brushed-metal-background-texture-hd-575x400.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\b10metals009.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\brushed-silver-metallic-background-pic.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\christmas-tree-metallic-blue.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hospitalera080500023.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Metal_Texture_by_AllydNYC.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Metal_Texture_PLUS_Metal_Grid.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\metal4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MetallicSilver.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\metal-plate-color-background-texture-e.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mfjS7JW.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\seamlesstexture_metallic.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\button_cancel.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button_cancelOff.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\minimalistic lines simplistic simple background simple scans 1900x1200 wallpaper_www.wallpapermi.com_45.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\simple-grungy-dark-blue-ipad-background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\simple-grungy-dark-blue-ipad-background1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\simple-grungy-dark-blue-ipad-background.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\simple-grungy-dark-blue-ipad-background2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
