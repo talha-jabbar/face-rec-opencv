@@ -53,6 +53,13 @@ namespace UI
         {
             i.Click += new EventHandler(i_Click);
             i.DoubleClick += new EventHandler(i_DoubleClick);
+            i.Pcb.Click += new EventHandler(i_Click);
+            i.Pcb.DoubleClick += new EventHandler(i_DoubleClick);
+            i.LblName.Click += new EventHandler(i_Click);
+            i.LblName.DoubleClick += new EventHandler(i_DoubleClick);
+            i.MainPanel.Click += new EventHandler(i_Click);
+            i.MainPanel.DoubleClick += new EventHandler(i_DoubleClick);
+
             i.Width = this.pnl_items.Width;
             if (items.Count < 1)
             {
@@ -67,14 +74,28 @@ namespace UI
 
         public void i_Click(object sender, EventArgs e)
         {
-            ItemSelected(sender, e);
+            Item i;
+            i = (Item)items[items.IndexOfKey(((Control)sender).AccessibleName)];
+            bool select;
+            select = i.Selected;
+
             foreach (Item item in items)
             {
+                item.Selected = false;
                 item.LowLight();
             }
 
-            ((Item)sender).HighLight();
-            selectedItem = ((Item)sender).NameText;
+            if (select)
+            {
+                i.HighLight();
+                i.Selected = true;
+                selectedItem = i.NameText;
+                ItemSelected(sender, e);
+            }
+            else
+            {
+                selectedItem = string.Empty;
+            }
         }
 
         public void i_DoubleClick(object sender, EventArgs e)

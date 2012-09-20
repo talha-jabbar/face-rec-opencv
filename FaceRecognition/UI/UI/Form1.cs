@@ -100,9 +100,9 @@ namespace UI
             itc = new ItemsContainer();
             itc.Location = new Point(this.Width - itc.Width, this.Location.Y );
             itc.Height = this.Height-110;
-            itc.AddItem("Ahmed", (Image)new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Downloads\frontalimages_manuallyaligned_part1\1a.jpg"));
-            itc.AddItem("pola", (Image)new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Downloads\frontalimages_manuallyaligned_part1\2a.jpg"));
-            itc.AddItem("ehab", (Image)new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Downloads\frontalimages_manuallyaligned_part1\3a.jpg"));
+            itc.AddItem("Ahmed", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a.jpg"));
+            itc.AddItem("pola", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\2a.jpg"));
+            itc.AddItem("ehab", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\3a.jpg"));
             this.Controls[0].Controls.Add(itc);
             itc.AddClicked += new ItemsContainer.AddClickedHandler(itc_AddClicked);
             itc.RemoveClicked += new ItemsContainer.RemoveClickedHandler(itc_RemoveClicked);
@@ -114,12 +114,12 @@ namespace UI
 
         void itc_ItemEntered(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+          // throw new NotImplementedException();
         }
 
         void itc_ItemSelected(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
 
     }
