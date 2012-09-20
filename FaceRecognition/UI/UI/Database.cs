@@ -6,7 +6,7 @@ using System.IO;
 
 namespace UI
 {
-    class Database
+    public class Database
     {
         private Dictionary<string, List<string>> databaseDictionary;
 
@@ -130,9 +130,9 @@ namespace UI
 
         public bool AddToDictionary(string name, List<string> images)
         {
-            if (databaseDictionary.ContainsKey(name))
+            if (!databaseDictionary.ContainsKey(name))
             {
-                databaseDictionary.Add(name, databaseDictionary[name]);
+                databaseDictionary.Add(name, images);
                 return true;
             }
             else

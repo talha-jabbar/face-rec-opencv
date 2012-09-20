@@ -36,8 +36,8 @@ namespace UI
             name = txt_name.Text;
             bool added;
             //Add the name and the images to the file return bool and display a message box
-            Database db = new Database();
-            added = db.AddToDictionary(name, images);
+            
+            added = Form1.db.AddToDictionary(name, images);
             if (added)
             {
                 MessageBox.Show("Added succesfly");
