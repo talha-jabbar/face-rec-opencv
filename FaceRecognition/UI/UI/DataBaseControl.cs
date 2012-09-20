@@ -21,8 +21,8 @@ namespace UI
         {
             InitializeComponent();
             lbl_name.Text = name;
-            imagePaths = new List<string>();
-            imagePaths = imagePath;
+            imagePaths = new List<string>(imagePath);
+            //imagePaths = imagePath;
             GeniratePicBox(imagePath);
         }
 
