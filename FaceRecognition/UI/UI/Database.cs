@@ -1,21 +1,12 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Database.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
 
-namespace UI
+namespace FaceDataBaseDealing
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.IO;
-
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
-    public class Database
+    class Database
     {
         private Dictionary<string, List<string>> databaseDictionary;
 
@@ -24,18 +15,39 @@ namespace UI
             databaseDictionary = new Dictionary<string, List<string>>();
         }
 
+        public Dictionary<string, List<string>> DatabaseDictionary
+        {
+            get { return databaseDictionary; }
+            set { databaseDictionary = value; }
+        }
+
         public bool ReadFileToDictionary(string dataPath)
         {
-            FileStream fs = new FileStream(dataPath, FileMode.Open);
+            FileStream fs;
+            try
+            {
+                fs = new FileStream(dataPath, FileMode.Open);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
             StreamReader sr = new StreamReader(fs);
+
+            if (databaseDictionary != null)
+            {
+                databaseDictionary.Clear();
+            }
             databaseDictionary = new Dictionary<string, List<string>>();
 
-            string line = string.Empty;
+            string line;
             string[] data;
 
+            line = sr.ReadLine();
             while (line != null)
             {
-                line = sr.ReadLine();
                 data = line.Split(';');
 
                 if (!databaseDictionary.ContainsKey(data[1]))
@@ -43,15 +55,20 @@ namespace UI
                     databaseDictionary.Add(data[1], new List<string>());
                 }
                 databaseDictionary[data[1]].Add(data[0]);
+
+                line = sr.ReadLine();
+
             }
+
             sr.Close();
             fs.Close();
+
             return true;
         }
 
         public bool WriteDictionaryToFile(string dataPath)
         {
-            FileStream fs = new FileStream(dataPath, FileMode.Append);
+            FileStream fs = new FileStream(dataPath, FileMode.Create);
             StreamWriter sr = new StreamWriter(fs);
 
             foreach (var item in databaseDictionary)
