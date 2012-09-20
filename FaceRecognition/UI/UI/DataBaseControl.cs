@@ -58,6 +58,7 @@ namespace UI
                     varBox.Width = 80;
                     varBox.Height = 77;
                     varBox.Location = pos;
+                    varBox.MouseMove += lbl_pic_Click;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
@@ -68,7 +69,8 @@ namespace UI
                 {
                     varBox.Width = 80;
                     varBox.Height = 77;
-                    varBox.Location = pos;
+                    varBox.Location = pos; 
+                    varBox.MouseMove += lbl_pic_Click;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
@@ -78,13 +80,19 @@ namespace UI
             } 
         }
 
-        private void lbl_pic_Click(object sender, EventArgs e)
+        private void lbl_pic_Click(object sender,  MouseEventArgs e)
         {
-            PictureBox lbl = (PictureBox)sender;
-
+            PictureBox picBox = (PictureBox)sender;
+            picBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            Point pos = picBox.Location;
+            //pos.X += 10;
+            //pos.Y += 10;
+            picBox_Large.Location = pos;
+            picBox_Large.Image = picBox.Image;
+            picBox_Large.Show();
         }
 
-        private void lbl_Remove_Click(object sender, MouseEventArgs e)
+        private void lbl_Remove_Click(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
             int index = int.Parse(lbl.Name.Substring(5));
@@ -132,6 +140,7 @@ namespace UI
         {
             lbl_delete.ForeColor = Color.Brown;
             lbl_edit.ForeColor = Color.Brown;
+            picBox_Large.Hide();
             picBox_close.Image = UI.Properties.Resources.button_cancelOff;
         }
 

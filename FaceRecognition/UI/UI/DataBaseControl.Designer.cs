@@ -163,6 +163,7 @@
             this.picBox_Large.Location = new System.Drawing.Point(36, 15);
             this.picBox_Large.Name = "picBox_Large";
             this.picBox_Large.Size = new System.Drawing.Size(168, 158);
+            this.picBox_Large.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_Large.TabIndex = 17;
             this.picBox_Large.TabStop = false;
             this.picBox_Large.Visible = false;
