@@ -110,7 +110,7 @@ namespace UI
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
             itc.BringToFront();
-            //db.ReadFileToDictionary("DataBase.txt");
+            db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
         }
 
         void itc_ItemEntered(object sender, EventArgs e)
@@ -124,5 +124,9 @@ namespace UI
            // Item Selected
         }
 
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            db.WriteDictionaryToFile(System.Windows.Forms.Application.StartupPath);
+        } 
     }
 }
