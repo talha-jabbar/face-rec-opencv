@@ -85,8 +85,6 @@ namespace UI
             PictureBox picBox = (PictureBox)sender;
             picBox.SizeMode = PictureBoxSizeMode.StretchImage;
             Point pos = picBox.Location;
-            //pos.X += 10;
-            //pos.Y += 10;
             if (pos.X >= 426)
             {
                 pos.X -= 90;
@@ -98,7 +96,7 @@ namespace UI
             }
             picBox_Large.Location = pos;
             picBox_Large.Image = picBox.Image;
-            picBox.BorderStyle = BorderStyle.FixedSingle;
+            picBox_Large.BorderStyle = BorderStyle.Fixed3D;
             picBox_Large.Show();
         }
 
