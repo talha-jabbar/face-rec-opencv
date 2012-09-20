@@ -193,12 +193,12 @@ namespace UI
             bool nameEdit = true, imageEdit = true;
             if (imageAdded)
             {
-                nameEdit = db.EditDictionary(prevText, imagePaths);
+                imageEdit = db.EditDictionary(prevText, imagePaths);
             }
 
             if (prevText != lbl_name.Text)
             {
-                imageEdit = db.EditDictionary(prevText, lbl_name.Text);
+                nameEdit = db.EditDictionary(prevText, lbl_name.Text);
             }
 
             if (nameEdit && imageEdit)
@@ -213,8 +213,6 @@ namespace UI
                 GeniratePicBox(imagePaths);
                 RemoveAllLabels();
                 SetLabels();
-
-                
             }
             else
                 MessageBox.Show("sorry the name you have entered already founded");
