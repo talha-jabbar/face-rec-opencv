@@ -57,6 +57,7 @@ namespace UI
                 {
                     varBox.Width = width-5;
                     varBox.Height = height-5;
+                    varBox.Location = pos;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
@@ -67,6 +68,7 @@ namespace UI
                 {
                     varBox.Width = width-5;
                     varBox.Height = height-5;
+                    varBox.Location = pos;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
@@ -129,7 +131,6 @@ namespace UI
 
         private void picBox_close_Click(object sender, EventArgs e)
         {
-            lbl_Remove_Click(sender, e);
             this.Close();
         }
 
