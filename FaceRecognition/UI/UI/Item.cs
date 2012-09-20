@@ -28,7 +28,7 @@ namespace UI
             Pic = img;
         }
 
-        public string Text
+        public string NameText
         {
             get { return lbl_Name.Text; }
             set { lbl_Name.Text = value; }
@@ -40,7 +40,7 @@ namespace UI
             set { pcb_PersonalPic.Image = value; }
         }
 
-        private void Click(object sender, EventArgs e)
+        private void Item_Click(object sender, EventArgs e)
         {
             if (this.Selected)
             {
@@ -50,11 +50,11 @@ namespace UI
             {
                 this.Selected = true;
             }
-            this.MouseEnter(sender, e);
+            this.Item_MouseEnter(sender, e);
             
         }
 
-        private void MouseEnter(object sender, EventArgs e)
+        private void Item_MouseEnter(object sender, EventArgs e)
         {
             
             if (this.Selected)
@@ -67,7 +67,7 @@ namespace UI
             }
         }
 
-        private void MouseLeave(object sender, EventArgs e)
+        private void Item_MouseLeave(object sender, EventArgs e)
         {
             if (this.Selected)
             {
