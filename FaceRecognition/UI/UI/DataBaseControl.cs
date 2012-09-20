@@ -87,8 +87,18 @@ namespace UI
             Point pos = picBox.Location;
             //pos.X += 10;
             //pos.Y += 10;
+            if (pos.X >= 426)
+            {
+                pos.X -= 90;
+            }
+
+            while ((pos.Y + picBox_Large.Height) > panel1.Height)
+            {
+                pos.Y -= 10;
+            }
             picBox_Large.Location = pos;
             picBox_Large.Image = picBox.Image;
+            picBox.BorderStyle = BorderStyle.FixedSingle;
             picBox_Large.Show();
         }
 

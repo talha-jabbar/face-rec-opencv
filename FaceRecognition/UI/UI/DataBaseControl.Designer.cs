@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataBaseControl));
             this.panel_maiPanel = new System.Windows.Forms.Panel();
+            this.picBox_Large = new System.Windows.Forms.PictureBox();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_name = new System.Windows.Forms.TextBox();
@@ -38,11 +39,10 @@
             this.lbl_delete = new System.Windows.Forms.Label();
             this.lbl_edit = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.picBox_Large = new System.Windows.Forms.PictureBox();
             this.panel_maiPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_maiPanel
@@ -56,6 +56,16 @@
             this.panel_maiPanel.Size = new System.Drawing.Size(544, 201);
             this.panel_maiPanel.TabIndex = 0;
             this.panel_maiPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_maiPanel_MouseMove);
+            // 
+            // picBox_Large
+            // 
+            this.picBox_Large.Location = new System.Drawing.Point(36, 15);
+            this.picBox_Large.Name = "picBox_Large";
+            this.picBox_Large.Size = new System.Drawing.Size(168, 158);
+            this.picBox_Large.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_Large.TabIndex = 17;
+            this.picBox_Large.TabStop = false;
+            this.picBox_Large.Visible = false;
             // 
             // picBox_close
             // 
@@ -158,16 +168,6 @@
             this.lbl_name.TabIndex = 11;
             this.lbl_name.Text = "User Name From DataBase";
             // 
-            // picBox_Large
-            // 
-            this.picBox_Large.Location = new System.Drawing.Point(36, 15);
-            this.picBox_Large.Name = "picBox_Large";
-            this.picBox_Large.Size = new System.Drawing.Size(168, 158);
-            this.picBox_Large.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_Large.TabIndex = 17;
-            this.picBox_Large.TabStop = false;
-            this.picBox_Large.Visible = false;
-            // 
             // DataBaseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,10 +185,10 @@
             this.Name = "DataBaseControl";
             this.Text = "DataBaseControl";
             this.panel_maiPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).EndInit();
             this.ResumeLayout(false);
 
         }
