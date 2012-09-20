@@ -53,29 +53,31 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.17427F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.82573F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(204, 480);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(206, 482);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pnl_items
             // 
+            this.pnl_items.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_items.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_items.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_items.Location = new System.Drawing.Point(3, 3);
             this.pnl_items.Name = "pnl_items";
-            this.pnl_items.Size = new System.Drawing.Size(198, 417);
+            this.pnl_items.Size = new System.Drawing.Size(200, 418);
             this.pnl_items.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.04082F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.95918F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 426);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 427);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(198, 51);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(196, 51);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel2
@@ -83,7 +85,7 @@
             this.panel2.Controls.Add(this.btn_Add);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(93, 45);
+            this.panel2.Size = new System.Drawing.Size(92, 45);
             this.panel2.TabIndex = 0;
             // 
             // btn_Add
@@ -91,7 +93,7 @@
             this.btn_Add.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Add.Location = new System.Drawing.Point(0, 0);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(93, 45);
+            this.btn_Add.Size = new System.Drawing.Size(92, 45);
             this.btn_Add.TabIndex = 0;
             this.btn_Add.Text = "Add";
             this.btn_Add.UseVisualStyleBackColor = true;
@@ -100,9 +102,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.btn_Delete);
-            this.panel3.Location = new System.Drawing.Point(102, 3);
+            this.panel3.Location = new System.Drawing.Point(105, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(93, 45);
+            this.panel3.Size = new System.Drawing.Size(88, 45);
             this.panel3.TabIndex = 1;
             // 
             // btn_Delete
@@ -110,7 +112,7 @@
             this.btn_Delete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Delete.Location = new System.Drawing.Point(0, 0);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(93, 45);
+            this.btn_Delete.Size = new System.Drawing.Size(88, 45);
             this.btn_Delete.TabIndex = 0;
             this.btn_Delete.Text = "Delete";
             this.btn_Delete.UseVisualStyleBackColor = true;
@@ -121,10 +123,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ItemsContainer";
-            this.Size = new System.Drawing.Size(204, 480);
+            this.Size = new System.Drawing.Size(206, 482);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
