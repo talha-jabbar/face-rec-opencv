@@ -322,7 +322,7 @@ namespace UI
             pb.Image = new Bitmap(path);
             pb2.Image = new Bitmap(imagePaths[globalIndex - 1]);
             db.EditDictionary(lbl_name.Text, imagePaths);
-            
+            ((Item)Form1.itc.items[Form1.itc.selectedItem]).Pic = pb.Image;
         }
     }
 }
