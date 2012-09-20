@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPerson));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.picBox_close = new System.Windows.Forms.PictureBox();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.lbl_Name = new System.Windows.Forms.Label();
             this.btn_done = new System.Windows.Forms.Button();
             this.btn_addImage = new System.Windows.Forms.Button();
+            this.picBox_close = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             this.SuspendLayout();
@@ -54,19 +54,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data";
-            // 
-            // picBox_close
-            // 
-            this.picBox_close.BackColor = System.Drawing.Color.Transparent;
-            this.picBox_close.Image = global::UI.Properties.Resources.button_cancelOff;
-            this.picBox_close.Location = new System.Drawing.Point(235, 15);
-            this.picBox_close.Name = "picBox_close";
-            this.picBox_close.Size = new System.Drawing.Size(29, 21);
-            this.picBox_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_close.TabIndex = 9;
-            this.picBox_close.TabStop = false;
-            this.picBox_close.Click += new System.EventHandler(this.picBox_close_Click);
-            this.picBox_close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBox_close_MouseMove);
             // 
             // txt_name
             // 
@@ -110,6 +97,19 @@
             this.btn_addImage.UseVisualStyleBackColor = false;
             this.btn_addImage.Click += new System.EventHandler(this.btn_addImage_Click);
             // 
+            // picBox_close
+            // 
+            this.picBox_close.BackColor = System.Drawing.Color.Transparent;
+            this.picBox_close.Image = global::UI.Properties.Resources.button_cancelOff;
+            this.picBox_close.Location = new System.Drawing.Point(235, 15);
+            this.picBox_close.Name = "picBox_close";
+            this.picBox_close.Size = new System.Drawing.Size(29, 21);
+            this.picBox_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBox_close.TabIndex = 9;
+            this.picBox_close.TabStop = false;
+            this.picBox_close.Click += new System.EventHandler(this.picBox_close_Click);
+            this.picBox_close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBox_close_MouseMove);
+            // 
             // AddPerson
             // 
             this.AllowDrop = true;
@@ -126,6 +126,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPerson";
             this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddPerson_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).EndInit();

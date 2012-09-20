@@ -116,6 +116,13 @@ namespace UI.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap brushed_silver_metallic_background_pic {
             get {
                 object obj = ResourceManager.GetObject("brushed-silver-metallic-background-pic", resourceCulture);
@@ -193,9 +200,45 @@ namespace UI.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap minimalistic_lines_simplistic_simple_background_simple_scans_1900x1200_wallpaper_www_wallpapermi_com_45 {
+            get {
+                object obj = ResourceManager.GetObject("minimalistic lines simplistic simple background simple scans 1900x1200 wallpaper_" +
+                        "www.wallpapermi.com_45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap seamlesstexture_metallic {
             get {
                 object obj = ResourceManager.GetObject("seamlesstexture_metallic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap simple_grungy_dark_blue_ipad_background {
+            get {
+                object obj = ResourceManager.GetObject("simple-grungy-dark-blue-ipad-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap simple_grungy_dark_blue_ipad_background1 {
+            get {
+                object obj = ResourceManager.GetObject("simple-grungy-dark-blue-ipad-background1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap simple_grungy_dark_blue_ipad_background2 {
+            get {
+                object obj = ResourceManager.GetObject("simple-grungy-dark-blue-ipad-background2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap simple_grungy_dark_blue_ipad_background21 {
+            get {
+                object obj = ResourceManager.GetObject("simple-grungy-dark-blue-ipad-background21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

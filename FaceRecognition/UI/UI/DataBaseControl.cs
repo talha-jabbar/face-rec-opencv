@@ -53,32 +53,38 @@ namespace UI
                     num++;
                 }
 
-                else if (num % 2 == 0)
+                else if ((num-1) % 5 != 0)
                 {
-                    varBox.Width = width-5;
-                    varBox.Height = height-5;
+                    varBox.Width = 80;
+                    varBox.Height = 77;
                     varBox.Location = pos;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
-                    x += 342;
+                    x += 103;
                 }
 
                 else
                 {
-                    varBox.Width = width-5;
-                    varBox.Height = height-5;
+                    varBox.Width = 80;
+                    varBox.Height = 77;
                     varBox.Location = pos;
                     panel_maiPanel.Controls.Add(varBox);
                     varBox.Name = name;
                     num++;
-                    y += 179;
+                    y += 99;
                     x = 14;
                 }
             } 
         }
 
-        private void lbl_Remove_Click(object sender, EventArgs e)
+        private void lbl_pic_Click(object sender, EventArgs e)
+        {
+            PictureBox lbl = (PictureBox)sender;
+
+        }
+
+        private void lbl_Remove_Click(object sender, MouseEventArgs e)
         {
             Label lbl = (Label)sender;
             int index = int.Parse(lbl.Name.Substring(5));
@@ -254,8 +260,8 @@ namespace UI
                     Label lbl = new Label();
                     lbl.Text = "Remove";
                     lbl.ForeColor = Color.Red;
-                    pos.X += 59;
-                    pos.Y += 163;
+                    pos.X += 45;
+                    pos.Y += 80;
                     lbl.Location = pos;
                     lbl.Click += lbl_Remove_Click;
                     panel_maiPanel.Controls.Add(lbl);
