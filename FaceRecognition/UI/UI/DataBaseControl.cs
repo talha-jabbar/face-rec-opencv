@@ -15,13 +15,11 @@ namespace UI
         bool imageAdded = false;
         string prevText;
         int countP;
-        Database db;
         int globalIndex;
 
         public DataBaseControl(string name,List<string> imagePath)
         {
             InitializeComponent();
-            db = new Database();
             lbl_name.Text = name;
             imagePaths = new List<string>();
             imagePaths = imagePath;
@@ -113,7 +111,7 @@ namespace UI
             int index = int.Parse(lbl.Name.Substring(5));
             if (imagePaths.Count > 1)
             {
-                db.deleltedImages.Add(imagePaths[index - 1]);
+                Form1.db.deleltedImages.Add(imagePaths[index - 1]);
                 imagePaths.RemoveAt(index - 1);
                 imageAdded = true;
                 RemoveAllPictureBox();
@@ -131,7 +129,7 @@ namespace UI
             {
                 for (int i = 0; i < panel.Controls.Count; i++)
                 {
-                    if (panel.Controls[i].GetType() == typeof(PictureBox) && panel.Controls[i].Name != this.picBox_close.Name)
+                    if (panel.Controls[i].GetType() == typeof(PictureBox) && panel.Controls[i].Name != this.picBox_close.Name && panel.Controls[i].Name != this.picBox_Large.Name)
                     {
                         panel.Controls.Remove(panel.Controls[i]);
                         i--;
@@ -194,12 +192,12 @@ namespace UI
             bool nameEdit = true, imageEdit = true;
             if (imageAdded)
             {
-                imageEdit = db.EditDictionary(prevText, imagePaths);
+                imageEdit = Form1.db.EditDictionary(prevText, imagePaths);
             }
 
             if (prevText != lbl_name.Text)
             {
-                nameEdit = db.EditDictionary(prevText, lbl_name.Text);
+                nameEdit = Form1.db.EditDictionary(prevText, lbl_name.Text);
             }
 
             if (nameEdit && imageEdit)
@@ -298,7 +296,7 @@ namespace UI
         private void lbl_delete_Click(object sender, EventArgs e)
         {
             // add messagebox with yes or no question
-            bool deleted = db.DeleteFromDictionary(lbl_name.Text);
+            bool deleted = Form1.db.DeleteFromDictionary(lbl_name.Text);
 
             if (deleted)
             {
@@ -320,7 +318,7 @@ namespace UI
             PictureBox pb2 = (PictureBox)panel_maiPanel.Controls["PictureBox" + globalIndex];
             pb.Image = new Bitmap(path);
             pb2.Image = new Bitmap(imagePaths[globalIndex - 1]);
-            db.EditDictionary(lbl_name.Text, imagePaths);
+            Form1.db.EditDictionary(lbl_name.Text, imagePaths);
             ((Item)Form1.itc.items[Form1.itc.selectedItem]).Pic = pb.Image;
         }
     }

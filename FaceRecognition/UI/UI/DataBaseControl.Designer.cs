@@ -131,6 +131,7 @@
             this.lbl_delete.Size = new System.Drawing.Size(67, 23);
             this.lbl_delete.TabIndex = 13;
             this.lbl_delete.Text = "Delete";
+            this.lbl_delete.Visible = false;
             this.lbl_delete.Click += new System.EventHandler(this.lbl_delete_Click);
             this.lbl_delete.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_delete_MouseMove);
             // 
