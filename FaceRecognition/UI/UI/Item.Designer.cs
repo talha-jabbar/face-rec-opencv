@@ -37,13 +37,17 @@
             // 
             // pnl_MainPnl
             // 
+            this.pnl_MainPnl.BackColor = System.Drawing.Color.Transparent;
             this.pnl_MainPnl.Controls.Add(this.lbl_Name);
             this.pnl_MainPnl.Controls.Add(this.pcb_PersonalPic);
             this.pnl_MainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_MainPnl.Location = new System.Drawing.Point(0, 0);
             this.pnl_MainPnl.Name = "pnl_MainPnl";
-            this.pnl_MainPnl.Size = new System.Drawing.Size(206, 57);
+            this.pnl_MainPnl.Size = new System.Drawing.Size(204, 58);
             this.pnl_MainPnl.TabIndex = 0;
+            this.pnl_MainPnl.Click += new System.EventHandler(this.Item_Click);
+            this.pnl_MainPnl.MouseEnter += new System.EventHandler(this.Item_MouseEnter);
+            this.pnl_MainPnl.MouseLeave += new System.EventHandler(this.Item_MouseLeave);
             // 
             // lbl_Name
             // 
@@ -51,29 +55,37 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Name.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lbl_Name.Location = new System.Drawing.Point(68, 17);
+            this.lbl_Name.Location = new System.Drawing.Point(69, 14);
             this.lbl_Name.Name = "lbl_Name";
-            this.lbl_Name.Size = new System.Drawing.Size(127, 22);
+            this.lbl_Name.Size = new System.Drawing.Size(125, 29);
             this.lbl_Name.TabIndex = 1;
             this.lbl_Name.Text = "Name";
             this.lbl_Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Name.Click += new System.EventHandler(this.Item_Click);
+            this.lbl_Name.MouseEnter += new System.EventHandler(this.Item_MouseEnter);
+            this.lbl_Name.MouseLeave += new System.EventHandler(this.Item_MouseLeave);
             // 
             // pcb_PersonalPic
             // 
-            this.pcb_PersonalPic.Location = new System.Drawing.Point(3, 3);
+            this.pcb_PersonalPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcb_PersonalPic.Location = new System.Drawing.Point(5, 4);
             this.pcb_PersonalPic.Name = "pcb_PersonalPic";
             this.pcb_PersonalPic.Size = new System.Drawing.Size(58, 51);
             this.pcb_PersonalPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcb_PersonalPic.TabIndex = 0;
             this.pcb_PersonalPic.TabStop = false;
+            this.pcb_PersonalPic.Click += new System.EventHandler(this.Item_Click);
+            this.pcb_PersonalPic.MouseEnter += new System.EventHandler(this.Item_MouseEnter);
+            this.pcb_PersonalPic.MouseLeave += new System.EventHandler(this.Item_MouseLeave);
             // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.pnl_MainPnl);
             this.Name = "Item";
-            this.Size = new System.Drawing.Size(206, 57);
+            this.Size = new System.Drawing.Size(204, 58);
             this.pnl_MainPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcb_PersonalPic)).EndInit();
             this.ResumeLayout(false);

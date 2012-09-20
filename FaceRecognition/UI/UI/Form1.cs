@@ -13,12 +13,27 @@ namespace UI
     public partial class Form1 : Form
     {
         Bitmap orignalBmp;
+
+        List<string> names;
+
         public static Database db = new Database();
+        
         ItemsContainer itc;
 
         public Form1()
         {
             InitializeComponent();
+
+        }
+
+        void itc_RemoveClicked(object sender, EventArgs e)
+        {
+                throw new NotImplementedException();
+        }
+
+        void itc_AddClicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void MovePic()
@@ -53,7 +68,7 @@ namespace UI
         {
             this.Close();
         }
-        List<string> names;
+        
         private void openDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -81,18 +96,30 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-             itc = new ItemsContainer();
-            itc.Location = new Point(this.Width - itc.Width-20, this.Location.Y);
-            itc.Height = this.Height-50;
-         //   itc.AddItem("Ehab", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a");
-          //  itc.AddItem("Ehab", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a");
-           // itc.AddItem("Ehab", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a");
-           itc.AddItem("Ahmed", (Image)new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1a"));
-           //itc.AddItem("Pola", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1b"));
-           //itc.AddItem("DoDo", new Bitmap(@"C:\Users\DELL\Desktop\FaceRecognition\DataBase\frontalimages_manuallyaligned_part1\1c"));
+            
+            itc = new ItemsContainer();
+            itc.Location = new Point(this.Width - itc.Width, this.Location.Y );
+            itc.Height = this.Height-110;
+            itc.AddItem("Ahmed", (Image)new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Downloads\frontalimages_manuallyaligned_part1\1a.jpg"));
+            itc.AddItem("pola", (Image)new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Downloads\frontalimages_manuallyaligned_part1\2a.jpg"));
+            itc.AddItem("ehab", (Image)new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Downloads\frontalimages_manuallyaligned_part1\3a.jpg"));
             this.Controls[0].Controls.Add(itc);
+            itc.AddClicked += new ItemsContainer.AddClickedHandler(itc_AddClicked);
+            itc.RemoveClicked += new ItemsContainer.RemoveClickedHandler(itc_RemoveClicked);
+            itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
+            itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
             itc.BringToFront();
             db.ReadFileToDictionary("DataBase.txt");
+        }
+
+        void itc_ItemEntered(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void itc_ItemSelected(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
     }

@@ -13,8 +13,8 @@ namespace UI
     {
         public bool Started = false;
         public bool Selected = false;
-        public Color SelectedColor;
-        public Color HoverColor;
+        public Color SelectedColor = Color.White;
+        public Color HoverColor = Color.Gray;
 
         public Item()
         {
@@ -40,7 +40,7 @@ namespace UI
             set { pcb_PersonalPic.Image = value; }
         }
 
-        private void Item_Click(object sender, EventArgs e)
+        public void Item_Click(object sender, EventArgs e)
         {
             if (this.Selected)
             {
@@ -51,10 +51,9 @@ namespace UI
                 this.Selected = true;
             }
             this.Item_MouseEnter(sender, e);
-            
         }
 
-        private void Item_MouseEnter(object sender, EventArgs e)
+        public void Item_MouseEnter(object sender, EventArgs e)
         {
             
             if (this.Selected)
@@ -67,7 +66,7 @@ namespace UI
             }
         }
 
-        private void Item_MouseLeave(object sender, EventArgs e)
+        public void Item_MouseLeave(object sender, EventArgs e)
         {
             if (this.Selected)
             {

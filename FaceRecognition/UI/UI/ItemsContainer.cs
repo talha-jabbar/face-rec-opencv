@@ -27,7 +27,7 @@ namespace UI
 
         public event RemoveClickedHandler RemoveClicked;
 
-        private ControlCollection items;
+        public ControlCollection items;
 
         public string selectedItem;
 
@@ -49,11 +49,10 @@ namespace UI
             AddItemToControls(i);
         }
 
-        private void AddItemToControls(Item i)
+        public void AddItemToControls(Item i)
         {
-            i.Click += new EventHandler(Item_Click);
+            i.Click += new EventHandler(i_Click);
             i.DoubleClick += new EventHandler(i_DoubleClick);
-            i.Height = 56;
             i.Width = this.pnl_items.Width;
             if (items.Count < 1)
             {
@@ -64,16 +63,23 @@ namespace UI
                 i.Location = new Point(items[items.Count - 1].Location.X, items[items.Count - 1].Location.Y + items[items.Count - 1].Height);
             }
             items.Add(i);
-        }
+        }       
 
-        void i_DoubleClick(object sender, EventArgs e)
-        {
-            ItemEntered(sender, e);
-        }
-
-        public void Item_Click(object sender, EventArgs e)
+        public void i_Click(object sender, EventArgs e)
         {
             ItemSelected(sender, e);
+            foreach (Item item in items)
+            {
+                item.LowLight();
+            }
+
+            ((Item)sender).HighLight();
+            selectedItem = ((Item)sender).NameText;
+        }
+
+        public void i_DoubleClick(object sender, EventArgs e)
+        {
+            ItemEntered(sender, e);
         }
 
         public void DeleteItem(string name)
