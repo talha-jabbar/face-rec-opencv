@@ -195,9 +195,11 @@ namespace UI
                 imageEdit = Form1.db.EditDictionary(prevText, imagePaths);
             }
 
-            if (prevText != lbl_name.Text)
+            if (prevText != txt_name.Text)
             {
-                nameEdit = Form1.db.EditDictionary(prevText, lbl_name.Text);
+                nameEdit = Form1.db.EditDictionary(prevText, txt_name.Text);
+                lbl_name.Text = txt_name.Text;
+                ((Item)Form1.itc.items[Form1.itc.selectedItem]).LblName.Text = txt_name.Text;
             }
 
             if (nameEdit && imageEdit)
