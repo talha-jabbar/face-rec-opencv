@@ -204,16 +204,13 @@ namespace UI
 
             if (nameEdit && imageEdit)
             {
-                MessageBox.Show("Edited Successfuly");
                 lbl_name.Show();
                 txt_name.Hide();
                 lbl_edit.Show();
-                lbl_delete.Show();
                 btn_done.Hide();
                 btn_AddImage.Hide();
-                GeniratePicBox(imagePaths);
                 RemoveAllLabels();
-                SetLabels();
+                MessageBox.Show("Edited Successfuly");
             }
             else
                 MessageBox.Show("sorry the name you have entered already founded");
@@ -320,7 +317,7 @@ namespace UI
             PictureBox pb2 = (PictureBox)panel_maiPanel.Controls["PictureBox" + globalIndex];
             pb.Image = new Bitmap(path);
             pb2.Image = new Bitmap(imagePaths[globalIndex - 1]);
-            Form1.db.EditDictionary(lbl_name.Text, imagePaths);
+            //Form1.db.EditDictionary(lbl_name.Text, imagePaths);
             ((Item)Form1.itc.items[Form1.itc.selectedItem]).Pic = pb.Image;
         }
     }
