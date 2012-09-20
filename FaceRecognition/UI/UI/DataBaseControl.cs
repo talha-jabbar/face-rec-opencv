@@ -16,6 +16,7 @@ namespace UI
         string prevText;
         int countP;
         Database db;
+        int globalIndex;
 
         public DataBaseControl(string name,List<string> imagePath)
         {
@@ -85,6 +86,7 @@ namespace UI
             PictureBox picBox = (PictureBox)sender;
             picBox.SizeMode = PictureBoxSizeMode.StretchImage;
             Point pos = picBox.Location;
+            globalIndex = int.Parse(picBox.Name.Substring(10));
             if (pos.X >= 426)
             {
                 pos.X -= 90;
@@ -97,6 +99,11 @@ namespace UI
             picBox_Large.Location = pos;
             picBox_Large.Image = picBox.Image;
             picBox_Large.BorderStyle = BorderStyle.Fixed3D;
+            Point lblPos = new Point(pos.X, pos.Y);
+            lblPos.X += 46;
+            lblPos.Y += 156;
+            lbl_profilePic.Location = lblPos;
+            lbl_profilePic.Show();
             picBox_Large.Show();
         }
 
@@ -149,6 +156,7 @@ namespace UI
             lbl_delete.ForeColor = Color.Brown;
             lbl_edit.ForeColor = Color.Brown;
             picBox_Large.Hide();
+            lbl_profilePic.Hide();
             picBox_close.Image = UI.Properties.Resources.button_cancelOff;
         }
 
@@ -302,6 +310,19 @@ namespace UI
             {
                 MessageBox.Show("sorry there's an error");
             }
+        }
+
+        private void lbl_profilePic_Click(object sender, EventArgs e)
+        {
+            string path = imagePaths[globalIndex - 1];
+            imagePaths[globalIndex - 1] = imagePaths[0];
+            imagePaths[0] = imagePaths[globalIndex - 1];
+            PictureBox pb = (PictureBox)panel1.Controls["PictureBox1"];
+            PictureBox pb2 = (PictureBox)panel_maiPanel.Controls["PictureBox" + globalIndex];
+            pb.Image = new Bitmap(path);
+            pb2.Image = new Bitmap(imagePaths[globalIndex - 1]);
+            db.EditDictionary(lbl_name.Text, imagePaths);
+            
         }
     }
 }

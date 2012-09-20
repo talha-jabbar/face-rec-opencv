@@ -39,6 +39,7 @@
             this.lbl_delete = new System.Windows.Forms.Label();
             this.lbl_edit = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
+            this.lbl_profilePic = new System.Windows.Forms.Label();
             this.panel_maiPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
@@ -51,6 +52,7 @@
             this.panel_maiPanel.BackColor = System.Drawing.Color.Transparent;
             this.panel_maiPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_maiPanel.Controls.Add(this.picBox_Large);
+            this.panel_maiPanel.Controls.Add(this.lbl_profilePic);
             this.panel_maiPanel.Location = new System.Drawing.Point(4, 209);
             this.panel_maiPanel.Name = "panel_maiPanel";
             this.panel_maiPanel.Size = new System.Drawing.Size(544, 201);
@@ -168,6 +170,19 @@
             this.lbl_name.TabIndex = 11;
             this.lbl_name.Text = "User Name From DataBase";
             // 
+            // lbl_profilePic
+            // 
+            this.lbl_profilePic.AutoSize = true;
+            this.lbl_profilePic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_profilePic.ForeColor = System.Drawing.Color.Red;
+            this.lbl_profilePic.Location = new System.Drawing.Point(82, 171);
+            this.lbl_profilePic.Name = "lbl_profilePic";
+            this.lbl_profilePic.Size = new System.Drawing.Size(120, 15);
+            this.lbl_profilePic.TabIndex = 18;
+            this.lbl_profilePic.Text = "Set as Profile Picture";
+            this.lbl_profilePic.Visible = false;
+            this.lbl_profilePic.Click += new System.EventHandler(this.lbl_profilePic_Click);
+            // 
             // DataBaseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,6 +200,7 @@
             this.Name = "DataBaseControl";
             this.Text = "DataBaseControl";
             this.panel_maiPanel.ResumeLayout(false);
+            this.panel_maiPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -205,5 +221,6 @@
         private System.Windows.Forms.Button btn_AddImage;
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.PictureBox picBox_Large;
+        private System.Windows.Forms.Label lbl_profilePic;
     }
 }
