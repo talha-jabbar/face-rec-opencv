@@ -92,6 +92,7 @@ namespace UI
                 i.HighLight();
                 i.Selected = true;
                 selectedItem = i.NameText;
+                preSelectedItem = i.NameText;
                 ItemSelected(sender, e);
             }
             else
