@@ -62,16 +62,6 @@ namespace UI
             }
         }
 
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            picBox_close.Image = UI.Properties.Resources.button_cancel;
-        }
-
-        private void panel_mainPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            picBox_close.Image = UI.Properties.Resources.button_cancelOff;
-        }
-
         private void picBox_close_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -144,6 +134,17 @@ namespace UI
             int[] lables = null;
             int count=0;
             FROpencv.StartFaceRecognition(System.Windows.Forms.Application.StartupPath + "\\BinaryDatabase.txt", System.Windows.Forms.Application.StartupPath + "\\model", imagePath, rec, lables, ref count, 1);
+        }
+
+        private void picBox_close_MouseEnter(object sender, EventArgs e)
+        {
+            picBox_close.Image = UI.Properties.Resources.button_cancel;
+        }
+
+        private void picBox_close_MouseLeave(object sender, EventArgs e)
+        {
+            picBox_close.Image = UI.Properties.Resources.button_cancelOff;
+
         } 
     }
 }

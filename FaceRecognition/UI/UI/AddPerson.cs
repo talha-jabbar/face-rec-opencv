@@ -26,10 +26,7 @@ namespace UI
             this.Close();
         }
 
-        private void picBox_close_MouseMove(object sender, MouseEventArgs e)
-        {
-            picBox_close.Image = UI.Properties.Resources.button_cancel;
-        }
+        
 
         private void btn_done_Click(object sender, EventArgs e)
         {
@@ -66,6 +63,17 @@ namespace UI
         private void AddPerson_FormClosing(object sender, FormClosingEventArgs e)
         {
             form.Enabled = true;
+        }
+
+        private void picBox_close_MouseEnter(object sender, EventArgs e)
+        {
+            picBox_close.Image = UI.Properties.Resources.button_cancel;
+        }
+
+        private void picBox_close_MouseLeave(object sender, EventArgs e)
+        {
+            picBox_close.Image = UI.Properties.Resources.button_cancelOff;
+
         }
     }
 }

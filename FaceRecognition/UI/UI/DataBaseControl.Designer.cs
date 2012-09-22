@@ -30,19 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataBaseControl));
             this.panel_maiPanel = new System.Windows.Forms.Panel();
+            this.picBox_Large = new System.Windows.Forms.PictureBox();
             this.lbl_profilePic = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.btn_done = new System.Windows.Forms.Button();
             this.btn_AddImage = new System.Windows.Forms.Button();
-            this.lbl_delete = new System.Windows.Forms.Label();
             this.lbl_edit = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.picBox_Large = new System.Windows.Forms.PictureBox();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.panel_maiPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +56,17 @@
             this.panel_maiPanel.Name = "panel_maiPanel";
             this.panel_maiPanel.Size = new System.Drawing.Size(544, 201);
             this.panel_maiPanel.TabIndex = 0;
-            this.panel_maiPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_maiPanel_MouseMove);
+            // 
+            // picBox_Large
+            // 
+            this.picBox_Large.Location = new System.Drawing.Point(36, 15);
+            this.picBox_Large.Name = "picBox_Large";
+            this.picBox_Large.Size = new System.Drawing.Size(168, 158);
+            this.picBox_Large.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_Large.TabIndex = 17;
+            this.picBox_Large.TabStop = false;
+            this.picBox_Large.Visible = false;
+            this.picBox_Large.MouseLeave += new System.EventHandler(this.picBox_Large_MouseLeave);
             // 
             // lbl_profilePic
             // 
@@ -78,7 +87,6 @@
             this.panel1.Controls.Add(this.txt_name);
             this.panel1.Controls.Add(this.btn_done);
             this.panel1.Controls.Add(this.btn_AddImage);
-            this.panel1.Controls.Add(this.lbl_delete);
             this.panel1.Controls.Add(this.lbl_edit);
             this.panel1.Controls.Add(this.lbl_name);
             this.panel1.Controls.Add(this.picBox_close);
@@ -86,7 +94,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(526, 198);
             this.panel1.TabIndex = 11;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_maiPanel_MouseMove);
             // 
             // txt_name
             // 
@@ -94,7 +101,7 @@
             this.txt_name.ForeColor = System.Drawing.Color.Black;
             this.txt_name.Location = new System.Drawing.Point(217, 74);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(226, 20);
+            this.txt_name.Size = new System.Drawing.Size(244, 20);
             this.txt_name.TabIndex = 16;
             this.txt_name.Visible = false;
             // 
@@ -120,34 +127,20 @@
             this.btn_AddImage.Visible = false;
             this.btn_AddImage.Click += new System.EventHandler(this.btn_AddImage_Click);
             // 
-            // lbl_delete
-            // 
-            this.lbl_delete.AutoSize = true;
-            this.lbl_delete.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_delete.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_delete.ForeColor = System.Drawing.Color.Brown;
-            this.lbl_delete.Location = new System.Drawing.Point(451, 109);
-            this.lbl_delete.Name = "lbl_delete";
-            this.lbl_delete.Size = new System.Drawing.Size(67, 23);
-            this.lbl_delete.TabIndex = 13;
-            this.lbl_delete.Text = "Delete";
-            this.lbl_delete.Visible = false;
-            this.lbl_delete.Click += new System.EventHandler(this.lbl_delete_Click);
-            this.lbl_delete.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_delete_MouseMove);
-            // 
             // lbl_edit
             // 
             this.lbl_edit.AutoSize = true;
             this.lbl_edit.BackColor = System.Drawing.Color.Transparent;
             this.lbl_edit.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_edit.ForeColor = System.Drawing.Color.Brown;
-            this.lbl_edit.Location = new System.Drawing.Point(402, 109);
+            this.lbl_edit.Location = new System.Drawing.Point(438, 109);
             this.lbl_edit.Name = "lbl_edit";
             this.lbl_edit.Size = new System.Drawing.Size(45, 23);
             this.lbl_edit.TabIndex = 12;
             this.lbl_edit.Text = "Edit";
             this.lbl_edit.Click += new System.EventHandler(this.lbl_edit_Click);
-            this.lbl_edit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbl_edit_MouseMove);
+            this.lbl_edit.MouseEnter += new System.EventHandler(this.lbl_edit_MouseEnter);
+            this.lbl_edit.MouseLeave += new System.EventHandler(this.lbl_edit_MouseLeave);
             // 
             // lbl_name
             // 
@@ -161,16 +154,6 @@
             this.lbl_name.TabIndex = 11;
             this.lbl_name.Text = "User Name From DataBase";
             // 
-            // picBox_Large
-            // 
-            this.picBox_Large.Location = new System.Drawing.Point(36, 15);
-            this.picBox_Large.Name = "picBox_Large";
-            this.picBox_Large.Size = new System.Drawing.Size(168, 158);
-            this.picBox_Large.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_Large.TabIndex = 17;
-            this.picBox_Large.TabStop = false;
-            this.picBox_Large.Visible = false;
-            // 
             // picBox_close
             // 
             this.picBox_close.BackColor = System.Drawing.Color.Transparent;
@@ -182,7 +165,8 @@
             this.picBox_close.TabIndex = 8;
             this.picBox_close.TabStop = false;
             this.picBox_close.Click += new System.EventHandler(this.picBox_close_Click);
-            this.picBox_close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBox_close_MouseMove);
+            this.picBox_close.MouseEnter += new System.EventHandler(this.picBox_close_MouseEnter);
+            this.picBox_close.MouseLeave += new System.EventHandler(this.picBox_close_MouseLeave);
             // 
             // DataBaseControl
             // 
@@ -201,9 +185,9 @@
             this.Text = "DataBaseControl";
             this.panel_maiPanel.ResumeLayout(false);
             this.panel_maiPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,7 +198,6 @@
         private System.Windows.Forms.Panel panel_maiPanel;
         private System.Windows.Forms.PictureBox picBox_close;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbl_delete;
         private System.Windows.Forms.Label lbl_edit;
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.Button btn_done;

@@ -138,35 +138,9 @@ namespace UI
             }
         }
 
-        private void lbl_edit_MouseMove(object sender, MouseEventArgs e)
-        {
-            lbl_delete.ForeColor = Color.Brown;
-            lbl_edit.ForeColor = Color.Red;
-        }
-
-        private void lbl_delete_MouseMove(object sender, MouseEventArgs e)
-        {
-            lbl_edit.ForeColor = Color.Brown;
-            lbl_delete.ForeColor = Color.Red;
-        }
-
-        private void panel_maiPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            lbl_delete.ForeColor = Color.Brown;
-            lbl_edit.ForeColor = Color.Brown;
-            picBox_Large.Hide();
-            lbl_profilePic.Hide();
-            picBox_close.Image = UI.Properties.Resources.button_cancelOff;
-        }
-
         private void picBox_close_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void picBox_close_MouseMove(object sender, MouseEventArgs e)
-        {
-            picBox_close.Image = UI.Properties.Resources.button_cancel;
         }
 
         private void btn_AddImage_Click(object sender, EventArgs e)
@@ -246,7 +220,6 @@ namespace UI
             lbl_name.Hide();
             txt_name.Show();
             lbl_edit.Hide();
-            lbl_delete.Hide();
             btn_done.Show();
             btn_AddImage.Show();
             SetLabels();
@@ -292,22 +265,6 @@ namespace UI
             }
         }
 
-        private void lbl_delete_Click(object sender, EventArgs e)
-        {
-            // add messagebox with yes or no question
-            bool deleted = Form1.db.DeleteFromDictionary(lbl_name.Text);
-
-            if (deleted)
-            {
-                MessageBox.Show("Deleted");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("sorry there's an error");
-            }
-        }
-
         private void lbl_profilePic_Click(object sender, EventArgs e)
         {
             string path = imagePaths[globalIndex - 1];
@@ -319,6 +276,34 @@ namespace UI
             pb2.Image = new Bitmap(imagePaths[globalIndex - 1]);
             //Form1.db.EditDictionary(lbl_name.Text, imagePaths);
             ((Item)Form1.itc.items[Form1.itc.selectedItem]).Pic = pb.Image;
+        }
+
+        private void picBox_close_MouseEnter(object sender, EventArgs e)
+        {
+            picBox_close.Image = UI.Properties.Resources.button_cancel;
+
+        }
+
+        private void picBox_close_MouseLeave(object sender, EventArgs e)
+        {
+            picBox_close.Image = UI.Properties.Resources.button_cancelOff;
+
+        }
+
+        private void picBox_Large_MouseLeave(object sender, EventArgs e)
+        {
+            picBox_Large.Hide();
+            lbl_profilePic.Hide();
+        }
+
+        private void lbl_edit_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_edit.ForeColor = Color.Red;
+        }
+
+        private void lbl_edit_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_edit.ForeColor = Color.Brown;
         }
     }
 }
