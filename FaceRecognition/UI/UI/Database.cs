@@ -159,22 +159,23 @@ namespace UI
             DirectoryInfo di = Directory.CreateDirectory(path);
 
             string newpath;
+            string ext;
             int i = 0;
             foreach (var item in DatabaseDictionary)
             {
                 i = 0;
-                string ext;
-                foreach (string s in item.Value)
+                for (int s = 0; s < item.Value.Count; s++)
                 {
-                    if (s.Substring(0, path.Length) != path)
+                    if (item.Value[s].Substring(0, path.Length) != path)
                     {
-                        ext = "."+s.Split('.')[s.Split('.').Length-1];
+                        ext = "." + item.Value[s].Split('.')[item.Value[s].Split('.').Length - 1];
                         newpath = path +"\\" + item.Key + i++ + ext;
                         while(File.Exists(newpath))
                         {
                             newpath = path +"\\" + item.Key + i++ + ext;
                         }
-                        File.Copy(s, newpath);
+                        File.Copy(item.Value[s], newpath);
+                        item.Value[s] = newpath;
                     }
                 }
             }
