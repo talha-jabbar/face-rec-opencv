@@ -32,6 +32,7 @@ namespace UI
         {
             if (itc.selectedItem != string.Empty && itc.selectedItem != null)
             {
+                db.deleltedImages.AddRange(db.DatabaseDictionary[itc.selectedItem]);
                 db.DeleteFromDictionary(itc.selectedItem);
                 itc.DeleteItem(itc.selectedItem);
             }

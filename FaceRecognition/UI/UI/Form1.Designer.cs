@@ -67,6 +67,8 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_mainPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.picBox_equlization = new System.Windows.Forms.PictureBox();
             this.picBox_gauissan = new System.Windows.Forms.PictureBox();
@@ -76,8 +78,7 @@
             this.panel_database = new System.Windows.Forms.Panel();
             this.btn_Add = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_equlization)).BeginInit();
@@ -356,6 +357,7 @@
             // 
             this.panel_mainPanel.BackColor = System.Drawing.Color.Black;
             this.panel_mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_mainPanel.Controls.Add(this.label1);
             this.panel_mainPanel.Controls.Add(this.button2);
             this.panel_mainPanel.Controls.Add(this.button1);
             this.panel_mainPanel.Controls.Add(this.picBox_close);
@@ -371,6 +373,26 @@
             this.panel_mainPanel.Size = new System.Drawing.Size(1049, 655);
             this.panel_mainPanel.TabIndex = 0;
             this.panel_mainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_mainPanel_MouseMove);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 65);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 34);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Recognize";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 34);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Open";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // picBox_close
             // 
@@ -451,9 +473,9 @@
             this.panel_database.BackColor = System.Drawing.Color.Transparent;
             this.panel_database.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_database.Controls.Add(this.btn_Add);
-            this.panel_database.Location = new System.Drawing.Point(828, 27);
+            this.panel_database.Location = new System.Drawing.Point(828, 160);
             this.panel_database.Name = "panel_database";
-            this.panel_database.Size = new System.Drawing.Size(208, 619);
+            this.panel_database.Size = new System.Drawing.Size(208, 486);
             this.panel_database.TabIndex = 1;
             this.panel_database.Visible = false;
             this.panel_database.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_mainPanel_MouseMove);
@@ -485,25 +507,17 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menu";
             // 
-            // button1
+            // label1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 34);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Open";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 65);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 34);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Recognize";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(882, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 33);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Database";
             // 
             // Form1
             // 
@@ -520,6 +534,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_mainPanel.ResumeLayout(false);
+            this.panel_mainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_equlization)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_gauissan)).EndInit();
@@ -581,6 +596,7 @@
         private System.Windows.Forms.ToolStripMenuItem dataBaseToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
