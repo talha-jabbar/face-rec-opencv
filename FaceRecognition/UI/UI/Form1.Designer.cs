@@ -372,7 +372,6 @@
             this.panel_mainPanel.Name = "panel_mainPanel";
             this.panel_mainPanel.Size = new System.Drawing.Size(1049, 655);
             this.panel_mainPanel.TabIndex = 0;
-            this.panel_mainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_mainPanel_MouseMove);
             // 
             // button2
             // 
@@ -405,7 +404,8 @@
             this.picBox_close.TabIndex = 7;
             this.picBox_close.TabStop = false;
             this.picBox_close.Click += new System.EventHandler(this.picBox_close_Click);
-            this.picBox_close.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.picBox_close.MouseEnter += new System.EventHandler(this.picBox_close_MouseEnter);
+            this.picBox_close.MouseLeave += new System.EventHandler(this.picBox_close_MouseLeave);
             // 
             // picBox_equlization
             // 
@@ -478,7 +478,6 @@
             this.panel_database.Size = new System.Drawing.Size(208, 486);
             this.panel_database.TabIndex = 1;
             this.panel_database.Visible = false;
-            this.panel_database.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_mainPanel_MouseMove);
             // 
             // btn_Add
             // 
