@@ -166,6 +166,15 @@ namespace UI
             bool nameEdit = true, imageEdit = true;
             if (imageAdded)
             {
+                int count = imagePaths.Count;
+
+                for (int i = 0; i < count; i++)
+                {
+                    Image image = new Bitmap(imagePaths[i]);
+                    imagePaths[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text + System.IO.Path.GetFileName(imagePaths[i]);
+                    image.Save(imagePaths[i]);
+                }
+
                 imageEdit = Form1.db.EditDictionary(prevText, imagePaths);
             }
 
