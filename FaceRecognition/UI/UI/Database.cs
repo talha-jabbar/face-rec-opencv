@@ -75,7 +75,8 @@ namespace UI
         {
             FileStream fs = new FileStream(dataPath+"\\Database.txt", FileMode.Create);
             StreamWriter sr = new StreamWriter(fs);
-
+           
+            this.SaveImages(dataPath);
             foreach (var item in databaseDictionary)
             {
                 foreach (string path in databaseDictionary[item.Key])
@@ -87,7 +88,7 @@ namespace UI
             sr.Close();
             fs.Close();
 
-            this.SaveImages(dataPath);
+
             this.DeleteTheDeleted(dataPath);
             return true;
         }
@@ -150,13 +151,12 @@ namespace UI
 
         public void SaveImages(string dataPath)
         {
-            string path = dataPath + "\\Images";//System.Windows.Forms.Application.StartupPath + "\\Images";
-            if (Directory.Exists(path))
+            string path = dataPath + "\\Images";
+            DirectoryInfo di;
+            if (!Directory.Exists(path))
             {
-                Console.WriteLine("That path exists already.");
-                return;
+                di = Directory.CreateDirectory(path);
             }
-            DirectoryInfo di = Directory.CreateDirectory(path);
 
             string newpath;
             string ext;
