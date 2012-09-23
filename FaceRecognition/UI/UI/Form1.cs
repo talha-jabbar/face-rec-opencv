@@ -27,6 +27,11 @@ namespace UI
         {
             InitializeComponent();
            // button2_Click(null, null);
+            DirectoryInfo dir = new DirectoryInfo(Application.StartupPath + @"\Images");
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
         }
 
         void itc_RemoveClicked(object sender, EventArgs e)

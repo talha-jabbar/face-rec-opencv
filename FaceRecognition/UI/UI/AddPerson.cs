@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace UI
 {
@@ -33,7 +35,17 @@ namespace UI
             name = txt_name.Text;
             bool added;
             //Add the name and the images to the file return bool and display a message box
-            
+
+            int count = images.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("FRImages");
+                Image image = new Bitmap(images[i]);
+                images[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text + System.IO.Path.GetFileName(images[i]);
+                image.Save(images[i]);
+            }
+
             added = Form1.db.AddToDictionary(name, images);
             if (added && images.Count > 0)
             {
@@ -57,6 +69,9 @@ namespace UI
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 images = openFileDialog1.FileNames.ToList();
+                
+
+                btn_done.Show();
             }
         }
 
