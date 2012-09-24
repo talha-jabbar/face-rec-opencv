@@ -23,6 +23,8 @@ namespace UI
         
         public static ItemsContainer itc;
 
+        private FRDBFn database;
+
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +34,8 @@ namespace UI
             {
                 dir.Create();
             }
+
+            database = FRDBFn.Instance;
         }
 
         void itc_RemoveClicked(object sender, EventArgs e)
@@ -110,7 +114,7 @@ namespace UI
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
             itc.BringToFront();
-            db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
+            //db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
         }
 
         void itc_ItemEntered(object sender, EventArgs e)
