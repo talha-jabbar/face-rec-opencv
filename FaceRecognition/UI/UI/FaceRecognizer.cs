@@ -47,18 +47,18 @@ namespace UI
             // for each record in the database
              // trainingImages.Add(new Image<Gray, byte>(ImagePath));
              // labels.Add(PersonName);
-            foreach (var item in Form1.db.DatabaseDictionary)
-	        {
-                foreach (string s in item.Value)
-                {
-                    trainingImages.Add(new Image<Gray, byte>(s));
-                    labels.Add(item.Key);
-                    ContTrain++;
-                }
-	        }
+            //foreach (var item in Form1.db.DatabaseDictionary) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
+            //{
+            //    foreach (string s in item.Value)
+            //    {
+            //        trainingImages.Add(new Image<Gray, byte>(s));
+            //        labels.Add(item.Key);
+            //        ContTrain++;
+            //    }
+            //}
             
-            if (Form1.db.DatabaseDictionary.Count >0)
-            UpdateRecognizer();
+            //if (Form1.database.Persons.Count>0)
+           // UpdateRecognizer();
         }
        
         public void StartStreaming()

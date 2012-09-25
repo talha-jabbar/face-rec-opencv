@@ -13,6 +13,7 @@ namespace UI
     using System.Drawing;
     using System.Data.SqlClient;
     using System.Data;
+    using System.IO;
 
     /// <summary>
     /// </summary>
@@ -60,7 +61,7 @@ namespace UI
         /// </summary>
         private FRDBFn()
         {
-            con = new SqlCeConnection("Data Source=Database1.sdf");
+            con = new SqlCeConnection("Data Source=FRDatabase.sdf");
         }
 
 //====================================================================================================================
@@ -108,6 +109,8 @@ namespace UI
                     images.Add(new Images((int)rdr["ImageID"], (string)rdr["ImagePath"], (int)rdr["UserID"]));
                 }
 
+                int index = 0;
+
                 foreach (Users u in users)
                 {
                     List<Images> userImages = new List<Images>();
@@ -120,7 +123,10 @@ namespace UI
                         }
 
                     }
+                    Form1.itc.AddItem(index/*your id here*/, u.Name, new Bitmap(userImages[0].ImagePath));
+
                     persons.Add(new Person(u, userImages));
+                    index++;
                 }
 
                 return persons;
@@ -182,7 +188,6 @@ namespace UI
             finally
             {
                 con.Close();
-                SelectAllUsers();
             }
         }
 
@@ -234,7 +239,6 @@ namespace UI
             finally
             {
                 con.Close();
-                SelectAllUsers();
                 if (!OpenConnection)
                     con.Open();
             }
@@ -284,7 +288,6 @@ namespace UI
             finally
             {
                 con.Close();
-                SelectAllUsers();
             }
         }
 
@@ -298,26 +301,45 @@ namespace UI
         /// <param name="flag">True if u remove an image</param>
         public void DeleteImage(Person p, int ImageID, bool flag)
         {
-            if (flag)
-            {
-                int index = persons.IndexOf(p);
-                foreach (Images image in persons[index].Images)
-                {
-                    if (image.ImageID == ImageID)
-                    {
-                        persons[index].Images.Remove(image);
-                        break;
-                    }
-                }
-            }
-
+            int index = 0;
+            Images imag = new Images(-1, "", -1);
             try
             {
-                con.Open();
+                if (flag)
+                    con.Open();
+                
                 string deleteImage = @"DELETE FROM Images WHERE ImageID = @ID";
                 SqlCeCommand cmd = new SqlCeCommand(deleteImage, con);
                 cmd.Parameters.Add(new SqlCeParameter("@ID", ImageID));
                 cmd.ExecuteNonQuery();
+
+                if (flag)
+                {
+                    index = persons.IndexOf(p);
+                    foreach (Images image in persons[index].Images)
+                    {
+                        if (image.ImageID == ImageID)
+                        {
+                            imag = image;
+                            persons[index].Images.Remove(image);
+                            break;
+                        }
+                    }
+                }
+
+                if (!flag)
+                {
+                    index = 0;
+                    foreach (Images image in p.Images)
+                    {
+                        if (image.ImageID == ImageID)
+                        {
+                            break;
+                        }
+                        index++;
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -326,8 +348,15 @@ namespace UI
             }
             finally
             {
-                con.Close();
-                SelectAllUsers();
+                if (flag)
+                {
+                    con.Close();
+                    //File.Delete(imag.ImagePath);
+                }
+                else
+                {
+                    //File.Delete(p.Images[index].ImagePath);
+                }
             }
         }
 
@@ -376,7 +405,6 @@ namespace UI
             finally
             {
                 con.Close();
-                SelectAllUsers();
             }
         }
     }

@@ -21,11 +21,10 @@ namespace UI
 
         string imagePath;
 
-        public static Database db = new Database();
         
         public static ItemsContainer itc;
 
-        private FRDBFn database;
+        public static FRDBFn database;
 
         public Form1()
         {
@@ -44,9 +43,10 @@ namespace UI
         {
             if (itc.selectedItem != string.Empty && itc.selectedItem != null)
             {
-                db.deleltedImages.AddRange(db.DatabaseDictionary[itc.selectedItem]);
+                database.DeletePerson(database.Persons[itc.selectedItemindex].User.UserID);
+                //db.deleltedImages.AddRange(db.DatabaseDictionary[itc.selectedItem]);
                 itc.DeleteItem(itc.selectedItem);
-                db.DeleteFromDictionary(itc.selectedItem);
+                //db.DeleteFromDictionary(itc.selectedItem);
             }
         }
 
@@ -117,14 +117,17 @@ namespace UI
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
             itc.BringToFront();
-            db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
+            database.SelectAllUsers();
             frec = new FaceRecognizer();
+           // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
+           // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
 
         }
 
         void itc_ItemEntered(object sender, EventArgs e)
         {
-            DataBaseControl dbc = new DataBaseControl(itc.selectedItem, db.DatabaseDictionary[itc.selectedItem]);
+            //DataBaseControl dbc = new DataBaseControl(itc.selectedItem, db.DatabaseDictionary[itc.selectedItem]);
+            DataBaseControl dbc = new DataBaseControl(database.Persons[itc.selectedItemindex]);
             dbc.Show();
         }
 
@@ -135,7 +138,7 @@ namespace UI
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            db.WriteDictionaryToFile(System.Windows.Forms.Application.StartupPath);
+            //db.WriteDictionaryToFile(System.Windows.Forms.Application.StartupPath);
         }
 
         private void button1_Click(object sender, EventArgs e)

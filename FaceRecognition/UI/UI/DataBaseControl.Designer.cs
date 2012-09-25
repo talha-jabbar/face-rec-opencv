@@ -33,12 +33,19 @@
             this.picBox_Large = new System.Windows.Forms.PictureBox();
             this.lbl_profilePic = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_address = new System.Windows.Forms.TextBox();
+            this.txt_phone = new System.Windows.Forms.TextBox();
+            this.lbl_address = new System.Windows.Forms.Label();
+            this.lbl_phone = new System.Windows.Forms.Label();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.btn_done = new System.Windows.Forms.Button();
             this.btn_AddImage = new System.Windows.Forms.Button();
             this.lbl_edit = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.picBox_close = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel_maiPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Large)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,22 +91,73 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.txt_address);
+            this.panel1.Controls.Add(this.txt_phone);
+            this.panel1.Controls.Add(this.lbl_address);
+            this.panel1.Controls.Add(this.lbl_phone);
             this.panel1.Controls.Add(this.txt_name);
             this.panel1.Controls.Add(this.btn_done);
             this.panel1.Controls.Add(this.btn_AddImage);
             this.panel1.Controls.Add(this.lbl_edit);
             this.panel1.Controls.Add(this.lbl_name);
             this.panel1.Controls.Add(this.picBox_close);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(13, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(526, 198);
             this.panel1.TabIndex = 11;
             // 
+            // txt_address
+            // 
+            this.txt_address.BackColor = System.Drawing.Color.LightGray;
+            this.txt_address.ForeColor = System.Drawing.Color.Black;
+            this.txt_address.Location = new System.Drawing.Point(278, 101);
+            this.txt_address.Name = "txt_address";
+            this.txt_address.Size = new System.Drawing.Size(244, 20);
+            this.txt_address.TabIndex = 20;
+            this.txt_address.Visible = false;
+            // 
+            // txt_phone
+            // 
+            this.txt_phone.BackColor = System.Drawing.Color.LightGray;
+            this.txt_phone.ForeColor = System.Drawing.Color.Black;
+            this.txt_phone.Location = new System.Drawing.Point(278, 79);
+            this.txt_phone.Name = "txt_phone";
+            this.txt_phone.Size = new System.Drawing.Size(244, 20);
+            this.txt_phone.TabIndex = 19;
+            this.txt_phone.Visible = false;
+            // 
+            // lbl_address
+            // 
+            this.lbl_address.AutoSize = true;
+            this.lbl_address.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_address.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_address.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_address.Location = new System.Drawing.Point(277, 101);
+            this.lbl_address.Name = "lbl_address";
+            this.lbl_address.Size = new System.Drawing.Size(229, 17);
+            this.lbl_address.TabIndex = 18;
+            this.lbl_address.Text = "User Name From DataBase";
+            // 
+            // lbl_phone
+            // 
+            this.lbl_phone.AutoSize = true;
+            this.lbl_phone.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_phone.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_phone.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_phone.Location = new System.Drawing.Point(277, 79);
+            this.lbl_phone.Name = "lbl_phone";
+            this.lbl_phone.Size = new System.Drawing.Size(229, 17);
+            this.lbl_phone.TabIndex = 17;
+            this.lbl_phone.Text = "User Name From DataBase";
+            // 
             // txt_name
             // 
             this.txt_name.BackColor = System.Drawing.Color.LightGray;
             this.txt_name.ForeColor = System.Drawing.Color.Black;
-            this.txt_name.Location = new System.Drawing.Point(217, 74);
+            this.txt_name.Location = new System.Drawing.Point(278, 57);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(244, 20);
             this.txt_name.TabIndex = 16;
@@ -107,7 +165,7 @@
             // 
             // btn_done
             // 
-            this.btn_done.Location = new System.Drawing.Point(406, 148);
+            this.btn_done.Location = new System.Drawing.Point(406, 162);
             this.btn_done.Name = "btn_done";
             this.btn_done.Size = new System.Drawing.Size(112, 23);
             this.btn_done.TabIndex = 15;
@@ -118,7 +176,7 @@
             // 
             // btn_AddImage
             // 
-            this.btn_AddImage.Location = new System.Drawing.Point(288, 148);
+            this.btn_AddImage.Location = new System.Drawing.Point(288, 162);
             this.btn_AddImage.Name = "btn_AddImage";
             this.btn_AddImage.Size = new System.Drawing.Size(112, 23);
             this.btn_AddImage.TabIndex = 14;
@@ -133,7 +191,7 @@
             this.lbl_edit.BackColor = System.Drawing.Color.Transparent;
             this.lbl_edit.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_edit.ForeColor = System.Drawing.Color.Brown;
-            this.lbl_edit.Location = new System.Drawing.Point(438, 109);
+            this.lbl_edit.Location = new System.Drawing.Point(379, 136);
             this.lbl_edit.Name = "lbl_edit";
             this.lbl_edit.Size = new System.Drawing.Size(45, 23);
             this.lbl_edit.TabIndex = 12;
@@ -148,7 +206,7 @@
             this.lbl_name.BackColor = System.Drawing.Color.Transparent;
             this.lbl_name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_name.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_name.Location = new System.Drawing.Point(214, 74);
+            this.lbl_name.Location = new System.Drawing.Point(277, 57);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(229, 17);
             this.lbl_name.TabIndex = 11;
@@ -167,6 +225,42 @@
             this.picBox_close.Click += new System.EventHandler(this.picBox_close_Click);
             this.picBox_close.MouseEnter += new System.EventHandler(this.picBox_close_MouseEnter);
             this.picBox_close.MouseLeave += new System.EventHandler(this.picBox_close_MouseLeave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Brown;
+            this.label1.Location = new System.Drawing.Point(219, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 15);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Brown;
+            this.label2.Location = new System.Drawing.Point(220, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 15);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Phone";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Brown;
+            this.label3.Location = new System.Drawing.Point(220, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 15);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Address";
             // 
             // DataBaseControl
             // 
@@ -205,5 +299,12 @@
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.PictureBox picBox_Large;
         private System.Windows.Forms.Label lbl_profilePic;
+        private System.Windows.Forms.TextBox txt_address;
+        private System.Windows.Forms.TextBox txt_phone;
+        private System.Windows.Forms.Label lbl_address;
+        private System.Windows.Forms.Label lbl_phone;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

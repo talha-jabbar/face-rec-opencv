@@ -33,21 +33,23 @@ namespace UI
         private void btn_done_Click(object sender, EventArgs e)
         {
             name = txt_name.Text;
+            Users u = new Users(-1, name, txt_phone.Text, txt_address.Text);
             bool added;
             //Add the name and the images to the file return bool and display a message box
 
             int count = images.Count;
-
+            List<Images> imagesList = new List<Images>();
             for (int i = 0; i < count; i++)
             {
                 Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("FRImages");
                 Image image = new Bitmap(images[i]);
-                images[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text + System.IO.Path.GetFileName(images[i]);
+                images[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text+txt_phone.Text+ txt_address.Text + System.IO.Path.GetFileName(images[i]);
                 image.Save(images[i]);
+                imagesList.Add(new Images(-1, images[i], -1));
             }
-
-            added = Form1.db.AddToDictionary(name, images);
-            if (added && images.Count > 0)
+            Form1.database.Insert(new Person(u, imagesList));
+            //added = Form1.db.AddToDictionary(name, images);
+            if (images.Count > 0)
             {
                 MessageBox.Show("Added succesfly");
             }
@@ -56,8 +58,10 @@ namespace UI
             {   
                 MessageBox.Show("Sorry you have to Enter a new name and at least 1 image");
             }
-            Form1.itc.AddItem(0/*your id here*/,name, new Bitmap(images[0]));
+            Form1.itc.AddItem(Form1.database.Persons.Count - 1 /*your id here*/, name, new Bitmap(images[0]));
             txt_name.Text = string.Empty;
+            txt_address.Text = string.Empty;
+            txt_phone.Text = string.Empty;
             images = new List<string>();
         }
 

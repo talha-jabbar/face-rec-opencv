@@ -91,7 +91,6 @@
     <Compile Include="BasicOperations.cs" />
     <Compile Include="EigenObjectRecognizer.cs" />
     <Compile Include="FaceRecognizer.cs" />
-    <Compile Include="Database.cs" />
     <Compile Include="DataBaseControl.cs">
       <SubType>Form</SubType>
     </Compile>
