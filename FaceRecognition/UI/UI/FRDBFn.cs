@@ -1,6 +1,5 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="FRDBFn.cs" company="">
-// TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -16,7 +15,6 @@ namespace UI
     using System.Data;
 
     /// <summary>
-    /// TODO: Update summary.
     /// </summary>
     public class FRDBFn
     {

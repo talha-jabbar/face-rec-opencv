@@ -1,6 +1,5 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="animation.cs" company="">
-// TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -13,9 +12,6 @@ namespace UI
     using System.Windows.Forms;
     using System.Drawing;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class animation
     {
         static System.Windows.Forms.Timer t;
