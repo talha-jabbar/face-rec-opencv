@@ -63,12 +63,15 @@ namespace UI
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|JPEG Files (*.jpeg)|*.jpg|GIF Files (*.gif)|*.gif|BMP Files (*.bmp)|*.bmp|SVG Files (*.svg)|*.svg";
             openFileDialog1.Title = "Please select an image";
+            
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 orignalBmp = new Bitmap(openFileDialog1.FileName);
                 picBox_Original.Image = orignalBmp;
                 imagePath = openFileDialog1.FileName;
+                FaceRecognizer f = new FaceRecognizer();
+                f.ImageGreyScaleFaceDetectResize(imagePath);
             }
         }
 

@@ -31,12 +31,12 @@ namespace UI
         ImageBox imageBoxFrameGrabber;
         EigenObjectRecognizer recognizer;
 
-        public FaceRecognizer(ref string FacesN, ref string allNames,ImageBox icb) 
+        public FaceRecognizer() 
         {
             // momken neshlaha ba3deen peace ya3ni
-            lbl3 = FacesN;
-            lbl4 = allNames;
-            imageBoxFrameGrabber = icb;
+           // lbl3 = FacesN;
+           // lbl4 = allNames;
+          //  imageBoxFrameGrabber = icb;
 
             //Load haarcascades for face detection
             face = new HaarCascade("haarcascade_frontalface_default.xml");
@@ -47,7 +47,7 @@ namespace UI
              // trainingImages.Add(new Image<Gray, byte>(ImagePath));
              // labels.Add(PersonName);
 
-            UpdateRecognizer();
+            //UpdateRecognizer();
         }
        
         public void StartStreaming()
@@ -256,6 +256,54 @@ namespace UI
                labels.ToArray(),
                3000,
                ref termCrit);
+        }
+
+        public void ImageGreyScaleFaceDetectResize(string inputpath)
+        {
+            //Trained face counter
+            ContTrain = ContTrain + 1;
+
+            //Get a gray frame from capture device
+            gray = new Image<Gray, byte>(inputpath);//.Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+
+            //Face Detector
+            MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
+            face,
+            1.2,
+            10,
+            Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
+            new Size(20, 20));
+
+            //Action for each element detected
+            foreach (MCvAvgComp f in facesDetected[0])
+            {
+                TrainedFace = gray.Copy(f.rect).Convert<Gray, byte>();
+                break;
+            }
+
+            //resize face detected image for force to compare the same size with the 
+            //test image with cubic interpolation type method
+            TrainedFace = TrainedFace.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+
+            int i = 0;
+            string savepath = Application.StartupPath + "/Images/face" + i + ".bmp";
+            while (File.Exists(savepath))
+            {
+                savepath = Application.StartupPath + "/Images/face" + ++i + ".bmp";
+            }
+            TrainedFace.Save(savepath);
+
+            // Add to DATABASE 
+            //TODO: Nermo 3awezeen nesave fel el database hena
+
+        }
+
+        public void MoreImagesGSFDR(List<string>paths)
+        {
+            foreach (string s in paths)
+            {
+                ImageGreyScaleFaceDetectResize(s);
+            }
         }
     }
 }
