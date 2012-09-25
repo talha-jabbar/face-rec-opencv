@@ -1,6 +1,5 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="Images.cs" company="">
-// TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -12,7 +11,6 @@ namespace UI
     using System.Text;
 
     /// <summary>
-    /// TODO: Update summary.
     /// </summary>
     public class Images
     {
