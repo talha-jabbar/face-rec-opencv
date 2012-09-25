@@ -28,7 +28,7 @@ namespace UI
         int ContTrain, t;
         string name, names = null;
         string lbl3, lbl4;
-        ImageBox imageBoxFrameGrabber;
+        ImageBox imageBoxFrameGrabber ;//= new ImageBox();
         EigenObjectRecognizer recognizer;
 
         public FaceRecognizer() 
@@ -40,14 +40,24 @@ namespace UI
 
             //Load haarcascades for face detection
             face = new HaarCascade("haarcascade_frontalface_default.xml");
-            
+            ContTrain = 0;
             ////Load of previus trainned faces and labels for each image
             //TODO: Nermo 3awezeen ne2ra men el database hena
             // for each record in the database
              // trainingImages.Add(new Image<Gray, byte>(ImagePath));
              // labels.Add(PersonName);
-
-            //UpdateRecognizer();
+            foreach (var item in Form1.db.DatabaseDictionary)
+	        {
+                foreach (string s in item.Value)
+                {
+                    trainingImages.Add(new Image<Gray, byte>(s));
+                    labels.Add(item.Key);
+                    ContTrain++;
+                }
+	        }
+            
+            if (Form1.db.DatabaseDictionary.Count >0)
+            UpdateRecognizer();
         }
        
         public void StartStreaming()
@@ -64,7 +74,7 @@ namespace UI
             grabber = null;
         }
 
-        void FrameGrabber(object sender, EventArgs e)
+        public void FrameGrabber(object sender, EventArgs e)
         {
             lbl3 = "0";
             lbl4 = "";
@@ -118,14 +128,14 @@ namespace UI
                 names = names + NamePersons[nnn] + ", ";
             }
             //Show the faces procesed and recognized
-            imageBoxFrameGrabber.Image = currentFrame;
+            //imageBoxFrameGrabber.Image = currentFrame;
             lbl3 = names;
             names = "";
             //Clear the list(vector) of names
             NamePersons.Clear();
         }
 
-        void FrameGrabberImage(string imgPath)
+        public void FrameGrabberImage(string imgPath)
         {
             lbl3 = "0";
             lbl4 = "";
@@ -157,7 +167,7 @@ namespace UI
 
                 if (trainingImages.ToArray().Length != 0)
                 {
-                    //UpdateRecognizer();
+                   // UpdateRecognizer();
                     name = recognizer.Recognize(result);
 
                     //Draw the label for each face detected and recognized
@@ -181,7 +191,7 @@ namespace UI
                 names = names + NamePersons[nnn] + ", ";
             }
             //Show the faces procesed and recognized
-            imageBoxFrameGrabber.Image = currentFrame;
+           // imageBoxFrameGrabber.Image = currentFrame;
             lbl3 = names;
             names = "";
             //Clear the list(vector) of names
@@ -189,7 +199,7 @@ namespace UI
 
         }
 
-        void CatchFace(ref string txt1, ref ImageBox pcb)
+        public void CatchFace(ref string txt1, ref ImageBox pcb)
         {
             try
             {
