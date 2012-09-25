@@ -25,10 +25,11 @@ namespace UI
         List<Image<Gray, byte>> trainingImages = new List<Image<Gray, byte>>();
         List<string> labels = new List<string>();
         List<string> NamePersons = new List<string>();
-        int ContTrain, NumLabels, t;
+        int ContTrain, t;
         string name, names = null;
         string lbl3, lbl4;
         ImageBox imageBoxFrameGrabber;
+        EigenObjectRecognizer recognizer;
 
         public FaceRecognizer(ref string FacesN, ref string allNames,ImageBox icb) 
         {
@@ -45,6 +46,8 @@ namespace UI
             // for each record in the database
              // trainingImages.Add(new Image<Gray, byte>(ImagePath));
              // labels.Add(PersonName);
+
+            UpdateRecognizer();
         }
        
         public void StartStreaming()
@@ -67,7 +70,6 @@ namespace UI
             lbl4 = "";
             NamePersons.Add("");
 
-
             //Get the current frame form capture device
             currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
 
@@ -87,27 +89,17 @@ namespace UI
             {
                 t = t + 1;
                 result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+               
                 //draw the face detected in the 0th (gray) channel with blue color
                 currentFrame.Draw(f.rect, new Bgr(Color.Red), 2);
 
 
                 if (trainingImages.ToArray().Length != 0)
                 {
-                    //TermCriteria for face recognition with numbers of trained images like maxIteration
-                    MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
-
-                    //Eigen face recognizer
-                    EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
-                       trainingImages.ToArray(),
-                       labels.ToArray(),
-                       3000,
-                       ref termCrit);
-
+                    //UpdateRecognizer();
                     name = recognizer.Recognize(result);
-
                     //Draw the label for each face detected and recognized
                     currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
-
                 }
 
                 NamePersons[t - 1] = name;
@@ -165,16 +157,7 @@ namespace UI
 
                 if (trainingImages.ToArray().Length != 0)
                 {
-                    //TermCriteria for face recognition with numbers of trained images like maxIteration
-                    MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
-
-                    //Eigen face recognizer
-                    EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
-                       trainingImages.ToArray(),
-                       labels.ToArray(),
-                       3000,
-                       ref termCrit);
-
+                    //UpdateRecognizer();
                     name = recognizer.Recognize(result);
 
                     //Draw the label for each face detected and recognized
@@ -253,13 +236,26 @@ namespace UI
                 //TODO: Nermo 3awezeen nesave fel el database hena
 
 
-
+                UpdateRecognizer();
                 MessageBox.Show(txt1 + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
                 MessageBox.Show("Enable the face detection first", "Training Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        void UpdateRecognizer()
+        {
+            //TermCriteria for face recognition with numbers of trained images like maxIteration
+            MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
+
+            //Eigen face recognizer
+            recognizer = new EigenObjectRecognizer(
+               trainingImages.ToArray(),
+               labels.ToArray(),
+               3000,
+               ref termCrit);
         }
     }
 }
