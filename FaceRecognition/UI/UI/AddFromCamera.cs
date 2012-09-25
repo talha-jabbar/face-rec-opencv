@@ -11,11 +11,20 @@ namespace UI
 {
     public partial class AddFromCamera : Form
     {
-        public AddFromCamera()
+        string name;
+        List<string> images;
+        Button done;
+
+        public AddFromCamera(string name, List<string> images, Button done)
         {
             InitializeComponent();
             Form1.frec.pictureBoxFrameGrabber = this.pictureBox1;
             Form1.frec.StartStreaming();
+            this.name = name;
+            this.images = images;
+            this.done = done;
+            images = new List<string>();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -30,7 +39,12 @@ namespace UI
             {
                 this.pictureBox2.Visible = true;
                 timer1.Start();
-                Form1.itc.AddItem(0, textBox1.Text, this.pictureBox2.Image);
+                name = textBox1.Text;
+                if (images == null)
+                    images = new List<string>();
+                images.Add(BasicOperations.SaveImage(pictureBox2.Image));
+                this.done.Visible = true;
+                this.textBox1.Enabled = false;
             }
         }
 

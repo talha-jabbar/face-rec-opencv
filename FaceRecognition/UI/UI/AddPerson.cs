@@ -63,16 +63,8 @@ namespace UI
 
         private void btn_addImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Multiselect = true;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                images = openFileDialog1.FileNames.ToList();
-                
-
-                btn_done.Show();
-            }
+            button1.Visible = true;
+            button2.Visible = true;
         }
 
         private void AddPerson_FormClosing(object sender, FormClosingEventArgs e)
@@ -89,6 +81,26 @@ namespace UI
         {
             picBox_close.Image = UI.Properties.Resources.button_cancelOff;
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Multiselect = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                images = openFileDialog1.FileNames.ToList();
+                btn_done.Show();
+                btn_done.Visible = true;
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddFromCamera addfromcam = new AddFromCamera(name,images,btn_done);
+            addfromcam.Show();
         }
     }
 }

@@ -136,7 +136,7 @@ namespace UI
             NamePersons.Clear();
         }
 
-        public void FrameGrabberImage(string imgPath)
+        public void FrameGrabberImage(string imgPath, PictureBox pcb)
         {
             lbl3 = "0";
             lbl4 = "";
@@ -192,7 +192,7 @@ namespace UI
                 names = names + NamePersons[nnn] + ", ";
             }
             //Show the faces procesed and recognized
-           // imageBoxFrameGrabber.Image = currentFrame;
+            pcb.Image = currentFrame.ToBitmap();
             lbl3 = names;
             names = "";
             //Clear the list(vector) of names
@@ -271,7 +271,7 @@ namespace UI
                ref termCrit);
         }
 
-        public void ImageGreyScaleFaceDetectResize(string inputpath)
+        public void AddImageFromFile(string inputpath, string label)
         {
             //Trained face counter
             ContTrain = ContTrain + 1;
@@ -297,6 +297,8 @@ namespace UI
             //resize face detected image for force to compare the same size with the 
             //test image with cubic interpolation type method
             TrainedFace = TrainedFace.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+            trainingImages.Add(TrainedFace);
+            labels.Add(label);
 
             int i = 0;
             string savepath = Application.StartupPath + "/Images/face" + i + ".bmp";
@@ -311,12 +313,13 @@ namespace UI
 
         }
 
-        public void MoreImagesGSFDR(List<string>paths)
+        public void AddListFromFile(List<string> inputpaths, string label)
         {
-            foreach (string s in paths)
+            foreach (string  s  in inputpaths)
             {
-                ImageGreyScaleFaceDetectResize(s);
+                AddImageFromFile(s, label);
             }
         }
+
     }
 }
