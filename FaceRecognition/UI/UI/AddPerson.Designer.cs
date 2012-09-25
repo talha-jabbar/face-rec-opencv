@@ -39,6 +39,8 @@
             this.lbl_Name = new System.Windows.Forms.Label();
             this.btn_done = new System.Windows.Forms.Button();
             this.btn_addImage = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +50,8 @@
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.Color.Black;
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -62,7 +66,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.PaleVioletRed;
             this.groupBox1.Location = new System.Drawing.Point(12, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(287, 265);
+            this.groupBox1.Size = new System.Drawing.Size(287, 318);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data";
@@ -148,7 +152,7 @@
             // 
             this.btn_done.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_done.ForeColor = System.Drawing.Color.Black;
-            this.btn_done.Location = new System.Drawing.Point(202, 199);
+            this.btn_done.Location = new System.Drawing.Point(181, 252);
             this.btn_done.Name = "btn_done";
             this.btn_done.Size = new System.Drawing.Size(79, 41);
             this.btn_done.TabIndex = 1;
@@ -163,11 +167,35 @@
             this.btn_addImage.ForeColor = System.Drawing.Color.Black;
             this.btn_addImage.Location = new System.Drawing.Point(9, 152);
             this.btn_addImage.Name = "btn_addImage";
-            this.btn_addImage.Size = new System.Drawing.Size(272, 30);
+            this.btn_addImage.Size = new System.Drawing.Size(272, 33);
             this.btn_addImage.TabIndex = 0;
             this.btn_addImage.Text = "Add Images";
             this.btn_addImage.UseVisualStyleBackColor = false;
             this.btn_addImage.Click += new System.EventHandler(this.btn_addImage_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(9, 185);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 56);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "From Computer";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(153, 185);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(128, 56);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "From Camera";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AddPerson
             // 
@@ -176,7 +204,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(311, 274);
+            this.ClientSize = new System.Drawing.Size(308, 317);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -206,5 +234,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbl_Phone;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -72,8 +72,6 @@ namespace UI
                 orignalBmp = new Bitmap(openFileDialog1.FileName);
                 picBox_Original.Image = orignalBmp;
                 imagePath = openFileDialog1.FileName;
-                FaceRecognizer f = new FaceRecognizer();
-                f.ImageGreyScaleFaceDetectResize(imagePath);
             }
         }
 
@@ -147,9 +145,9 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddFromCamera a = new AddFromCamera();
-            a.Show();
-           // frec.FrameGrabberImage(imagePath);
+            //AddFromCamera a = new AddFromCamera();
+            //a.Show();
+            frec.FrameGrabberImage(imagePath, this.picBox_Original);
             //unsafe
             //{
             //    int* rectangles= null;
