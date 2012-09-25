@@ -31,6 +31,8 @@ namespace UI
 
         public string selectedItem;
 
+        public int selectedItemindex;
+
         public string preSelectedItem;
 
         public ItemsContainer()
@@ -92,6 +94,7 @@ namespace UI
                 i.HighLight();
                 i.Selected = true;
                 selectedItem = i.NameText;
+                selectedItemindex = i.ID;
                 preSelectedItem = i.NameText;
                 ItemSelected(sender, e);
             }
@@ -99,6 +102,7 @@ namespace UI
             {
                 preSelectedItem = selectedItem;
                 selectedItem = string.Empty;
+                selectedItemindex = -1;
             }
         }
 
