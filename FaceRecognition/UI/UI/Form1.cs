@@ -17,7 +17,7 @@ namespace UI
 
         List<string> names;
 
-        FaceRecognizer frec;
+        public static FaceRecognizer frec;
 
         string imagePath;
 
@@ -147,7 +147,9 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frec.FrameGrabberImage(imagePath);
+            AddFromCamera a = new AddFromCamera();
+            a.Show();
+           // frec.FrameGrabberImage(imagePath);
             //unsafe
             //{
             //    int* rectangles= null;
