@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPerson));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_address = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_phone = new System.Windows.Forms.TextBox();
             this.lbl_Phone = new System.Windows.Forms.Label();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.txt_name = new System.Windows.Forms.TextBox();
@@ -50,11 +50,12 @@
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.Color.Black;
+            this.groupBox1.Controls.Add(this.txt_address);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            //this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_phone);
             this.groupBox1.Controls.Add(this.lbl_Phone);
             this.groupBox1.Controls.Add(this.picBox_close);
             this.groupBox1.Controls.Add(this.txt_name);
@@ -71,14 +72,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data";
             // 
-            // textBox2
+            // txt_address
             // 
-            this.textBox2.BackColor = System.Drawing.Color.LightGray;
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(84, 111);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 26);
-            this.textBox2.TabIndex = 13;
+            this.txt_address.BackColor = System.Drawing.Color.LightGray;
+            this.txt_address.ForeColor = System.Drawing.Color.Black;
+            this.txt_address.Location = new System.Drawing.Point(84, 111);
+            this.txt_address.Name = "txt_address";
+            this.txt_address.Size = new System.Drawing.Size(197, 26);
+            this.txt_address.TabIndex = 13;
             // 
             // label2
             // 
@@ -92,14 +93,14 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Address:";
             // 
-            // textBox1
+            // txt_phone
             // 
-            this.textBox1.BackColor = System.Drawing.Color.LightGray;
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(84, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 26);
-            this.textBox1.TabIndex = 11;
+            this.txt_phone.BackColor = System.Drawing.Color.LightGray;
+            this.txt_phone.ForeColor = System.Drawing.Color.Black;
+            this.txt_phone.Location = new System.Drawing.Point(84, 79);
+            this.txt_phone.Name = "txt_phone";
+            this.txt_phone.Size = new System.Drawing.Size(197, 26);
+            this.txt_phone.TabIndex = 11;
             // 
             // lbl_Phone
             // 
@@ -230,9 +231,9 @@
         private System.Windows.Forms.Button btn_done;
         private System.Windows.Forms.Button btn_addImage;
         private System.Windows.Forms.PictureBox picBox_close;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_phone;
         private System.Windows.Forms.Label lbl_Phone;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

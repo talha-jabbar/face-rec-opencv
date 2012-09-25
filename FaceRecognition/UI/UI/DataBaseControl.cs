@@ -13,17 +13,36 @@ namespace UI
     {
         List<string> imagePaths;
         bool imageAdded = false;
-        string prevText;
+        string prevName;
+        string prevPhone;
+        string prevAddress;
         int countP;
         int globalIndex;
+        Person p;
+        List<string> images;
 
         public DataBaseControl(string name,List<string> imagePath)
         {
             InitializeComponent();
             lbl_name.Text = name;
             imagePaths = new List<string>(imagePath);
-            //imagePaths = imagePath;
             GeniratePicBox(imagePath);
+        }
+
+        public DataBaseControl(Person person)
+        {
+            InitializeComponent();
+            lbl_name.Text = person.User.Name;
+            lbl_phone.Text = person.User.PhoneNo;
+            int count = person.Images.Count;
+            imagePaths = new List<string>();
+            p = person;
+            for (int i = 0; i < count;i++ )
+            {
+                imagePaths.Add(person.Images[i].ImagePath);
+            }
+            
+            GeniratePicBox(imagePaths);
         }
 
         private void GeniratePicBox(List<string> imagePath)
@@ -111,9 +130,9 @@ namespace UI
             int index = int.Parse(lbl.Name.Substring(5));
             if (imagePaths.Count > 1)
             {
-                Form1.db.deleltedImages.Add(imagePaths[index - 1]);
+                Form1.database.DeleteImage(p, p.Images[index - 1].ImageID, true);
+                //Form1.db.deleltedImages.Add(imagePaths[index - 1]);
                 imagePaths.RemoveAt(index - 1);
-                imageAdded = true;
                 RemoveAllPictureBox();
                 RemoveAllLabels();
                 GeniratePicBox(imagePaths);
@@ -150,12 +169,7 @@ namespace UI
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                List<string> images = openFileDialog1.FileNames.ToList();
-
-                for (int i = 0; i < images.Count; i++)
-                {
-                    imagePaths.Add(images[i]);
-                }
+                images = openFileDialog1.FileNames.ToList();
 
                 imageAdded = true;
             }
@@ -171,17 +185,22 @@ namespace UI
                 for (int i = 0; i < count; i++)
                 {
                     Image image = new Bitmap(imagePaths[i]);
-                    imagePaths[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text + System.IO.Path.GetFileName(imagePaths[i]);
-                    image.Save(imagePaths[i]);
+                    images[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text+txt_name.Text + txt_phone.Text + txt_address.Text + System.IO.Path.GetFileName(images[i]);
+                    image.Save(images[i]);
+                    Form1.database.InsertImage(p.User.UserID, images[i], true);
                 }
 
-                imageEdit = Form1.db.EditDictionary(prevText, imagePaths);
+                //imageEdit = Form1.db.EditDictionary(prevName, imagePaths);
             }
 
-            if (prevText != txt_name.Text)
+            if (prevName != txt_name.Text || prevAddress != txt_address.Text || prevPhone != txt_phone.Text)
             {
-                nameEdit = Form1.db.EditDictionary(prevText, txt_name.Text);
+                Users u = new Users(p.User.UserID, txt_name.Text, txt_phone.Text, txt_address.Text);
+                Form1.database.UpdateUserInfo(p.User.UserID, u);
+                //nameEdit = Form1.db.EditDictionary(prevName, txt_name.Text);
                 lbl_name.Text = txt_name.Text;
+                lbl_address.Text = txt_address.Text;
+                lbl_phone.Text = txt_phone.Text;
                 ((Item)Form1.itc.items[Form1.itc.selectedItem]).LblName.Text = txt_name.Text;
             }
 
@@ -189,6 +208,10 @@ namespace UI
             {
                 lbl_name.Show();
                 txt_name.Hide();
+                lbl_address.Show();
+                lbl_phone.Show();
+                txt_phone.Hide();
+                txt_address.Hide();
                 lbl_edit.Show();
                 btn_done.Hide();
                 btn_AddImage.Hide();
@@ -224,9 +247,17 @@ namespace UI
         private void lbl_edit_Click(object sender, EventArgs e)
         {
             countP = imagePaths.Count;
-            prevText = lbl_name.Text;
+            prevName = lbl_name.Text;
+            prevPhone = lbl_phone.Text;
+            prevAddress = lbl_address.Text;
             txt_name.Text = lbl_name.Text;
+            txt_phone.Text = lbl_phone.Text;
+            txt_address.Text = lbl_address.Text;
             lbl_name.Hide();
+            lbl_address.Hide();
+            lbl_phone.Hide();
+            txt_phone.Show();
+            txt_address.Show();
             txt_name.Show();
             lbl_edit.Hide();
             btn_done.Show();
