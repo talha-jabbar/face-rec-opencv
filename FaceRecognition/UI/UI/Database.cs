@@ -57,7 +57,7 @@ namespace UI
                 if (!databaseDictionary.ContainsKey(data[1]))
                 {
                     databaseDictionary.Add(data[1], new List<string>());
-                    Form1.itc.AddItem(data[1],new Bitmap(data[0]));
+                    Form1.itc.AddItem(0/*your id here*/,data[1],new Bitmap(data[0]));
                 }
                 databaseDictionary[data[1]].Add(data[0]);
 

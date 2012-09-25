@@ -45,9 +45,9 @@ namespace UI
             AddItemToControls(i);
         }
 
-        public void AddItem(string name, Image pic)
+        public void AddItem(int id, string name, Image pic)
         {
-            Item i = new Item(name, pic);
+            Item i = new Item(id,name, pic);
             AddItemToControls(i);
         }
 
