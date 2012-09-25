@@ -56,7 +56,7 @@ namespace UI
             {   
                 MessageBox.Show("Sorry you have to Enter a new name and at least 1 image");
             }
-            Form1.itc.AddItem(name, new Bitmap(images[0]));
+            Form1.itc.AddItem(0/*your id here*/,name, new Bitmap(images[0]));
             txt_name.Text = string.Empty;
             images = new List<string>();
         }

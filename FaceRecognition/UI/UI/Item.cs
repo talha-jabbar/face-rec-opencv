@@ -15,6 +15,7 @@ namespace UI
         public bool Selected = false;
         public Color SelectedColor = Color.White;
         public Color HoverColor = Color.Gray;
+        public int ID;
 
         public Panel MainPanel
         {
@@ -39,7 +40,7 @@ namespace UI
             InitializeComponent();
         }
 
-        public Item(string name, Image img)
+        public Item(int id, string name, Image img)
         {
             InitializeComponent();
             this.NameText = name;
@@ -48,7 +49,7 @@ namespace UI
             this.pcb_PersonalPic.AccessibleName = name;
             this.lbl_Name.AccessibleName = name;
             this.Name = name;
-
+            this.ID = id;
         }
 
         public string NameText
