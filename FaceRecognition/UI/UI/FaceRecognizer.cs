@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace UI
 {
-    class FaceRecognizer
+    public class FaceRecognizer
     {
         Image<Bgr, Byte> currentFrame;
         Capture grabber;
@@ -28,7 +28,8 @@ namespace UI
         int ContTrain, t;
         string name, names = null;
         string lbl3, lbl4;
-        ImageBox imageBoxFrameGrabber ;//= new ImageBox();
+        public ImageBox imageBoxFrameGrabber;//= new ImageBox();
+        public PictureBox pictureBoxFrameGrabber;//= new ImageBox();
         EigenObjectRecognizer recognizer;
 
         public FaceRecognizer() 
@@ -128,7 +129,7 @@ namespace UI
                 names = names + NamePersons[nnn] + ", ";
             }
             //Show the faces procesed and recognized
-            //imageBoxFrameGrabber.Image = currentFrame;
+            pictureBoxFrameGrabber.Image = currentFrame.ToBitmap();
             lbl3 = names;
             names = "";
             //Clear the list(vector) of names
@@ -199,7 +200,7 @@ namespace UI
 
         }
 
-        public void CatchFace(ref string txt1, ref ImageBox pcb)
+        public bool CatchFace(string label, PictureBox pcb)
         {
             try
             {
@@ -228,10 +229,10 @@ namespace UI
                 //test image with cubic interpolation type method
                 TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
                 trainingImages.Add(TrainedFace);
-                labels.Add(txt1);
+                labels.Add(label);
 
                 //Show face added in gray scale
-                pcb.Image = TrainedFace;
+                pcb.Image = TrainedFace.ToBitmap();
 
                 // SAVE FILE 
                 int i = 0;
@@ -247,11 +248,13 @@ namespace UI
 
 
                 UpdateRecognizer();
-                MessageBox.Show(txt1 + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(label + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch
             {
                 MessageBox.Show("Enable the face detection first", "Training Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
             }
         }
 
@@ -264,7 +267,7 @@ namespace UI
             recognizer = new EigenObjectRecognizer(
                trainingImages.ToArray(),
                labels.ToArray(),
-               3000,
+               1000,
                ref termCrit);
         }
 
