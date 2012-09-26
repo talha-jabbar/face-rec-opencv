@@ -14,6 +14,7 @@ namespace UI
     using System.Data.SqlClient;
     using System.Data;
     using System.IO;
+    using System.Windows.Forms;
 
     /// <summary>
     /// </summary>
@@ -133,7 +134,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                throw new Exception("Cannot Connect to the database", ex);
+                MessageBox.Show(ex.Message);
+                //throw new Exception("Cannot Connect to the database", ex);
             }
             finally
             {
@@ -184,7 +186,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                throw new Exception("Cannot Connect to the database", ex);
+                MessageBox.Show(ex.Message);
+                //throw new Exception("Cannot Connect to the database", ex);
             }
             finally
             {
@@ -284,7 +287,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex);
+                MessageBox.Show(ex.Message);
+               // throw new Exception(ex.Message, ex);
             }
             finally
             {
@@ -344,7 +348,9 @@ namespace UI
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex);
+                MessageBox.Show(ex.Message);
+
+               // throw new Exception(ex.Message, ex);
 
             }
             finally
@@ -400,7 +406,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex);
+                MessageBox.Show(ex.Message);
+                //throw new Exception(ex.Message, ex);
 
             }
             finally
@@ -429,7 +436,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex);
+                MessageBox.Show(ex.Message);
+                //throw new Exception(ex.Message, ex);
             }
             finally
             {
@@ -460,7 +468,9 @@ namespace UI
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex);
+                MessageBox.Show(ex.Message);
+
+                //throw new Exception(ex.Message, ex);
             }
             finally
             {
