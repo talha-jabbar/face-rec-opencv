@@ -135,6 +135,7 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return null;
                 //throw new Exception("Cannot Connect to the database", ex);
             }
             finally
@@ -469,7 +470,7 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
+                return false;
                 //throw new Exception(ex.Message, ex);
             }
             finally
