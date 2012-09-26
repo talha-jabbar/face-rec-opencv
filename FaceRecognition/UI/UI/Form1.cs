@@ -140,13 +140,14 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             openToolStripMenuItem_Click(sender, e);
+            frec.FrameGrabberImage(imagePath, this.picBox_Original);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //AddFromCamera a = new AddFromCamera();
             //a.Show();
-            frec.FrameGrabberImage(imagePath, this.picBox_Original);
+           // frec.FrameGrabberImage(imagePath, this.picBox_Original);
             //unsafe
             //{
             //    int* rectangles= null;
@@ -183,6 +184,19 @@ namespace UI
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void streamingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frec.pictureBoxFrameGrabber = this.picBox_Original;
+            frec.StartStreaming();
+        }
+
+        private void captureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frec.pictureBoxFrameGrabber = this.picBox_Original;
+            frec.CaptureFrame();
 
         } 
     }

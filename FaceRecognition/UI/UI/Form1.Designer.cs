@@ -79,10 +79,12 @@
             this.captureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.recognizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.recognizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setSensetivityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.itemsContainer1 = new UI.ItemsContainer();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
@@ -356,7 +358,7 @@
             // 
             // panel_mainPanel
             // 
-            this.panel_mainPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.panel_mainPanel.BackColor = System.Drawing.Color.Black;
             this.panel_mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_mainPanel.Controls.Add(this.statusStrip1);
             this.panel_mainPanel.Controls.Add(this.itemsContainer1);
@@ -421,7 +423,7 @@
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.LightGray;
+            this.menuStrip1.BackColor = System.Drawing.Color.Gray;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -431,7 +433,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(207, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(170, 27);
             this.menuStrip1.Stretch = false;
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menu";
@@ -450,8 +452,9 @@
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.openToolStripMenuItem1.Text = "Open";
+            this.openToolStripMenuItem1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cameraToolStripMenuItem
             // 
@@ -459,7 +462,7 @@
             this.streamingToolStripMenuItem,
             this.captureToolStripMenuItem});
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.cameraToolStripMenuItem.Text = "Camera";
             // 
             // streamingToolStripMenuItem
@@ -467,29 +470,25 @@
             this.streamingToolStripMenuItem.Name = "streamingToolStripMenuItem";
             this.streamingToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.streamingToolStripMenuItem.Text = "Streaming";
+            this.streamingToolStripMenuItem.Click += new System.EventHandler(this.streamingToolStripMenuItem_Click);
             // 
             // captureToolStripMenuItem
             // 
             this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
             this.captureToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.captureToolStripMenuItem.Text = "Capture";
+            this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(149, 6);
-            // 
-            // recognizeToolStripMenuItem
-            // 
-            this.recognizeToolStripMenuItem.Name = "recognizeToolStripMenuItem";
-            this.recognizeToolStripMenuItem.Size = new System.Drawing.Size(87, 23);
-            this.recognizeToolStripMenuItem.Text = "Recognize";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(122, 6);
             // 
             // helpToolStripMenuItem1
             // 
@@ -505,18 +504,40 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Gray;
             this.statusStrip1.Location = new System.Drawing.Point(0, 576);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(721, 22);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // recognizeToolStripMenuItem
+            // 
+            this.recognizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setSensetivityToolStripMenuItem,
+            this.toolStripTextBox1});
+            this.recognizeToolStripMenuItem.Name = "recognizeToolStripMenuItem";
+            this.recognizeToolStripMenuItem.Size = new System.Drawing.Size(69, 23);
+            this.recognizeToolStripMenuItem.Text = "Options";
+            // 
+            // setSensetivityToolStripMenuItem
+            // 
+            this.setSensetivityToolStripMenuItem.Enabled = false;
+            this.setSensetivityToolStripMenuItem.Name = "setSensetivityToolStripMenuItem";
+            this.setSensetivityToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.setSensetivityToolStripMenuItem.Text = "Set Sensetivity";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            // 
             // itemsContainer1
             // 
             this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
             this.itemsContainer1.Location = new System.Drawing.Point(514, 56);
             this.itemsContainer1.Name = "itemsContainer1";
-            this.itemsContainer1.Size = new System.Drawing.Size(206, 530);
+            this.itemsContainer1.Size = new System.Drawing.Size(206, 517);
             this.itemsContainer1.TabIndex = 11;
             // 
             // Form1
@@ -595,10 +616,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private ItemsContainer itemsContainer1;
-        private System.Windows.Forms.ToolStripMenuItem recognizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem recognizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setSensetivityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
 
