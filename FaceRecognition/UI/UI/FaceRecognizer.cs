@@ -328,7 +328,7 @@ namespace UI
             recognizer = new EigenObjectRecognizer(
                trainingImages.ToArray(),
                labels.ToArray(),
-               1000,
+               2000,
                ref termCrit);
         }
 
