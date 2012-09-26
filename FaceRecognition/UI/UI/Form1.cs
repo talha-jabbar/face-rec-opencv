@@ -202,8 +202,12 @@ namespace UI
         private void clearUrDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             database.ClearDataBase();
-            CreateNewItc();
-            frec = new FaceRecognizer();
+            for (int i = 0; i < itc.items.Count; i++)
+            {
+                itc.items.RemoveAt(i);
+                i--;
+            }
+                CreateNewItc();
 
         }
     }
