@@ -38,6 +38,22 @@ namespace UI
             ContTrain = 0;
             ////Load of previus trainned faces and labels for each image
             //TODO: Nermo 3awezeen ne2ra men el database hena
+            // for each record in the database
+             // trainingImages.Add(new Image<Gray, byte>(ImagePath));
+             // labels.Add(PersonName);
+
+            foreach (Person item in Form1.database.Persons) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
+            {
+                foreach (Images s in item.Images)
+                {
+                    trainingImages.Add(new Image<Gray, byte>(s.ImagePath));
+                    labels.Add(item.User.Name);
+                    ContTrain++;
+                }
+            }
+
+            if (Form1.database.Persons.Count > 0)
+                UpdateRecognizer();
 
             
             //if (Form1.database.Persons.Count>0)
