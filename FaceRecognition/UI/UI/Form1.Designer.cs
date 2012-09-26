@@ -84,7 +84,6 @@
             this.helpToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.itemsContainer1 = new UI.ItemsContainer();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Original)).BeginInit();
@@ -359,46 +358,47 @@
             // 
             this.panel_mainPanel.BackColor = System.Drawing.Color.DarkGray;
             this.panel_mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_mainPanel.Controls.Add(this.toolStrip1);
-            this.panel_mainPanel.Controls.Add(this.itemsContainer1);
             this.panel_mainPanel.Controls.Add(this.statusStrip1);
-            this.panel_mainPanel.Controls.Add(this.button2);
-            this.panel_mainPanel.Controls.Add(this.button1);
+            this.panel_mainPanel.Controls.Add(this.itemsContainer1);
             this.panel_mainPanel.Controls.Add(this.picBox_close);
             this.panel_mainPanel.Controls.Add(this.picBox_Original);
             this.panel_mainPanel.Controls.Add(this.menuStrip1);
+            this.panel_mainPanel.Controls.Add(this.button2);
+            this.panel_mainPanel.Controls.Add(this.button1);
             this.panel_mainPanel.Location = new System.Drawing.Point(0, 0);
             this.panel_mainPanel.Name = "panel_mainPanel";
-            this.panel_mainPanel.Size = new System.Drawing.Size(1049, 655);
+            this.panel_mainPanel.Size = new System.Drawing.Size(721, 598);
             this.panel_mainPanel.TabIndex = 0;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(97, 65);
+            this.button2.Location = new System.Drawing.Point(626, 569);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 34);
             this.button2.TabIndex = 8;
             this.button2.Text = "Recognize";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(110, 117);
+            this.button1.Location = new System.Drawing.Point(524, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 34);
             this.button1.TabIndex = 8;
             this.button1.Text = "Open";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // picBox_close
             // 
             this.picBox_close.BackColor = System.Drawing.Color.Transparent;
             this.picBox_close.Image = global::UI.Properties.Resources.button_cancelOff;
-            this.picBox_close.Location = new System.Drawing.Point(1002, 4);
+            this.picBox_close.Location = new System.Drawing.Point(684, 4);
             this.picBox_close.Name = "picBox_close";
-            this.picBox_close.Size = new System.Drawing.Size(36, 18);
+            this.picBox_close.Size = new System.Drawing.Size(33, 37);
             this.picBox_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBox_close.TabIndex = 7;
             this.picBox_close.TabStop = false;
@@ -411,7 +411,7 @@
             this.picBox_Original.BackColor = System.Drawing.Color.Transparent;
             this.picBox_Original.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBox_Original.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_Original.Location = new System.Drawing.Point(261, 129);
+            this.picBox_Original.Location = new System.Drawing.Point(42, 97);
             this.picBox_Original.Name = "picBox_Original";
             this.picBox_Original.Size = new System.Drawing.Size(400, 380);
             this.picBox_Original.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -430,7 +430,8 @@
             this.helpToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1049, 27);
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(207, 27);
             this.menuStrip1.Stretch = false;
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menu";
@@ -504,39 +505,26 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 633);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 576);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1049, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(721, 22);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // itemsContainer1
             // 
             this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
-            this.itemsContainer1.Location = new System.Drawing.Point(840, 30);
+            this.itemsContainer1.Location = new System.Drawing.Point(514, 56);
             this.itemsContainer1.Name = "itemsContainer1";
-            this.itemsContainer1.Size = new System.Drawing.Size(206, 600);
+            this.itemsContainer1.Size = new System.Drawing.Size(206, 530);
             this.itemsContainer1.TabIndex = 11;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.LightGray;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(58, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(36, 606);
-            this.toolStrip1.TabIndex = 12;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1045, 658);
+            this.ClientSize = new System.Drawing.Size(721, 601);
             this.Controls.Add(this.panel_mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -607,11 +595,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private ItemsContainer itemsContainer1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem recognizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 
