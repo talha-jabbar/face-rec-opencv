@@ -66,10 +66,10 @@ namespace UI
             {
                 imagesList.Add(new Images(-1, images[i], -1));
             }
-            Form1.database.Insert(new Person(u, imagesList));
-            //added = Form1.db.AddToDictionary(name, images);
-            if (images.Count > 0)
+            if(imagesList.Count != 0)
             {
+                Form1.database.Insert(new Person(u, imagesList));
+                Form1.itc.AddItem(Form1.database.Persons.Count - 1 /*your id here*/, name, new Bitmap(images[0]));
                 MessageBox.Show("Added succesfly");
             }
 
@@ -77,7 +77,6 @@ namespace UI
             {   
                 MessageBox.Show("Sorry you have to Enter a new name and at least 1 image");
             }
-            Form1.itc.AddItem(Form1.database.Persons.Count - 1 /*your id here*/, name, new Bitmap(images[0]));
             txt_name.Text = string.Empty;
             txt_address.Text = string.Empty;
             txt_phone.Text = string.Empty;
