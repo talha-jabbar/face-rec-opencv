@@ -34,19 +34,22 @@ namespace UI
         private void btn_done_Click(object sender, EventArgs e)
         {
             //TODO: i want to add here .. if camImages == null then form1.frec.savereadyimageslist(camimages,name); else form1.frec.savelist(images, name);
+            if (!(cameraImages == null))
+            {
+                Form1.frec.SaveReadyImageList(cameraImages, txt_name.Text);
+            }
+            else
+                Form1.frec.SaveList(images, txt_name.Text);
+
             name = txt_name.Text;
             Users u = new Users(-1, name, txt_phone.Text, txt_address.Text);
-            bool added;
+            
             //Add the name and the images to the file return bool and display a message box
 
             int count = images.Count;
             List<Images> imagesList = new List<Images>();
             for (int i = 0; i < count; i++)
             {
-                Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("FRImages");
-                Image image = new Bitmap(images[i]);
-                images[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text+txt_phone.Text+ txt_address.Text + System.IO.Path.GetFileName(images[i]);
-                image.Save(images[i]);
                 imagesList.Add(new Images(-1, images[i], -1));
             }
             Form1.database.Insert(new Person(u, imagesList));
