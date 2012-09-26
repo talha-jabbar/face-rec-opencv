@@ -111,8 +111,9 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            database.SelectAllUsers();
             CreateNewItc();
+            database.SelectAllUsers();
+            frec = new FaceRecognizer();
 
         }
 
@@ -124,7 +125,6 @@ namespace UI
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
             //database.ClearDataBase();
-            frec = new FaceRecognizer();
            // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
            // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
 
@@ -212,7 +212,7 @@ namespace UI
                 i--;
             }
                 CreateNewItc();
-
+                frec = new FaceRecognizer();
         }
 
         private void panel_mainPanel_MouseDown(object sender, MouseEventArgs e)
