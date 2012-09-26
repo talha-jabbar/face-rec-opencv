@@ -41,7 +41,7 @@ namespace UI
             }
             else if (!(images.Count == 0))
             {
-                Form1.frec.SaveList(images, txt_name.Text);
+               images = Form1.frec.SaveList(images, txt_name.Text);
             }
             else
                images = Form1.frec.SaveList(images, txt_name.Text);

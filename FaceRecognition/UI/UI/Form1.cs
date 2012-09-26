@@ -198,6 +198,6 @@ namespace UI
             frec.pictureBoxFrameGrabber = this.picBox_Original;
             frec.CaptureFrame();
 
-        } 
+        }
     }
 }

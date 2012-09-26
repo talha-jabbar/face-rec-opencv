@@ -407,5 +407,32 @@ namespace UI
                 con.Close();
             }
         }
+
+//====================================================================================================================
+
+        public void ClearDataBase()
+        {
+            try
+            {
+                con.Open();
+                string clearUsers = @"DELETE FROM Users";
+                SqlCeCommand cmd = new SqlCeCommand(clearUsers, con);
+                cmd.ExecuteNonQuery();
+
+                string clearImages = @"DELETE FROM Images";
+                cmd = new SqlCeCommand(clearImages, con);
+                cmd.ExecuteNonQuery();
+
+                persons = new List<Person>();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
