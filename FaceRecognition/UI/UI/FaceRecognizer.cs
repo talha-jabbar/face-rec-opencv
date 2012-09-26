@@ -204,6 +204,75 @@ namespace UI
 
         }
 
+        public void CaptureFrame()
+        {
+            lbl3 = "0";
+            lbl4 = "";
+            NamePersons.Add("");
+
+            grabber = new Capture();
+            //Get the current frame form capture device
+            try
+            {
+                currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+            }
+            catch { }
+            //Convert it to Grayscale
+            gray = currentFrame.Convert<Gray, Byte>();
+
+            //Face Detector
+            MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
+          face,
+          1.2,
+          10,
+          Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
+          new Size(20, 20));
+
+            //Action for each element detected
+            foreach (MCvAvgComp f in facesDetected[0])
+            {
+                t = t + 1;
+                result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                //draw the face detected in the 0th (gray) channel with blue color
+                currentFrame.Draw(f.rect, new Bgr(Color.Red), 2);
+
+
+                if (trainingImages.ToArray().Length != 0)
+                {
+                    // UpdateRecognizer();
+                    name = recognizer.Recognize(result);
+
+                    //Draw the label for each face detected and recognized
+                    currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
+
+                }
+
+                NamePersons[t - 1] = name;
+                NamePersons.Add("");
+
+
+                //Set the number of faces detected on the scene
+                lbl3 = facesDetected[0].Length.ToString();
+
+            }
+            t = 0;
+
+            //Names concatenation of persons recognized
+            for (int nnn = 0; nnn < facesDetected[0].Length; nnn++)
+            {
+                names = names + NamePersons[nnn] + ", ";
+            }
+            //Show the faces procesed and recognized
+            pictureBoxFrameGrabber.Image = currentFrame.ToBitmap();
+            lbl3 = names;
+            names = "";
+            //Clear the list(vector) of names
+            NamePersons.Clear();
+            grabber.Dispose();
+            grabber = null;
+
+        }
+
         public bool CatchFace(string label, PictureBox pcb)
         {
             try
