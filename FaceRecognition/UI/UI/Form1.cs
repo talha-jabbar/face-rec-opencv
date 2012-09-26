@@ -20,8 +20,7 @@ namespace UI
         public static FaceRecognizer frec;
 
         string imagePath;
-
-        
+  
         public static ItemsContainer itc;
 
         public static FRDBFn database;
@@ -121,6 +120,12 @@ namespace UI
             itc.RemoveClicked += new ItemsContainer.RemoveClickedHandler(itc_RemoveClicked);
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
+         //   database.ClearDataBase();
+            database.SelectAllUsers();
+            frec = new FaceRecognizer();
+           // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
+           // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
+
         }
 
         void itc_ItemEntered(object sender, EventArgs e)
@@ -148,30 +153,6 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //AddFromCamera a = new AddFromCamera();
-            //a.Show();
-           // frec.FrameGrabberImage(imagePath, this.picBox_Original);
-            //unsafe
-            //{
-            //    int* rectangles= null;
-            //    int* recLables = null;
-            //    int [] ids = {1,1,1,2,2,2};
-            //    string[] images = new string[6];
-            //    images[0] = "C:\\Users\\EhabMagdy.EhabMagdy-PC\\Downloads\\originalimages_part1\\1-04.jpg";
-            //    images[1] = "C:\\Users\\EhabMagdy.EhabMagdy-PC\\Downloads\\originalimages_part1\\1-05.jpg";
-            //    images[2] = "C:\\Users\\EhabMagdy.EhabMagdy-PC\\Downloads\\originalimages_part1\\1-06.jpg";
-            //    images[3] = "C:\\Users\\EhabMagdy.EhabMagdy-PC\\Downloads\\originalimages_part1\\2-04.jpg";
-            //    images[4] = "C:\\Users\\EhabMagdy.EhabMagdy-PC\\Downloads\\originalimages_part1\\2-05.jpg";
-            //    images[5] = "C:\\Users\\EhabMagdy.EhabMagdy-PC\\Downloads\\originalimages_part1\\2-06.jpg";
-            //    bool train = true;
-            //    int count = 6;
-            //    //string image2Rec = imagePath;
-            //    string image2Rec = "C:\\Users\\EhabMagdy.EhabMagdy-PC\\Downloads\\originalimages_part1\\1-013.jpg";
-            //    string modelPath = System.Windows.Forms.Application.StartupPath;
-            //    File.Copy(@"C:\Users\EhabMagdy.EhabMagdy-PC\Desktop\Shared Folder\FaceRecOpenCV\Debug\FaceRecOpenCV.dll", @"C:\Users\EhabMagdy.EhabMagdy-PC\Desktop\UI\UI\bin\Debug\FaceRecOpenCV.dll", true);
-            //    FROpencv.StartFaceRecognition(image2Rec, modelPath, images, ids, ref rectangles, ref recLables, ref count, train);
-            //}
-            ////  FROpencv.StartFaceRecognition(System.Windows.Forms.Application.StartupPath + "\\BinaryDatabase.txt", System.Windows.Forms.Application.StartupPath + "\\model", imagePath, rec, lables, ref count, 1);
         }
 
         private void picBox_close_MouseEnter(object sender, EventArgs e)
@@ -194,6 +175,24 @@ namespace UI
         {
             frec.pictureBoxFrameGrabber = this.picBox_Original;
             frec.StartStreaming();
+            this.panel_mainPanel.Enabled = false;
+            LinkLabel llablStopStreaming = new LinkLabel();
+            llablStopStreaming.Text = "Stop Streaming";
+            llablStopStreaming.Location = new Point(137, 480);
+            this.Controls.Add(llablStopStreaming);
+            llablStopStreaming.BringToFront();
+            llablStopStreaming.BackColor = Color.Black;
+            llablStopStreaming.Font = linkLabel1.Font;
+            llablStopStreaming.Click += new EventHandler(llablStopStreaming_Click);
+            llablStopStreaming.AutoSize = true;
+
+        }
+
+        void llablStopStreaming_Click(object sender, EventArgs e)
+        {
+            frec.StopStreaming();
+            this.panel_mainPanel.Enabled = true;
+            this.Controls.Remove(((LinkLabel)sender));
         }
 
         private void captureToolStripMenuItem_Click(object sender, EventArgs e)
