@@ -436,5 +436,36 @@ namespace UI
                 con.Close();
             }
         }
+
+        public bool FindImagePath(string ImagePath)
+        {
+            List<string> images = new List<string>();
+            try
+            {
+                con.Open();
+                string findImage = @"Select ImageName FROM Images where ImageName = @ImagePath";
+                SqlCeCommand cmd = new SqlCeCommand(findImage, con);
+                cmd.Parameters.Add("@ImagePath", ImagePath);
+                SqlCeDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    images.Add((string)rdr["ImageName"]);
+                }
+
+                if (images.Count != 0)
+                    return true;
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
