@@ -106,7 +106,7 @@ namespace UI
 
                 while (rdr.Read())
                 {
-                    images.Add(new Images((int)rdr["ImageID"], (string)rdr["ImagePath"], (int)rdr["UserID"]));
+                    images.Add(new Images((int)rdr["ImageID"], (string)rdr["ImageName"], (int)rdr["UserID"]));
                 }
 
                 int index = 0;
@@ -210,7 +210,7 @@ namespace UI
                 }
                 con.Open();
 
-                string insertStatment = @"Insert Into Images(ImagePath, UserID) Values(@imageName, @UserID)";
+                string insertStatment = @"Insert Into Images(ImageName, UserID) Values(@imageName, @UserID)";
                 SqlCeCommand cmd = new SqlCeCommand(insertStatment, con);
                 cmd.Parameters.Add(new SqlCeParameter("@imageName", ImagePath));
                 cmd.Parameters.Add(new SqlCeParameter("@UserID", UserID));
