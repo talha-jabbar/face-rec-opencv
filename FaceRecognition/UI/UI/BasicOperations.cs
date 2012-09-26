@@ -10,8 +10,8 @@ namespace UI
 {
     public class BasicOperations
     {
-         public static string SaveImage(Image image)
-         {
+        public static string SaveImage(Image image)
+        {
             int i = 0;
             string savepath = Application.StartupPath + "/Images/face" + i + ".bmp";
             while (File.Exists(savepath))
@@ -20,6 +20,24 @@ namespace UI
             }
             image.Save(savepath);
             return savepath;
-         }
+        }
+
+        public static string SaveImage(string path)
+        {
+            Bitmap bmp = new Bitmap(path);
+            return SaveImage(bmp);
+        }
+
+        public static void SaveImageinDataBase(string name, Image image)
+        {
+            string newPath = SaveImage(image);
+            SaveInDataBase(name, newPath);
+        }
+
+        public static void SaveInDataBase(string name, string path)
+        {
+            //TODO: Nermo Save in Database
+        }
+
     }
 }

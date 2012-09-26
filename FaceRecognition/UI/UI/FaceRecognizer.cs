@@ -34,28 +34,11 @@ namespace UI
 
         public FaceRecognizer() 
         {
-            // momken neshlaha ba3deen peace ya3ni
-           // lbl3 = FacesN;
-           // lbl4 = allNames;
-          //  imageBoxFrameGrabber = icb;
-
-            //Load haarcascades for face detection
             face = new HaarCascade("haarcascade_frontalface_default.xml");
             ContTrain = 0;
             ////Load of previus trainned faces and labels for each image
             //TODO: Nermo 3awezeen ne2ra men el database hena
-            // for each record in the database
-             // trainingImages.Add(new Image<Gray, byte>(ImagePath));
-             // labels.Add(PersonName);
-            //foreach (var item in Form1.db.DatabaseDictionary) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
-            //{
-            //    foreach (string s in item.Value)
-            //    {
-            //        trainingImages.Add(new Image<Gray, byte>(s));
-            //        labels.Add(item.Key);
-            //        ContTrain++;
-            //    }
-            //}
+
             
             //if (Form1.database.Persons.Count>0)
            // UpdateRecognizer();
@@ -72,6 +55,7 @@ namespace UI
         public void StopStreaming()
         {
             Application.Idle -= new EventHandler(FrameGrabber);
+            grabber.Dispose();
             grabber = null;
         }
 
@@ -82,7 +66,11 @@ namespace UI
             NamePersons.Add("");
 
             //Get the current frame form capture device
-            currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+            try
+            {
+                currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+            }
+            catch { }
 
             //Convert it to Grayscale
             gray = currentFrame.Convert<Gray, Byte>();
@@ -204,6 +192,7 @@ namespace UI
         {
             try
             {
+                bool detected = false;
                 //Trained face counter
                 ContTrain = ContTrain + 1;
 
@@ -222,9 +211,13 @@ namespace UI
                 foreach (MCvAvgComp f in facesDetected[0])
                 {
                     TrainedFace = currentFrame.Copy(f.rect).Convert<Gray, byte>();
+                    detected = true;
                     break;
                 }
-
+                if (!detected)
+                {
+                    return false;
+                }
                 //resize face detected image for force to compare the same size with the 
                 //test image with cubic interpolation type method
                 TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
@@ -233,19 +226,6 @@ namespace UI
 
                 //Show face added in gray scale
                 pcb.Image = TrainedFace.ToBitmap();
-
-                // SAVE FILE 
-                int i = 0;
-                string path = Application.StartupPath + "/Images/face" + i + ".bmp";
-                while (File.Exists(path))
-                {
-                    path = Application.StartupPath + "/Images/face" + ++i + ".bmp";
-                }
-                TrainedFace.Save(path);
-
-                // Add to DATABASE 
-                //TODO: Nermo 3awezeen nesave fel el database hena
-
 
                 UpdateRecognizer();
                 MessageBox.Show(label + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -271,53 +251,64 @@ namespace UI
                ref termCrit);
         }
 
-        public void AddImageFromFile(string inputpath, string label)
+        public int SaveList(List<string> inputpaths, string label)
         {
-            //Trained face counter
-            ContTrain = ContTrain + 1;
-
-            //Get a gray frame from capture device
-            gray = new Image<Gray, byte>(inputpath);//.Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-
-            //Face Detector
-            MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
-            face,
-            1.2,
-            10,
-            Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
-            new Size(20, 20));
-
-            //Action for each element detected
-            foreach (MCvAvgComp f in facesDetected[0])
-            {
-                TrainedFace = gray.Copy(f.rect).Convert<Gray, byte>();
-                break;
-            }
-
-            //resize face detected image for force to compare the same size with the 
-            //test image with cubic interpolation type method
-            TrainedFace = TrainedFace.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-            trainingImages.Add(TrainedFace);
-            labels.Add(label);
-
             int i = 0;
-            string savepath = Application.StartupPath + "/Images/face" + i + ".bmp";
-            while (File.Exists(savepath))
-            {
-                savepath = Application.StartupPath + "/Images/face" + ++i + ".bmp";
-            }
-            TrainedFace.Save(savepath);
-
-            // Add to DATABASE 
-            //TODO: Nermo 3awezeen nesave fel el database hena
-
-        }
-
-        public void AddListFromFile(List<string> inputpaths, string label)
-        {
             foreach (string  s  in inputpaths)
             {
-                AddImageFromFile(s, label);
+                i = SaveString(s, label) ? i+1 : i;
+            }
+            return i; // number of saved images
+        }
+
+        public bool SaveString(string inputpath, string label)
+        {
+            try
+            {
+                ContTrain = ContTrain + 1;
+
+                gray = new Image<Gray, byte>(inputpath);
+
+                MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
+                face,
+                1.2,
+                10,
+                Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
+                new Size(20, 20));
+
+                foreach (MCvAvgComp f in facesDetected[0])
+                {
+                    TrainedFace = currentFrame.Copy(f.rect).Convert<Gray, byte>();
+                    break;
+                }
+
+                TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                
+                trainingImages.Add(TrainedFace);
+                labels.Add(label);
+
+                BasicOperations.SaveImageinDataBase(label, TrainedFace.ToBitmap());
+
+                UpdateRecognizer();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public void SaveReadyImage(Image img, string label)
+        {
+            BasicOperations.SaveImageinDataBase(label, img);
+        }
+        
+        public void SaveReadyImageList(List<Image> imgs, string label)
+        {
+            foreach (Image img in imgs)
+            {
+                BasicOperations.SaveImageinDataBase(label, img);
             }
         }
 

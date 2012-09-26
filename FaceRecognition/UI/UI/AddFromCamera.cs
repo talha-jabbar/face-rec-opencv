@@ -12,19 +12,19 @@ namespace UI
     public partial class AddFromCamera : Form
     {
         string name;
-        List<string> images;
+        List<Image> images;
         Button done;
 
-        public AddFromCamera(string name, List<string> images, Button done)
+        public AddFromCamera(string name, List<Image> camImages, Button done)
         {
             InitializeComponent();
             Form1.frec.pictureBoxFrameGrabber = this.pictureBox1;
             Form1.frec.StartStreaming();
             this.name = name;
-            this.images = images;
+            this.textBox1.Text = name;
+            camImages = this.images;
+            images = new List<Image>();
             this.done = done;
-            images = new List<string>();
-
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -40,9 +40,7 @@ namespace UI
                 this.pictureBox2.Visible = true;
                 timer1.Start();
                 name = textBox1.Text;
-                if (images == null)
-                    images = new List<string>();
-                images.Add(BasicOperations.SaveImage(pictureBox2.Image));
+                images.Add(pictureBox2.Image);
                 this.done.Visible = true;
                 this.textBox1.Enabled = false;
             }
@@ -52,6 +50,13 @@ namespace UI
         {
             this.pictureBox2.Visible = false;
             timer1.Stop();
+        }
+
+        private void AddFromCamera_Load(object sender, EventArgs e)
+        {
+            this.textBox1.Text = this.name;
+            this.label1.Text +=" " + this.name;
+            this.label1.Location = new Point(this.Width / 2 - label1.Width / 2, label1.Location.Y);
         }
     }
 }
