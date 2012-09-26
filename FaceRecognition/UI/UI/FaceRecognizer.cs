@@ -42,22 +42,18 @@ namespace UI
              // trainingImages.Add(new Image<Gray, byte>(ImagePath));
              // labels.Add(PersonName);
 
-            //foreach (Person item in Form1.database.Persons) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
-            //{
-            //    foreach (Images s in item.Images)
-            //    {
-            //        trainingImages.Add(new Image<Gray, byte>(s.ImagePath));
-            //        labels.Add(item.User.Name);
-            //        ContTrain++;
-            //    }
-            //}
+            foreach (Person item in Form1.database.Persons) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
+            {
+                foreach (Images s in item.Images)
+                {
+                    trainingImages.Add(new Image<Gray, byte>(s.ImagePath));
+                    labels.Add(item.User.Name);
+                    ContTrain++;
+                }
+            }
 
-         //   if (Form1.database.Persons.Count > 0)
-           //     UpdateRecognizer();
-
-            
-            //if (Form1.database.Persons.Count>0)
-           // UpdateRecognizer();
+            if (Form1.database.Persons.Count > 0)
+                UpdateRecognizer();
         }
        
         public void StartStreaming()
