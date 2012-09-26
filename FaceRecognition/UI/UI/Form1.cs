@@ -95,12 +95,6 @@ namespace UI
             }
         }
 
-        private void dataBaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DataBaseControl dbc = new DataBaseControl("ay habal w 5alaaaaas", names);
-            dbc.Show();
-        }
-
         private void btn_Add_Click(object sender, EventArgs e)
         {
             AddPerson ap = new AddPerson(this);

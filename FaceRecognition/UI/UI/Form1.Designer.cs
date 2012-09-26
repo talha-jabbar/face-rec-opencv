@@ -357,7 +357,6 @@
             this.dataBaseToolStripMenuItem.Name = "dataBaseToolStripMenuItem";
             this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.dataBaseToolStripMenuItem.Text = "dataBase";
-            this.dataBaseToolStripMenuItem.Click += new System.EventHandler(this.dataBaseToolStripMenuItem_Click);
             // 
             // panel_mainPanel
             // 
