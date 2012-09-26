@@ -22,6 +22,7 @@ namespace UI
         {
             InitializeComponent();
             form = f;
+            cameraImages = new List<Image>();
         }
 
         private void picBox_close_Click(object sender, EventArgs e)
@@ -34,12 +35,18 @@ namespace UI
         private void btn_done_Click(object sender, EventArgs e)
         {
             //TODO: i want to add here .. if camImages == null then form1.frec.savereadyimageslist(camimages,name); else form1.frec.savelist(images, name);
-            if (!(cameraImages == null))
+            if (!(cameraImages.Count == 0))
             {
                 Form1.frec.SaveReadyImageList(cameraImages, txt_name.Text);
             }
-            else
+            else if (!(images.Count == 0))
+            {
                 Form1.frec.SaveList(images, txt_name.Text);
+            }
+            else
+            {
+                return;
+            }
 
             name = txt_name.Text;
             Users u = new Users(-1, name, txt_phone.Text, txt_address.Text);
@@ -108,7 +115,7 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddFromCamera addfromcam = new AddFromCamera(this.txt_name.Text,cameraImages,btn_done);
+            AddFromCamera addfromcam = new AddFromCamera(this.txt_name.Text, cameraImages,btn_done);
             addfromcam.Show();
         }
     }

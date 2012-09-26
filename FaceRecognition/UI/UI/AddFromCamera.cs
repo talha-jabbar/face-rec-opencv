@@ -22,8 +22,7 @@ namespace UI
             Form1.frec.StartStreaming();
             this.name = name;
             this.textBox1.Text = name;
-            camImages = this.images;
-            images = new List<Image>();
+            images = camImages;
             this.done = done;
         }
 
