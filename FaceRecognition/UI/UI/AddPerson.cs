@@ -13,6 +13,7 @@ namespace UI
 {
     public partial class AddPerson : Form
     {
+        List<Image> cameraImages;
         public static List<string> images;
         public static string name;
         Form1 form;
@@ -32,6 +33,7 @@ namespace UI
 
         private void btn_done_Click(object sender, EventArgs e)
         {
+            //TODO: i want to add here .. if camImages == null then form1.frec.savereadyimageslist(camimages,name); else form1.frec.savelist(images, name);
             name = txt_name.Text;
             Users u = new Users(-1, name, txt_phone.Text, txt_address.Text);
             bool added;
@@ -103,7 +105,7 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddFromCamera addfromcam = new AddFromCamera(name,images,btn_done);
+            AddFromCamera addfromcam = new AddFromCamera(this.txt_name.Text,cameraImages,btn_done);
             addfromcam.Show();
         }
     }
