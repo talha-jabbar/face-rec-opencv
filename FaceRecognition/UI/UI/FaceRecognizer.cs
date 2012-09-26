@@ -31,6 +31,7 @@ namespace UI
         public ImageBox imageBoxFrameGrabber;//= new ImageBox();
         public PictureBox pictureBoxFrameGrabber;//= new ImageBox();
         EigenObjectRecognizer recognizer;
+        public int threashold = 2000;
 
         public FaceRecognizer() 
         {
@@ -328,7 +329,7 @@ namespace UI
             recognizer = new EigenObjectRecognizer(
                trainingImages.ToArray(),
                labels.ToArray(),
-               2000,
+               threashold,
                ref termCrit);
         }
 
