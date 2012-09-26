@@ -207,6 +207,8 @@ namespace UI
         {
             database.ClearDataBase();
             CreateNewItc();
+            frec = new FaceRecognizer();
+
         }
     }
 }
