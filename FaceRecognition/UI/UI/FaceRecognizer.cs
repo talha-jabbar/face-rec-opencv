@@ -42,7 +42,7 @@ namespace UI
              // trainingImages.Add(new Image<Gray, byte>(ImagePath));
              // labels.Add(PersonName);
 
-            foreach (Person item in Form1.database.Persons) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
+            foreach (Person item in Form1.database.Persons) 
             {
                 foreach (Images s in item.Images)
                 {
