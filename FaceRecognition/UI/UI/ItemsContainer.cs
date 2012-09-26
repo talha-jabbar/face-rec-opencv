@@ -102,7 +102,7 @@ namespace UI
             {
                 preSelectedItem = selectedItem;
                 selectedItem = string.Empty;
-                selectedItemindex = -1;
+                //selectedItemindex = -1;
             }
         }
 

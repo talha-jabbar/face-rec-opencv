@@ -87,8 +87,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.itemsContainer1 = new UI.ItemsContainer();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.itemsContainer1 = new UI.ItemsContainer();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Original)).BeginInit();
@@ -375,6 +375,9 @@
             this.panel_mainPanel.Name = "panel_mainPanel";
             this.panel_mainPanel.Size = new System.Drawing.Size(721, 598);
             this.panel_mainPanel.TabIndex = 0;
+            this.panel_mainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_mainPanel_MouseDown);
+            this.panel_mainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_mainPanel_MouseMove);
+            this.panel_mainPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_mainPanel_MouseUp);
             // 
             // statusStrip1
             // 
@@ -461,14 +464,14 @@
             // streamingToolStripMenuItem
             // 
             this.streamingToolStripMenuItem.Name = "streamingToolStripMenuItem";
-            this.streamingToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.streamingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.streamingToolStripMenuItem.Text = "Streaming";
             this.streamingToolStripMenuItem.Click += new System.EventHandler(this.streamingToolStripMenuItem_Click);
             // 
             // captureToolStripMenuItem
             // 
             this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
-            this.captureToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.captureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.captureToolStripMenuItem.Text = "Capture";
             this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
             // 
@@ -551,14 +554,6 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(207, 6);
             // 
-            // itemsContainer1
-            // 
-            this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
-            this.itemsContainer1.Location = new System.Drawing.Point(514, 56);
-            this.itemsContainer1.Name = "itemsContainer1";
-            this.itemsContainer1.Size = new System.Drawing.Size(206, 517);
-            this.itemsContainer1.TabIndex = 11;
-            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -570,6 +565,14 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "linkLabel1";
             this.linkLabel1.Visible = false;
+            // 
+            // itemsContainer1
+            // 
+            this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
+            this.itemsContainer1.Location = new System.Drawing.Point(514, 56);
+            this.itemsContainer1.Name = "itemsContainer1";
+            this.itemsContainer1.Size = new System.Drawing.Size(206, 517);
+            this.itemsContainer1.TabIndex = 11;
             // 
             // Form1
             // 

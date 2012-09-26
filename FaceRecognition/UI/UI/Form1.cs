@@ -13,6 +13,10 @@ namespace UI
 {
     public partial class Form1 : Form
     {
+        int x, y;
+
+        bool canMove;
+
         Bitmap orignalBmp;
 
         List<string> names;
@@ -71,6 +75,7 @@ namespace UI
                 orignalBmp = new Bitmap(openFileDialog1.FileName);
                 picBox_Original.Image = orignalBmp;
                 imagePath = openFileDialog1.FileName;
+                frec.FrameGrabberImage(imagePath, this.picBox_Original);
             }
         }
 
@@ -118,7 +123,7 @@ namespace UI
             itc.RemoveClicked += new ItemsContainer.RemoveClickedHandler(itc_RemoveClicked);
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
-           // database.ClearDataBase();
+            //database.ClearDataBase();
             frec = new FaceRecognizer();
            // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
            // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
@@ -145,7 +150,6 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             openToolStripMenuItem_Click(sender, e);
-            frec.FrameGrabberImage(imagePath, this.picBox_Original);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -209,6 +213,26 @@ namespace UI
             }
                 CreateNewItc();
 
+        }
+
+        private void panel_mainPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            canMove = true;
+            x = e.X;
+            y = e.Y;
+        }
+
+        private void panel_mainPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            canMove = false;
+        }
+
+        private void panel_mainPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (canMove)
+            {
+                this.Location = new Point(this.Location.X + (e.X - x), this.Location.Y + (e.Y - y));
+            }
         }
     }
 }
