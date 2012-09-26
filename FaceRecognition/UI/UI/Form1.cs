@@ -108,15 +108,11 @@ namespace UI
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            itc = new ItemsContainer();
-            itc.Location = new Point(this.Width - itc.Width, this.Location.Y );
-            itc.Height = this.Height-110;
-            this.Controls[0].Controls.Add(itc);
+            itc = this.itemsContainer1;
             itc.AddClicked += new ItemsContainer.AddClickedHandler(itc_AddClicked);
             itc.RemoveClicked += new ItemsContainer.RemoveClickedHandler(itc_RemoveClicked);
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
-            itc.BringToFront();
             database.SelectAllUsers();
             frec = new FaceRecognizer();
            // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
@@ -182,6 +178,11 @@ namespace UI
         private void picBox_close_MouseLeave(object sender, EventArgs e)
         {
             picBox_close.Image = UI.Properties.Resources.button_cancelOff;
+
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
 
         } 
     }
