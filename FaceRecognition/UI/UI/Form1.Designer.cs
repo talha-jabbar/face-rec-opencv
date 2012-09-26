@@ -77,6 +77,7 @@
             this.streamingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.captureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.clearUrDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.recognizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setSensetivityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,8 +86,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.itemsContainer1 = new UI.ItemsContainer();
-            this.clearUrDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Original)).BeginInit();
@@ -361,6 +363,7 @@
             // 
             this.panel_mainPanel.BackColor = System.Drawing.Color.Black;
             this.panel_mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_mainPanel.Controls.Add(this.linkLabel1);
             this.panel_mainPanel.Controls.Add(this.statusStrip1);
             this.panel_mainPanel.Controls.Add(this.itemsContainer1);
             this.panel_mainPanel.Controls.Add(this.picBox_close);
@@ -433,6 +436,7 @@
             this.cameraToolStripMenuItem,
             this.toolStripSeparator6,
             this.clearUrDatabaseToolStripMenuItem,
+            this.toolStripSeparator7,
             this.exitToolStripMenuItem1});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
             this.fileToolStripMenuItem1.Size = new System.Drawing.Size(42, 23);
@@ -441,8 +445,8 @@
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
-            this.openToolStripMenuItem1.Text = "Open";
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
+            this.openToolStripMenuItem1.Text = "Open and Recognize";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cameraToolStripMenuItem
@@ -451,7 +455,7 @@
             this.streamingToolStripMenuItem,
             this.captureToolStripMenuItem});
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
-            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.cameraToolStripMenuItem.Text = "Camera";
             // 
             // streamingToolStripMenuItem
@@ -471,12 +475,19 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(122, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(207, 6);
+            // 
+            // clearUrDatabaseToolStripMenuItem
+            // 
+            this.clearUrDatabaseToolStripMenuItem.Name = "clearUrDatabaseToolStripMenuItem";
+            this.clearUrDatabaseToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.clearUrDatabaseToolStripMenuItem.Text = "Clear ur Database";
+            this.clearUrDatabaseToolStripMenuItem.Click += new System.EventHandler(this.clearUrDatabaseToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             // 
             // recognizeToolStripMenuItem
@@ -499,6 +510,7 @@
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "1000";
             // 
             // helpToolStripMenuItem2
             // 
@@ -534,6 +546,11 @@
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(207, 6);
+            // 
             // itemsContainer1
             // 
             this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
@@ -542,19 +559,24 @@
             this.itemsContainer1.Size = new System.Drawing.Size(206, 517);
             this.itemsContainer1.TabIndex = 11;
             // 
-            // clearUrDatabaseToolStripMenuItem
+            // linkLabel1
             // 
-            this.clearUrDatabaseToolStripMenuItem.Name = "clearUrDatabaseToolStripMenuItem";
-            this.clearUrDatabaseToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.clearUrDatabaseToolStripMenuItem.Text = "Clear ur Database";
-            this.clearUrDatabaseToolStripMenuItem.Click += new System.EventHandler(this.clearUrDatabaseToolStripMenuItem_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.linkLabel1.Location = new System.Drawing.Point(191, 480);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(132, 33);
+            this.linkLabel1.TabIndex = 12;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "linkLabel1";
+            this.linkLabel1.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(721, 601);
+            this.ClientSize = new System.Drawing.Size(721, 597);
             this.Controls.Add(this.panel_mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -632,6 +654,8 @@
         private System.Windows.Forms.ToolStripMenuItem setSensetivityToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem clearUrDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
