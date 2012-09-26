@@ -34,6 +34,7 @@ namespace UI
             InitializeComponent();
             lbl_name.Text = person.User.Name;
             lbl_phone.Text = person.User.PhoneNo;
+            lbl_address.Text = person.User.Address;
             int count = person.Images.Count;
             imagePaths = new List<string>();
             p = person;
@@ -131,8 +132,8 @@ namespace UI
             if (imagePaths.Count > 1)
             {
                 Form1.database.DeleteImage(p, p.Images[index - 1].ImageID, true);
-                //Form1.db.deleltedImages.Add(imagePaths[index - 1]);
                 imagePaths.RemoveAt(index - 1);
+                //((Item)Form1.itc.items[Form1.itc.selectedItem]).Pic = new Bitmap(imagePaths[0]);
                 RemoveAllPictureBox();
                 RemoveAllLabels();
                 GeniratePicBox(imagePaths);
