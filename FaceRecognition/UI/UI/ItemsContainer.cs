@@ -67,7 +67,7 @@ namespace UI
             i.Width = this.pnl_items.Width;
             if (items.Count < 1)
             {
-                i.Location = this.pnl_items.Location;
+                i.Location = new Point(0,0);
             }
             else
             {
@@ -138,7 +138,7 @@ namespace UI
             {
                 if (i == 0)
                 {
-                    items[i].Location = this.pnl_items.Location;
+                    items[i].Location = new Point(0, 0);
                 }
                 else
                 {
