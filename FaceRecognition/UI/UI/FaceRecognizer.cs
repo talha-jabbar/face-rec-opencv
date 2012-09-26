@@ -42,18 +42,18 @@ namespace UI
              // trainingImages.Add(new Image<Gray, byte>(ImagePath));
              // labels.Add(PersonName);
 
-            foreach (Person item in Form1.database.Persons) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
-            {
-                foreach (Images s in item.Images)
-                {
-                    trainingImages.Add(new Image<Gray, byte>(s.ImagePath));
-                    labels.Add(item.User.Name);
-                    ContTrain++;
-                }
-            }
+            //foreach (Person item in Form1.database.Persons) /// snaia .. enty shofty el run ?? bidrb error 3ashan 3aiz di :D
+            //{
+            //    foreach (Images s in item.Images)
+            //    {
+            //        trainingImages.Add(new Image<Gray, byte>(s.ImagePath));
+            //        labels.Add(item.User.Name);
+            //        ContTrain++;
+            //    }
+            //}
 
-            if (Form1.database.Persons.Count > 0)
-                UpdateRecognizer();
+         //   if (Form1.database.Persons.Count > 0)
+           //     UpdateRecognizer();
 
             
             //if (Form1.database.Persons.Count>0)
@@ -363,7 +363,7 @@ namespace UI
 
                 foreach (MCvAvgComp f in facesDetected[0])
                 {
-                    TrainedFace = currentFrame.Copy(f.rect).Convert<Gray, byte>();
+                    TrainedFace = gray.Copy(f.rect).Convert<Gray, byte>();
                     detected = true;
                     break;
                 }
@@ -373,7 +373,7 @@ namespace UI
                     return string.Empty;
                 }
 
-                TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                TrainedFace = TrainedFace.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
                 
                 trainingImages.Add(TrainedFace);
                 labels.Add(label);
