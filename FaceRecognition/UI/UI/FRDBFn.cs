@@ -177,6 +177,7 @@ namespace UI
                     {
                         person.Images[i].UserID = id;
                         InsertImage(id, person.Images[i].ImagePath, false);
+                        person.Images.RemoveAt(i);
                     }
 
                 }
