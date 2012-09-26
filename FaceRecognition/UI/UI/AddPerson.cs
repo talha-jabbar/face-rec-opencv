@@ -37,13 +37,15 @@ namespace UI
             //TODO: i want to add here .. if camImages == null then form1.frec.savereadyimageslist(camimages,name); else form1.frec.savelist(images, name);
             if (!(cameraImages.Count == 0))
             {
-                Form1.frec.SaveReadyImageList(cameraImages, txt_name.Text);
+                images = Form1.frec.SaveReadyImageList(cameraImages, txt_name.Text);
             }
             else if (!(images.Count == 0))
             {
                 Form1.frec.SaveList(images, txt_name.Text);
             }
             else
+               images = Form1.frec.SaveList(images, txt_name.Text);
+
             {
                 return;
             }
