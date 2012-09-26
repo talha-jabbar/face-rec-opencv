@@ -70,23 +70,25 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.picBox_close = new System.Windows.Forms.PictureBox();
-            this.picBox_equlization = new System.Windows.Forms.PictureBox();
-            this.picBox_gauissan = new System.Windows.Forms.PictureBox();
-            this.picBox_gamma = new System.Windows.Forms.PictureBox();
-            this.picBox_gray = new System.Windows.Forms.PictureBox();
             this.picBox_Original = new System.Windows.Forms.PictureBox();
-            this.panel_database = new System.Windows.Forms.Panel();
-            this.btn_Add = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label1 = new System.Windows.Forms.Label();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.streamingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.captureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.recognizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.itemsContainer1 = new UI.ItemsContainer();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_equlization)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_gauissan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_gamma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_gray)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Original)).BeginInit();
-            this.panel_database.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -355,18 +357,15 @@
             // 
             // panel_mainPanel
             // 
-            this.panel_mainPanel.BackColor = System.Drawing.Color.Black;
+            this.panel_mainPanel.BackColor = System.Drawing.Color.DarkGray;
             this.panel_mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_mainPanel.Controls.Add(this.label1);
+            this.panel_mainPanel.Controls.Add(this.toolStrip1);
+            this.panel_mainPanel.Controls.Add(this.itemsContainer1);
+            this.panel_mainPanel.Controls.Add(this.statusStrip1);
             this.panel_mainPanel.Controls.Add(this.button2);
             this.panel_mainPanel.Controls.Add(this.button1);
             this.panel_mainPanel.Controls.Add(this.picBox_close);
-            this.panel_mainPanel.Controls.Add(this.picBox_equlization);
-            this.panel_mainPanel.Controls.Add(this.picBox_gauissan);
-            this.panel_mainPanel.Controls.Add(this.picBox_gamma);
-            this.panel_mainPanel.Controls.Add(this.picBox_gray);
             this.panel_mainPanel.Controls.Add(this.picBox_Original);
-            this.panel_mainPanel.Controls.Add(this.panel_database);
             this.panel_mainPanel.Controls.Add(this.menuStrip1);
             this.panel_mainPanel.Location = new System.Drawing.Point(0, 0);
             this.panel_mainPanel.Name = "panel_mainPanel";
@@ -375,7 +374,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 65);
+            this.button2.Location = new System.Drawing.Point(97, 65);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 34);
             this.button2.TabIndex = 8;
@@ -385,7 +384,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 19);
+            this.button1.Location = new System.Drawing.Point(110, 117);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 34);
             this.button1.TabIndex = 8;
@@ -397,9 +396,9 @@
             // 
             this.picBox_close.BackColor = System.Drawing.Color.Transparent;
             this.picBox_close.Image = global::UI.Properties.Resources.button_cancelOff;
-            this.picBox_close.Location = new System.Drawing.Point(1007, 3);
+            this.picBox_close.Location = new System.Drawing.Point(1002, 4);
             this.picBox_close.Name = "picBox_close";
-            this.picBox_close.Size = new System.Drawing.Size(29, 21);
+            this.picBox_close.Size = new System.Drawing.Size(36, 18);
             this.picBox_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBox_close.TabIndex = 7;
             this.picBox_close.TabStop = false;
@@ -407,116 +406,130 @@
             this.picBox_close.MouseEnter += new System.EventHandler(this.picBox_close_MouseEnter);
             this.picBox_close.MouseLeave += new System.EventHandler(this.picBox_close_MouseLeave);
             // 
-            // picBox_equlization
-            // 
-            this.picBox_equlization.BackColor = System.Drawing.Color.Transparent;
-            this.picBox_equlization.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBox_equlization.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_equlization.Location = new System.Drawing.Point(626, 465);
-            this.picBox_equlization.Name = "picBox_equlization";
-            this.picBox_equlization.Size = new System.Drawing.Size(200, 180);
-            this.picBox_equlization.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_equlization.TabIndex = 6;
-            this.picBox_equlization.TabStop = false;
-            // 
-            // picBox_gauissan
-            // 
-            this.picBox_gauissan.BackColor = System.Drawing.Color.Transparent;
-            this.picBox_gauissan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBox_gauissan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_gauissan.Location = new System.Drawing.Point(420, 465);
-            this.picBox_gauissan.Name = "picBox_gauissan";
-            this.picBox_gauissan.Size = new System.Drawing.Size(200, 180);
-            this.picBox_gauissan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_gauissan.TabIndex = 5;
-            this.picBox_gauissan.TabStop = false;
-            // 
-            // picBox_gamma
-            // 
-            this.picBox_gamma.BackColor = System.Drawing.Color.Transparent;
-            this.picBox_gamma.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBox_gamma.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_gamma.Location = new System.Drawing.Point(215, 465);
-            this.picBox_gamma.Name = "picBox_gamma";
-            this.picBox_gamma.Size = new System.Drawing.Size(200, 180);
-            this.picBox_gamma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_gamma.TabIndex = 4;
-            this.picBox_gamma.TabStop = false;
-            // 
-            // picBox_gray
-            // 
-            this.picBox_gray.BackColor = System.Drawing.Color.Transparent;
-            this.picBox_gray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBox_gray.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_gray.Location = new System.Drawing.Point(9, 465);
-            this.picBox_gray.Name = "picBox_gray";
-            this.picBox_gray.Size = new System.Drawing.Size(200, 180);
-            this.picBox_gray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBox_gray.TabIndex = 3;
-            this.picBox_gray.TabStop = false;
-            // 
             // picBox_Original
             // 
             this.picBox_Original.BackColor = System.Drawing.Color.Transparent;
             this.picBox_Original.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBox_Original.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_Original.Location = new System.Drawing.Point(216, 65);
+            this.picBox_Original.Location = new System.Drawing.Point(261, 129);
             this.picBox_Original.Name = "picBox_Original";
             this.picBox_Original.Size = new System.Drawing.Size(400, 380);
             this.picBox_Original.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBox_Original.TabIndex = 2;
             this.picBox_Original.TabStop = false;
             // 
-            // panel_database
-            // 
-            this.panel_database.AutoScroll = true;
-            this.panel_database.BackColor = System.Drawing.Color.Transparent;
-            this.panel_database.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_database.Controls.Add(this.btn_Add);
-            this.panel_database.Location = new System.Drawing.Point(828, 160);
-            this.panel_database.Name = "panel_database";
-            this.panel_database.Size = new System.Drawing.Size(208, 486);
-            this.panel_database.TabIndex = 1;
-            this.panel_database.Visible = false;
-            // 
-            // btn_Add
-            // 
-            this.btn_Add.BackColor = System.Drawing.Color.Silver;
-            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.ForeColor = System.Drawing.Color.White;
-            this.btn_Add.Location = new System.Drawing.Point(2, 2);
-            this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(201, 23);
-            this.btn_Add.TabIndex = 0;
-            this.btn_Add.Text = "Add Person To DataBase";
-            this.btn_Add.UseVisualStyleBackColor = false;
-            this.btn_Add.Visible = false;
-            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem1,
+            this.recognizeToolStripMenuItem,
+            this.helpToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(685, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1049, 27);
             this.menuStrip1.Stretch = false;
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menu";
             // 
-            // label1
+            // fileToolStripMenuItem1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 20F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(882, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 33);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Database";
+            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem1,
+            this.cameraToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.exitToolStripMenuItem1});
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(42, 23);
+            this.fileToolStripMenuItem1.Text = "File";
+            // 
+            // openToolStripMenuItem1
+            // 
+            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem1.Text = "Open";
+            // 
+            // cameraToolStripMenuItem
+            // 
+            this.cameraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.streamingToolStripMenuItem,
+            this.captureToolStripMenuItem});
+            this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cameraToolStripMenuItem.Text = "Camera";
+            // 
+            // streamingToolStripMenuItem
+            // 
+            this.streamingToolStripMenuItem.Name = "streamingToolStripMenuItem";
+            this.streamingToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.streamingToolStripMenuItem.Text = "Streaming";
+            // 
+            // captureToolStripMenuItem
+            // 
+            this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
+            this.captureToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.captureToolStripMenuItem.Text = "Capture";
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(149, 6);
+            // 
+            // recognizeToolStripMenuItem
+            // 
+            this.recognizeToolStripMenuItem.Name = "recognizeToolStripMenuItem";
+            this.recognizeToolStripMenuItem.Size = new System.Drawing.Size(87, 23);
+            this.recognizeToolStripMenuItem.Text = "Recognize";
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
+            this.helpToolStripMenuItem1.Text = "Help";
+            // 
+            // helpToolStripMenuItem2
+            // 
+            this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
+            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(49, 23);
+            this.helpToolStripMenuItem2.Text = "Help";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 633);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1049, 22);
+            this.statusStrip1.TabIndex = 10;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // itemsContainer1
+            // 
+            this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
+            this.itemsContainer1.Location = new System.Drawing.Point(840, 30);
+            this.itemsContainer1.Name = "itemsContainer1";
+            this.itemsContainer1.Size = new System.Drawing.Size(206, 600);
+            this.itemsContainer1.TabIndex = 11;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackColor = System.Drawing.Color.LightGray;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.toolStrip1.Location = new System.Drawing.Point(58, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(36, 606);
+            this.toolStrip1.TabIndex = 12;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // Form1
             // 
@@ -535,12 +548,9 @@
             this.panel_mainPanel.ResumeLayout(false);
             this.panel_mainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_equlization)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_gauissan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_gamma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_gray)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Original)).EndInit();
-            this.panel_database.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -578,24 +588,30 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Panel panel_database;
         private System.Windows.Forms.PictureBox picBox_Original;
         private System.Windows.Forms.ToolStripMenuItem rUNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rUNToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem runWithoutStepsToolStripMenuItem;
-        private System.Windows.Forms.PictureBox picBox_gray;
-        private System.Windows.Forms.PictureBox picBox_equlization;
-        private System.Windows.Forms.PictureBox picBox_gauissan;
-        private System.Windows.Forms.PictureBox picBox_gamma;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox picBox_close;
-        private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.ToolStripMenuItem openDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataBaseToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem streamingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        private ItemsContainer itemsContainer1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem recognizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 

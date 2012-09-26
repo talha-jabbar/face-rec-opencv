@@ -267,22 +267,22 @@ namespace UI
                ref termCrit);
         }
 
-        public int SaveList(List<string> inputpaths, string label)
+        public List<string> SaveList(List<string> inputpaths, string label)
         {
-            int i = 0;
+            List<string> newPaths = new List<string>();
             foreach (string  s  in inputpaths)
             {
-                i = SaveString(s, label) ? i+1 : i;
+                newPaths.Add(SaveString(s, label);
             }
-            return i; // number of saved images
+            return newPaths; // number of saved images
         }
 
-        public bool SaveString(string inputpath, string label)
+        public string SaveString(string inputpath, string label)
         {
             try
             {
                 ContTrain = ContTrain + 1;
-
+                bool detected = false;
                 gray = new Image<Gray, byte>(inputpath);
 
                 MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
@@ -295,7 +295,13 @@ namespace UI
                 foreach (MCvAvgComp f in facesDetected[0])
                 {
                     TrainedFace = currentFrame.Copy(f.rect).Convert<Gray, byte>();
+                    detected = true;
                     break;
+                }
+
+                if (!detected)
+                {
+                    return string.Empty;
                 }
 
                 TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
@@ -303,29 +309,31 @@ namespace UI
                 trainingImages.Add(TrainedFace);
                 labels.Add(label);
 
-                BasicOperations.SaveImageinDataBase(label, TrainedFace.ToBitmap());
+                
 
                 UpdateRecognizer();
 
-                return true;
+                return BasicOperations.SaveImage(TrainedFace.ToBitmap());;
             }
             catch
             {
-                return false;
+                return  string.Empty;;
             }
         }
 
-        public void SaveReadyImage(Image img, string label)
+        public string SaveReadyImage(Image img, string label)
         {
-            BasicOperations.SaveImageinDataBase(label, img);
+            return BasicOperations.SaveImage(img);
         }
-        
-        public void SaveReadyImageList(List<Image> imgs, string label)
+
+        public List<string> SaveReadyImageList(List<Image> imgs, string label)
         {
+            List<string> newPaths = new List<string>();
             foreach (Image img in imgs)
             {
-                BasicOperations.SaveImageinDataBase(label, img);
+                newPaths.Add(SaveReadyImage(img, label));
             }
+            return newPaths;
         }
 
     }
