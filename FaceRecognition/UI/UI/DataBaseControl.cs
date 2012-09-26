@@ -20,14 +20,7 @@ namespace UI
         int globalIndex;
         Person p;
         List<string> images;
-
-        public DataBaseControl(string name,List<string> imagePath)
-        {
-            InitializeComponent();
-            lbl_name.Text = name;
-            imagePaths = new List<string>(imagePath);
-            GeniratePicBox(imagePath);
-        }
+        List<Image> cameraImages;
 
         public DataBaseControl(Person person)
         {
@@ -36,6 +29,7 @@ namespace UI
             lbl_phone.Text = person.User.PhoneNo;
             lbl_address.Text = person.User.Address;
             int count = person.Images.Count;
+            cameraImages = new List<Image>();
             imagePaths = new List<string>();
             p = person;
             for (int i = 0; i < count;i++ )
@@ -165,15 +159,8 @@ namespace UI
 
         private void btn_AddImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Multiselect = true;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                images = openFileDialog1.FileNames.ToList();
-
-                imageAdded = true;
-            }
+            button1.Show();
+            button2.Show();
         }
 
         private void btn_done_Click(object sender, EventArgs e)
@@ -181,13 +168,30 @@ namespace UI
             bool nameEdit = true, imageEdit = true;
             if (imageAdded)
             {
-                int count = imagePaths.Count;
+                if (!(cameraImages.Count == 0))
+                {
+                    images = Form1.frec.SaveReadyImageList(cameraImages, txt_name.Text);
+                }
+                else if (!(images.Count == 0))
+                {
+                    images = Form1.frec.SaveList(images, txt_name.Text);
+                }
+                else
+                    return;
+
+                for (int i = 0; i < images.Count; i++)
+                {
+                    if (images[i] == "")
+                    {
+                        images.RemoveAt(i);
+                        i--;
+                    }
+                }
+
+                int count = images.Count;
 
                 for (int i = 0; i < count; i++)
                 {
-                    Image image = new Bitmap(imagePaths[i]);
-                    images[i] = System.IO.Directory.GetCurrentDirectory() + @"\" + @"Images\" + txt_name.Text+txt_name.Text + txt_phone.Text + txt_address.Text + System.IO.Path.GetFileName(images[i]);
-                    image.Save(images[i]);
                     Form1.database.InsertImage(p.User.UserID, images[i], true);
                 }
 
@@ -209,6 +213,8 @@ namespace UI
             {
                 lbl_name.Show();
                 txt_name.Hide();
+                button2.Hide();
+                button1.Hide();
                 lbl_address.Show();
                 lbl_phone.Show();
                 txt_phone.Hide();
@@ -345,6 +351,26 @@ namespace UI
         private void lbl_edit_MouseLeave(object sender, EventArgs e)
         {
             lbl_edit.ForeColor = Color.Brown;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Multiselect = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                images = openFileDialog1.FileNames.ToList();
+
+                imageAdded = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddFromCamera addfromcam = new AddFromCamera(this.txt_name.Text, cameraImages, btn_done);
+            imageAdded = true;
+            addfromcam.Show();
         }
     }
 }
