@@ -69,7 +69,6 @@
             this.panel_mainPanel = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.itemsContainer1 = new UI.ItemsContainer();
             this.picBox_close = new System.Windows.Forms.PictureBox();
             this.picBox_Original = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -89,6 +88,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsContainer1 = new UI.ItemsContainer();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Original)).BeginInit();
@@ -399,14 +399,6 @@
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // itemsContainer1
-            // 
-            this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
-            this.itemsContainer1.Location = new System.Drawing.Point(514, 56);
-            this.itemsContainer1.Name = "itemsContainer1";
-            this.itemsContainer1.Size = new System.Drawing.Size(206, 517);
-            this.itemsContainer1.TabIndex = 11;
-            // 
             // picBox_close
             // 
             this.picBox_close.BackColor = System.Drawing.Color.Transparent;
@@ -538,7 +530,7 @@
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox1.Text = "1000";
-            this.toolStripTextBox1.Leave += new System.EventHandler(this.toolStripTextBox1_Leave);
+            this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_Leave);
             // 
             // helpToolStripMenuItem2
             // 
@@ -573,6 +565,14 @@
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
             this.helpToolStripMenuItem1.Text = "Help";
+            // 
+            // itemsContainer1
+            // 
+            this.itemsContainer1.BackColor = System.Drawing.Color.Transparent;
+            this.itemsContainer1.Location = new System.Drawing.Point(514, 56);
+            this.itemsContainer1.Name = "itemsContainer1";
+            this.itemsContainer1.Size = new System.Drawing.Size(206, 517);
+            this.itemsContainer1.TabIndex = 11;
             // 
             // Form1
             // 
