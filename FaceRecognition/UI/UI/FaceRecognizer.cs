@@ -272,7 +272,7 @@ namespace UI
             List<string> newPaths = new List<string>();
             foreach (string  s  in inputpaths)
             {
-                newPaths.Add(SaveString(s, label);
+                newPaths.Add(SaveString(s, label));
             }
             return newPaths; // number of saved images
         }
