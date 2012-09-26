@@ -228,5 +228,22 @@ namespace UI
                 this.Location = new Point(this.Location.X + (e.X - x), this.Location.Y + (e.Y - y));
             }
         }
+
+        private void toolStripTextBox1_Leave(object sender, EventArgs e)
+        {
+            int sense;
+            if (int.TryParse(this.toolStripTextBox1.Text, out sense))
+            {
+                if (sense < 0 || sense > 5000)
+                {
+                    MessageBox.Show("The value must be between 0 and 5000");
+                }
+                else
+                {
+                    frec.threashold = sense;
+                }
+            }
+            
+        }
     }
 }
