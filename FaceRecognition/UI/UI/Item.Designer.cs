@@ -54,7 +54,8 @@
             this.lbl_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_Name.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.lbl_Name.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.lbl_Name.ForeColor = System.Drawing.Color.Crimson;
             this.lbl_Name.Location = new System.Drawing.Point(69, 14);
             this.lbl_Name.Name = "lbl_Name";
             this.lbl_Name.Size = new System.Drawing.Size(125, 29);

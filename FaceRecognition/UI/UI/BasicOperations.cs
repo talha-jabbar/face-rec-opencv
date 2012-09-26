@@ -14,7 +14,7 @@ namespace UI
         {
             int i = 0;
             string savepath = Application.StartupPath + "/Images/face" + i + ".bmp";
-            while (File.Exists(savepath))
+            while (Form1.database.FindImagePath(savepath))//(File.Exists(savepath))
             {
                 savepath = Application.StartupPath + "/Images/face" + ++i + ".bmp";
             }

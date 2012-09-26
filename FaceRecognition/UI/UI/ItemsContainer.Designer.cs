@@ -69,15 +69,16 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.04082F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.95918F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 427);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(196, 51);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 52);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel2
@@ -90,32 +91,46 @@
             // 
             // btn_Add
             // 
+            this.btn_Add.BackColor = System.Drawing.Color.DarkGray;
             this.btn_Add.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Add.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Add.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Add.Font = new System.Drawing.Font("Snap ITC", 20F);
             this.btn_Add.Location = new System.Drawing.Point(0, 0);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(92, 45);
             this.btn_Add.TabIndex = 0;
             this.btn_Add.Text = "Add";
-            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btn_Delete);
-            this.panel3.Location = new System.Drawing.Point(105, 3);
+            this.panel3.Location = new System.Drawing.Point(109, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(88, 45);
             this.panel3.TabIndex = 1;
             // 
             // btn_Delete
             // 
+            this.btn_Delete.BackColor = System.Drawing.Color.DarkGray;
             this.btn_Delete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Delete.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Delete.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_Delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Delete.Font = new System.Drawing.Font("Snap ITC", 20F);
             this.btn_Delete.Location = new System.Drawing.Point(0, 0);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(88, 45);
             this.btn_Delete.TabIndex = 0;
             this.btn_Delete.Text = "Delete";
-            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.UseVisualStyleBackColor = false;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // ItemsContainer
