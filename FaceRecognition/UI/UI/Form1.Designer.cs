@@ -86,6 +86,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.itemsContainer1 = new UI.ItemsContainer();
+            this.clearUrDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Original)).BeginInit();
@@ -431,6 +432,7 @@
             this.openToolStripMenuItem1,
             this.cameraToolStripMenuItem,
             this.toolStripSeparator6,
+            this.clearUrDatabaseToolStripMenuItem,
             this.exitToolStripMenuItem1});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
             this.fileToolStripMenuItem1.Size = new System.Drawing.Size(42, 23);
@@ -540,6 +542,13 @@
             this.itemsContainer1.Size = new System.Drawing.Size(206, 517);
             this.itemsContainer1.TabIndex = 11;
             // 
+            // clearUrDatabaseToolStripMenuItem
+            // 
+            this.clearUrDatabaseToolStripMenuItem.Name = "clearUrDatabaseToolStripMenuItem";
+            this.clearUrDatabaseToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.clearUrDatabaseToolStripMenuItem.Text = "Clear ur Database";
+            this.clearUrDatabaseToolStripMenuItem.Click += new System.EventHandler(this.clearUrDatabaseToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,6 +631,7 @@
         private System.Windows.Forms.ToolStripMenuItem recognizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setSensetivityToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem clearUrDatabaseToolStripMenuItem;
     }
 }
 

@@ -107,17 +107,20 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
+            CreateNewItc();
+            database.SelectAllUsers();
+            frec = new FaceRecognizer();
+
+        }
+
+        public void CreateNewItc()
+        {
             itc = this.itemsContainer1;
             itc.AddClicked += new ItemsContainer.AddClickedHandler(itc_AddClicked);
             itc.RemoveClicked += new ItemsContainer.RemoveClickedHandler(itc_RemoveClicked);
             itc.ItemSelected += new ItemsContainer.ItemSelectedHandler(itc_ItemSelected);
             itc.ItemEntered += new ItemsContainer.ItemEnteredHandler(itc_ItemEntered);
-            database.SelectAllUsers();
-            frec = new FaceRecognizer();
-           // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
-           // db.ReadFileToDictionary(System.Windows.Forms.Application.StartupPath+"\\DataBase.txt");
-
         }
 
         void itc_ItemEntered(object sender, EventArgs e)
@@ -198,6 +201,12 @@ namespace UI
             frec.pictureBoxFrameGrabber = this.picBox_Original;
             frec.CaptureFrame();
 
+        }
+
+        private void clearUrDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            database.ClearDataBase();
+            CreateNewItc();
         }
     }
 }
