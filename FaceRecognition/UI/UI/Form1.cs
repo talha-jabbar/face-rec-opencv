@@ -15,7 +15,9 @@ namespace UI
     {
         int x, y;
         //Bitmap bmp0 = new Bitmap("face_coeff.jpg");
-        Bitmap bmp0 = new Bitmap("matthew-pumpkin-grayscale.jpg");
+        //Bitmap bmp0 = new Bitmap("matthew-pumpkin-grayscale.jpg");
+        Bitmap bmp0 = new Bitmap("FaceGray.jpg");
+       // Bitmap bmp0 = new Bitmap("Ehab test.jpg");
         Bitmap bmp;
         bool canMove;
 
@@ -265,7 +267,7 @@ namespace UI
             {
                 bmp = (Bitmap)this.picBox_Original.Image;
             }
-             this.picBox_Original.Image = ImageProcessing.DoG(bmp, 2f, 1f);
+             this.picBox_Original.Image = ImageProcessing.DoG(bmp, 5, 11);
         }
 
         private void button5_Click(object sender, EventArgs e)
