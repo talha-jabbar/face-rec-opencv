@@ -14,8 +14,8 @@ namespace UI
     public partial class Form1 : Form
     {
         int x, y;
-        Bitmap bmp0 = new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Desktop\Ahmed Sala7 Face Recognition\matthew-pumpkin-grayscale.jpg");
-        //Bitmap bmp0 = new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Desktop\Ahmed Sala7 Face Recognition\Ehab test.jpg");
+        //Bitmap bmp0 = new Bitmap("face_coeff.jpg");
+        Bitmap bmp0 = new Bitmap("matthew-pumpkin-grayscale.jpg");
         Bitmap bmp;
         bool canMove;
 
