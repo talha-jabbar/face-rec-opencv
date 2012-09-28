@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="FRDBFn.cs" />
     <Compile Include="FROpencv.cs" />
+    <Compile Include="ImageProcessing.cs" />
     <Compile Include="Images.cs" />
     <Compile Include="Item.cs">
       <SubType>UserControl</SubType>
@@ -124,6 +125,7 @@
       <DependentUpon>ItemsContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="Person.cs" />
+    <Compile Include="PHFastCpp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users.cs" />

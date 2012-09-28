@@ -10,6 +10,7 @@ using Emgu.CV.Structure;
 using Emgu.CV.CvEnum;
 using System.IO;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 
 namespace UI
 {
@@ -163,6 +164,7 @@ namespace UI
             {
                 t = t + 1;
                 result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                // ImagePreprocessing(result.toBitmap());
                 //draw the face detected in the 0th (gray) channel with blue color
                 currentFrame.Draw(f.rect, new Bgr(Color.Red), 2);
 
@@ -276,7 +278,6 @@ namespace UI
             {
                 bool detected = false;
                 //Trained face counter
-                ContTrain = ContTrain + 1;
 
                 //Get a gray frame from capture device
                 gray = grabber.QueryGrayFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
@@ -303,8 +304,7 @@ namespace UI
                 //resize face detected image for force to compare the same size with the 
                 //test image with cubic interpolation type method
                 TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-                trainingImages.Add(TrainedFace);
-                labels.Add(label);
+
 
                 //Show face added in gray scale
                 pcb.Image = TrainedFace.ToBitmap();
@@ -389,6 +389,9 @@ namespace UI
 
         public string SaveReadyImage(Image img, string label)
         {
+            ContTrain = ContTrain + 1;
+            trainingImages.Add(TrainedFace);
+            labels.Add(label);
             return BasicOperations.SaveImage(img);
         }
 
