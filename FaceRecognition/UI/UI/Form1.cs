@@ -14,7 +14,9 @@ namespace UI
     public partial class Form1 : Form
     {
         int x, y;
-
+        Bitmap bmp0 = new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Desktop\Ahmed Sala7 Face Recognition\matthew-pumpkin-grayscale.jpg");
+        //Bitmap bmp0 = new Bitmap(@"C:\Users\EhabMagdy.EhabMagdy-PC\Desktop\Ahmed Sala7 Face Recognition\Ehab test.jpg");
+        Bitmap bmp;
         bool canMove;
 
         Bitmap orignalBmp;
@@ -31,6 +33,7 @@ namespace UI
 
         public Form1()
         {
+            
             InitializeComponent();
            // button2_Click(null, null);
             DirectoryInfo dir = new DirectoryInfo(Application.StartupPath + @"\Images");
@@ -231,19 +234,86 @@ namespace UI
 
         private void toolStripTextBox1_Leave(object sender, EventArgs e)
         {
-            int sense;
-            if (int.TryParse(this.toolStripTextBox1.Text, out sense))
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(((Control)sender).Name.Substring(6)) < 9)
             {
-                if (sense < 0 || sense > 5000)
-                {
-                    MessageBox.Show("The value must be between 0 and 5000");
-                }
-                else
-                {
-                    frec.threashold = sense;
-                }
+                bmp = bmp0;
             }
-            
+            else
+            {
+                bmp = (Bitmap)this.picBox_Original.Image;
+            }
+            this.picBox_Original.Image = ImageProcessing.GaussianFilter1D(bmp,1f);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.picBox_Original.Image = bmp0;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(((Control)sender).Name.Substring(6)) < 9)
+            {
+                bmp = bmp0;
+            }
+            else
+            {
+                bmp = (Bitmap)this.picBox_Original.Image;
+            }
+             this.picBox_Original.Image = ImageProcessing.DoG(bmp, 2f, 1f);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(((Control)sender).Name.Substring(6)) < 9)
+            {
+                bmp = bmp0;
+            }
+            else
+            {
+                bmp = (Bitmap)this.picBox_Original.Image;
+            }
+            this.picBox_Original.Image = ImageProcessing.GammaCorrection(bmp,0.2);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(((Control)sender).Name.Substring(6)) < 9)
+            {
+                bmp = bmp0;
+            }
+            else
+            {
+                bmp = (Bitmap)this.picBox_Original.Image;
+            }
+            this.picBox_Original.Image = ImageProcessing.HistogramEqualization(bmp);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(((Control)sender).Name.Substring(6)) < 9)
+            {
+                bmp = bmp0;
+            }
+            else
+            {
+                bmp = (Bitmap)this.picBox_Original.Image;
+            }
+            this.picBox_Original.Image = ImageProcessing.ImagePreProcessing(bmp);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+          if ( save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+          {
+              this.picBox_Original.Image.Save(save.FileName);
+          }
         }
     }
 }
