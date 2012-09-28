@@ -241,7 +241,7 @@ namespace UI
                     {
                         originalPixelIndex = (i * originalWidth * 3) + (i * originalExtraBytes) + (j * 3);
 
-                        tempR[i, j] = (pG1[originalPixelIndex] - pG2[originalPixelIndex]) * pOriginal[originalPixelIndex]; // Not sure of this part (* pOriginal[originalPixelIndex]).
+                        tempR[i, j] = (pG1[originalPixelIndex] - pG2[originalPixelIndex]);// *pOriginal[originalPixelIndex]; // Not sure of this part (* pOriginal[originalPixelIndex]).
                     }
                 }
 
