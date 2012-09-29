@@ -317,5 +317,21 @@ namespace UI
               this.picBox_Original.Image.Save(save.FileName);
           }
         }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+                int sense;
+            if (int.TryParse(((Control)sender).Text, out sense) && sense >= 0 && sense <= 5000 )
+            {
+                frec.threashold = sense;
+                frec.UpdateRecognizer();
+            }
+
+        }
     }
 }

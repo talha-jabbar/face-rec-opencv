@@ -32,7 +32,7 @@ namespace UI
         public ImageBox imageBoxFrameGrabber;//= new ImageBox();
         public PictureBox pictureBoxFrameGrabber;//= new ImageBox();
         EigenObjectRecognizer recognizer;
-        public int threashold = 2000;
+        public int threashold = 3000;
 
         public FaceRecognizer() 
         {
@@ -110,7 +110,7 @@ namespace UI
                 if (trainingImages.ToArray().Length != 0)
                 {
                     //UpdateRecognizer();
-                    name = recognizer.Recognize(result);
+                    name = recognizer.Recognize(new Image<Gray,byte>( ImageProcessing.ImagePreProcessing(result.ToBitmap())));
                     //Draw the label for each face detected and recognized
                     currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
                 }
@@ -172,7 +172,8 @@ namespace UI
                 if (trainingImages.ToArray().Length != 0)
                 {
                    // UpdateRecognizer();
-                    name = recognizer.Recognize(result);
+                    name = recognizer.Recognize(new Image<Gray, byte>(ImageProcessing.ImagePreProcessing(result.ToBitmap())));
+
 
                     //Draw the label for each face detected and recognized
                     currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
@@ -239,7 +240,8 @@ namespace UI
                 if (trainingImages.ToArray().Length != 0)
                 {
                     // UpdateRecognizer();
-                    name = recognizer.Recognize(result);
+                    name = recognizer.Recognize(new Image<Gray, byte>(ImageProcessing.ImagePreProcessing(result.ToBitmap())));
+
 
                     //Draw the label for each face detected and recognized
                     currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
@@ -305,6 +307,7 @@ namespace UI
                 //test image with cubic interpolation type method
                 TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
 
+                TrainedFace = new Image<Gray, byte>(ImageProcessing.ImagePreProcessing(TrainedFace.ToBitmap()));
 
                 //Show face added in gray scale
                 pcb.Image = TrainedFace.ToBitmap();
@@ -320,7 +323,7 @@ namespace UI
             }
         }
 
-        void UpdateRecognizer()
+        public void UpdateRecognizer()
         {
             //TermCriteria for face recognition with numbers of trained images like maxIteration
             MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
@@ -336,14 +339,16 @@ namespace UI
         public List<string> SaveList(List<string> inputpaths, string label)
         {
             List<string> newPaths = new List<string>();
+            int i = 0;
             foreach (string  s  in inputpaths)
             {
-                newPaths.Add(SaveString(s, label));
+                newPaths.Add(SaveString(s, label,ref i));
+                i++;
             }
             return newPaths; // number of saved images
         }
 
-        public string SaveString(string inputpath, string label)
+        public string SaveString(string inputpath, string label, ref int index)
         {
             try
             {
@@ -371,6 +376,7 @@ namespace UI
                 }
 
                 TrainedFace = TrainedFace.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                TrainedFace = new Image<Gray, byte>(ImageProcessing.ImagePreProcessing(TrainedFace.ToBitmap()));
                 
                 trainingImages.Add(TrainedFace);
                 labels.Add(label);
@@ -379,28 +385,30 @@ namespace UI
 
                 UpdateRecognizer();
 
-                return BasicOperations.SaveImage(TrainedFace.ToBitmap());;
+                return BasicOperations.SaveImage(TrainedFace.ToBitmap(),ref index);;
             }
             catch
             {
-                return  string.Empty;;
+                return  string.Empty;
             }
         }
 
-        public string SaveReadyImage(Image img, string label)
+        public string SaveReadyImage(Image img, string label,ref int index)
         {
             ContTrain = ContTrain + 1;
             trainingImages.Add(TrainedFace);
             labels.Add(label);
-            return BasicOperations.SaveImage(img);
+            return BasicOperations.SaveImage(img,ref index);
         }
 
         public List<string> SaveReadyImageList(List<Image> imgs, string label)
         {
             List<string> newPaths = new List<string>();
+            int i = 0;
             foreach (Image img in imgs)
             {
-                newPaths.Add(SaveReadyImage(img, label));
+                newPaths.Add(SaveReadyImage(img, label,ref i));
+                i++;
             }
             return newPaths;
         }
