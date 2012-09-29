@@ -12,7 +12,7 @@ namespace UI
         public static Bitmap ImagePreProcessing(Bitmap image)
         {
 
-            return HistogramEqualization(DoG(GammaCorrection(image, 0.2), 5, 11));
+            return HistogramEqualization(DoG(GammaCorrection(image, 0.2), 5, 3));
         }
 
         public static Bitmap GaussianFilter1D(Bitmap originalImage, float sigma)
